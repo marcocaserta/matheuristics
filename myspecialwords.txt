@@ -1,0 +1,10 @@
+meta-heuristic  metaheuristic
+meta-heuristics  metaheuristic
+math-heuristic  matheuristic
+math-heuristics  matheuristic
+branch-and-bound branch-bound
+branch-and-cut  branch-cut
+branch-and-price branch-price
+primal-and-dual primal-dual
+nonnegative non-negative
+lagrangian  lagrangean

@@ -1,0 +1,2898 @@
+Component-driven Design and Fine-tuning of Metaheuristics
+
+Marco Caserta
+
+IE University and IE Business School
+
+Maria de Molina 31B
+28006 – Madrid – Spain
+
+marco.caserta@ie.edu
+
+Abstract. In the last decades, one of the most interesting developments in the ﬁeld of meta-
+heuristics has concerned the development of hybrid algorithms, i.e., algorithms that com-
+bine different components and methods. One of the most promising classes of hybrid al-
+gorithms is known under the name of “matheuristics,” which are algorithms that combine
+techniques borrowed from mathematical programming with metaheuristic methods. The
+goal of this paper is to provide a component-based overview of matheuristics. In the pa-
+per, some matheuristic components of paramount importance are identiﬁed, namely mem-
+ory, population, constraint, and relaxation-based mechanisms. Next, its use is illustrated in
+the context of one or more real-world applications. In addition, the critical issue of calibra-
+tion and ﬁne tuning of algorithmic parameters is addressed. Finally, the use of statistical
+techniques to evaluate algorithmic performance is discussed, identifying a pool of paramet-
+ric and non-parametric techniques commonly used in this context. Performance analysis
+via appropriate statistical techniques is acknowledged to be important by a number of re-
+searchers in the ﬁeld. However, it is even more critical if one adopts a component-based
+view of metaheuristics design, since there is a need for employing robust tests aimed at
+identifying which components of a “metaheuristic library” should be included in the ﬁnal
+design and what is the effect on the algorithmic performance of the inclusion of such com-
+ponents. Well designed experiments, based on the use of appropriate statistical techniques,
+can be employed to grasp a clear understanding of the role played by each metaheuristic
+component.
+
+1
+
+Introduction
+
+The emergence of matheuristics represents the convergence of two ﬁelds which have typically
+been separated by “high walls.” Up to some years ago, in dealing with an optimization prob-
+lem, a researcher would have attempted to tackle the problem with exact methods, perhaps se-
+lected from mathematical programming techniques, constraint programming, or enumeration-
+based methods. Alternatively, one could have solved the problem designing an ad-hoc heuris-
+tic method or, more recently, a metaheuristic-based algorithm. A typical researcher in the ﬁeld
+would have used either one or the other, but rarely both techniques.
+
+In recent years, however, hybrid algorithms, which join philosophies, features, and tech-
+niques from both ﬁelds, have proven extremely successful in dealing with real-world optimiza-
+tion problems. A number of reasons could be adduced to explain the emergence of this new
+trend. On the one hand, general purpose solvers that employ mathematical programming tech-
+niques have become powerful enough to deal with medium-size instances of a number of prob-
+lems. Thus, the use of a general purpose solver as an off the shelf solution for optimization
+problems in management science is often a successful approach. On the other hand, the trend
+to focus on a component-based approach to metaheuristics have enhanced the study of meta-
+heuristics as collection of key components that can be activated and deactivated to design an
+
+2
+
+ad-hoc, problem speciﬁc, metaheuristic-based algorithm. In addition, this focus has generated
+an increasing understanding of which components of a metaheuristic are successful for which
+class of problems.
+
+The term hybrid algorithms refers to a class of algorithms that intertwine multiple methods or
+algorithms. The way in which these approaches are mixed together differs greatly, and gives rise
+to a number of taxonomies, depending on whether the focus is on the predominant philosophy
+(master-slave, parallel, etc.), on the nature of the algorithms used (exact, heuristic, or both), or
+on the strategy that guides the exploration of the solution space, among other dimensions of
+analysis.
+Let us consider a combinatorial optimization problem P and a general hybrid algorithm de-
+signed according to the master-slave paradigm (or, using the terminology of Raidl and Puchinger
+[2008], the integrative combination, in which one algorithm is a subordinate embedded compo-
+nent of another algorithm.) Let us assume we have two algorithms A1 and A2 for problem P,
+where the running time of A2 is, on average, greater than the running time of A1. However,
+A2 still has some properties that make its use desirable, e.g., solution quality, certiﬁcate of op-
+timality, etc. Assume A1 is iterative in nature and creates or identiﬁes reduced portions of the
+solution space, e.g., neighborhoods. Algorithms A1 and A2 can be hybridized if one or more
+steps of A1 are carried out using A2. The key is to identify the right threshold value (size of the
+reduced problem, or size of the neighborhood) such that algorithm A2 can be called by A1 on
+the reduced problem, balancing the trade-off between the likelihood of ﬁnding good solutions
+in the reduced solution space (directly proportional to the neighborhood size) and the amount
+of computational time required by A2 to explore the solution space (inversely proportional to
+the neighborhood size.) Let us now assume that A1 is a metaheuristic and A2 is a mathematical
+programming approach. The aforementioned hybridization of A1 and A2 leads to the creation
+of a hybrid algorithm that falls into the category of matheuristics.
+
+The term matheuristics refers to a broad class of hybrid algorithms in which exact ap-
+proaches and metaheuristics are combined together [Maniezzo et al., 2010]. Just like in the case
+of hybrid algorithms, multiple taxonomies for matheuristics have also been proposed, depend-
+ing on how the metaheuristic and the exact approach are combined. An overview of the combi-
+nations that can arise is found in Raidl and Puchinger [2008] and an extensive survey on hybrid
+algorithms in general and matheuristics in particular is provided by Blum et al. [2011].
+
+A matheuristic algorithm can thus be seen as composed of two major ingredients:
+
+– A metaheuristic, typically playing the “master” role, i.e., deﬁning the strategy employed to
+carry out the exploration of the solution space (e.g., neighborhood deﬁnition, step size, any
+memory mechanism, etc.);
+
+– An exact approach, employed to explore the sub-portion of the solution space available at
+
+each iteration.
+
+In addition, a third important ingredient of a matheuristic is the ﬁne tuning mechanism em-
+ployed to ﬁnd a “good” set of possible parameter values. Typically, a matheuristic requires
+calibration of parameters such as neighborhood size, budget (computational time, number of
+iterations, number of nodes, etc.) assigned to each of the two components of the algorithm, stop-
+ping criteria, among others. It is well known that the performance of a matheuristic is heavily
+inﬂuenced by the choice of the parameter values. Therefore, such step cannot be neglected when
+it comes to designing an effective matheuristic.
+
+This paper provides an overview on the design of hybrid algorithms. Consequently, each
+algorithm hereby presented is speciﬁcally designed for a class of problems, with an important
+reduction in generalization. Nevertheless, this paper makes an attempt to identify some “gen-
+eral principles” behind the design of a special class of hybrid algorithms, known as “matheuris-
+
+3
+
+tics.” The approach adopted here is component-centered, i.e., we try to identify some key com-
+ponents of a well-designed matheuristic, along with the main implementation issues and the
+desired functionalities of these components. More precisely, this paper focuses on the use of
+memory, population, and constraint-based approaches, and on how these three major compo-
+nents have been implemented across a wide spectrum of applications, both individually and in
+conjunction with each other. We will present our experience in the design and implementation
+of metaheuristics, the application of mathematical programming techniques to combinatorial
+optimization problems, the integration of metaheuristics and mathematical programming tech-
+niques and, in addition, some insight into how to ﬁne tune and calibrate algorithms to ensure
+the best performance of the algorithm.
+
+The paper is organized as follows: Section 2 describes how memory, population, and con-
+straint-based approaches have been implemented in a number of applications. The section
+is divided in three subsection and, at each end of each subsection, a brief summary of the
+most important features of the corresponding component is presented. Section 3 addresses the
+paramount issue of metaheuristic ﬁne tuning, providing an overview of three different methods
+employed to calibrate the parameters of algorithms. Section 4 is centered on the presentation of
+statistical techniques to identify whether a proposed algorithm is signiﬁcantly better than other
+existing methods. Finally, Section 5 presents some concluding remarks.
+
+2 Metaheuristics: Fundamental Components
+
+A presentation of the state of the art of metaheuristics was provided in Caserta and Voß [2010a].
+As pointed out in that paper, a trade-off emerges: On the one hand, it is highly desirable to
+design “general purpose” metaheuristics, which do not require problem speciﬁc knowledge
+and can readily be applied to a wide spectrum of problem classes. This has been the line of re-
+search of the last decades, during which a number of general purpose metaheuristic paradigms
+have been proposed, e.g., simulated annealing, genetic algorithms, tabu search, ant colony, etc.
+The main argument in favor of such paradigms is their general applicability upon a large set
+of problems, without requiring major re-design or any in-depth knowledge of the problem to
+be tackled. Consequently, general paradigms seem especially suited for practitioners, who are
+interested in getting a solution to the problem without investing a huge amount of time in un-
+derstanding the mathematical properties of the model and in implementing tailor-made algo-
+rithms. However, most successful metaheuristics are tailored to tackle a speciﬁc problem. In line
+with this, it has been observed that general purpose metaheuristics are outperformed by hybrid
+algorithms, which usually are algorithms that combine components of different metaheuristics.
+Algorithms of this class are tailor-made and speciﬁcally designed to exploit the properties of the
+problem at hand. While such approaches are able to provide enhanced performance, an obvious
+consequence is a reduction in the usability of the algorithm itself. In general, a tailor-made algo-
+rithm can be used only for a speciﬁc class of problems and, often, the underlying ideas cannot
+easily be extended towards dealing with a different class of problems. However, recently there
+has been a lot of interest in understanding which components of the different metaheuristics
+are best suited for which task, thus naturally leading to the hybridization of metaheuristics.
+
+In the sequel, we will analyze a few key components of some metaheuristics. Each compo-
+nent is presented in the context of a real-world application and accompanied by a correspond-
+ing paper, in which a full exposition of the key feature is presented. The list is, of course, only
+partial, since many important components of successful metaheuristics are left out of the dis-
+cussion, and it is mainly limited to the problems and algorithm design issues mainly tackled by
+the author in the last decade.
+
+4
+
+2.1 Use of Memory
+
+A common ingredient of a number of metaheuristics is the use of memory mechanisms, typi-
+cally to prevent the search from falling trap of a loop, revisiting solutions that have been pre-
+viously visited. The key idea behind a memory mechanism is to mimic the learning process of
+humans, by which revisiting previously explored solutions is prohibited, at least during a cer-
+tain amount of time. Interestingly, the memory mechanism that forbids revisiting old solutions
+might force the algorithm to visit suboptimal solutions, hence fostering diversiﬁcation of the
+search process.
+
+Tabu search [Glover, 1989, 1990, Glover and Laguna, 1997] is a widely employed metaheuris-
+tic that embeds memory mechanisms, based on the management of tabu lists, for short-term
+memory as well as medium-to-long term memory. Such tabu lists keep track of previously vis-
+ited solutions (or the moves leading to such solutions) and prevent the algorithm from revisiting
+such solutions. Two key parameters of the algorithm concern the length of the tabu list(s), i.e.,
+how many solutions should be labeled “tabu,” and the tenure of the tabu mechanism, i.e., how
+long should these solutions remain in the list(s).
+
+Tabu search is employed in various contexts and to many types of problems (see, e.g.,
+[Glover and Laguna, 1997]). Let us brieﬂy describe two problems to exemplify, i.e., system reli-
+ability [Caserta and Uribe, 2009] and set covering problems [Caserta, 2007], along with the key
+ideas behind the proposed mechanisms.
+
+2.1.1 Software Systems Reliability. One of the most relevant applications of reliability opti-
+mization is the software reliability problem. About 40 percent of software development costs are
+spent on testing to remove errors and to ensure high quality [Kuo et al., 2001]. One traditional
+way to increase the reliability of a software system is by increasing the time of debugging. How-
+ever, due to the high debugging costs, more often an alternative solution is pursued, which is
+the use of redundant software modules. In software development, redundancies are programs
+developed by different teams based on the same speciﬁcations. Often, in order to ensure the
+independence of the different modules, these programs are written using different languages,
+platforms, development methodologies and testing strategies.
+
+The general software system studied in Caserta and Uribe [2009] is made up by several
+programs, each performing a different function. Each program contains a set of modules. For
+each module, a number of different versions exist, each characterized by a cost and a reliability
+level. The objective is to maximize reliability by choosing the optimal set of versions for each
+module, allowing redundancy.
+
+performing a different function), mi versions for each module i ((cid:80)m
+
+The mathematical formulation of a software reliability problem with m modules (each one
+i=1 mi = n) and K resource
+
+constraints is provided as follows:
+
+(RP) : max Rs = f (x)
+
+s.t.
+
+g(x) ≤ b
+cix ≥ 1, ∀i ∈ M
+x ∈ Bn
+
+(1)
+
+(2)
+(3)
+
+where f : Bn → R+, g = (g1, g2, . . . , gK) (size K × 1), with gl : Bn → R+, b is the resource
+availability vector (k× 1), ci is a vector (1× n) whose component j is 1 if xj belongs to module i,
+
+5
+
+and 0, otherwise. Finally, the variable vector x is a binary vector, where a value 1 indicates that
+version j is in the system and 0, otherwise.
+
+Constraints (2) represent economical and ﬁnancial constraints (not necessarily linear), while
+constraints (3) imply that each module i must have at least one version. The objective func-
+tion (1) depends on the particular conﬁguration of the software system tackled and the overall
+number of components in the system and is generally computed using conditional probability
+on the reliability/failure of certain parts of the system.
+
+As an example for a metaheuristic, we consider how Tabu Search and some memory mech-
+anisms are employed to deal with the aforementioned problem. The proposed algorithm uses
+two mechanisms to balance the use of short term memory with working memory. More specif-
+ically, we implement a regular Tabu List (T L), aimed at exploiting short term memory, and an
+Active Tabu List (AT L), which contributes to a more effective use of working memory. Both
+kinds of memories are intensively used at each iteration of the algorithm. AT L is used to deﬁne
+“active chains,” which are subsets of consecutive elements of the active tabu list. Let us call AC
+⊆ AT L any subset of consecutive elements of AT L, and let us indicate with AC the set of all
+the active chains existing in AT L. At each iteration of the algorithm the opposite of the current
+move, if present, is removed from AT L. Consequently, some of the active chains are reduced
+in size. It can be proved that, as long as |AC| ≥ 1,∀ AC ∈ AC, the algorithm will not visit
+previously visited points.
+At each iteration, both AT L and T L are updated. More precisely, at each iteration, an active
+chain AC is created as the subset of all the consecutive elements of AT L between the last ele-
+ment (the last move) and the opposite of it, extremes excluded. For example, let us assume that
+a set of moves leading from solution x1 to solution x2 is indicated by the following portion of
+the active tabu list, with AT L = {. . . , +1,−7,−3, +9}, where +i (−i) indicates that element i is
+added to (subtracted from) the current solution. While a simple tabu strategy would forbid the
+reversal of any move in the list, the active tabu list allows for the reversal of all the moves in
+AT L, as long as at least one element is left in any subchain of the AT L. Thus, if the next move is
+−1, an active chain is created as AC = {−7,−3, +9}. Any of these moves in AC can be reversed
+as long as |AC| > 0. This condition is sufﬁcient to ensure that the search trajectory will not lead
+back to x1.
+The beneﬁt of the use of AT L is two-fold: On the one hand, it guarantees that the search
+path will not include the same point twice, since this would correspond to eliminating, one by
+one, all the elements of an AC within AT L (which is not allowed by labeling the last element
+of the chain as “strong tabu”); on the other hand, it allows to make the use of T L less restrictive
+and, consequently, to explore more thoroughly the search space, since an element is labeled
+tabu only when it forms a one-element chain within AT L. AT L allows the implementation of
+an intermediate memory, or working memory, hence increasing the effectiveness of the memory
+usage.
+
+The proposed algorithm makes use of long term memory mechanisms, too. The goal is to
+“permanently” remember some of the points visited during the search. More speciﬁcally, long
+term memory keeps track of a pool of elite solutions which are then used to enforce promising
+trajectories within the search space. We implemented a long term memory mechanism by means
+of a technique known as path relinking ( Glover [1999], Glover et al. [2000], Ghamlouche et al.
+[2004]), which basically consists of identifying two points along the search and then force the
+algorithm to follow a trajectory path that joins these two points.
+
+2.1.2 Set Covering Problem. The interest toward the set covering problem (SCP) is motivated,
+e.g., by its use in the minimization of the number of patterns required to discriminate observa-
+tions from a given population. Having an effective algorithm for the SCP, especially designed
+
+6
+
+to tackle very large instances, is vital in order to deﬁne a pattern generation and pattern mini-
+mization scheme with high classiﬁcation power. (The key ideas of the algorithm presented here
+were used in the design of an algorithm for the Logical Analysis of Data (LAD); see Caserta and
+Reiners [2016].) We designed a dynamic primal-and-dual scheme especially suited for large in-
+stances of the SCP that are typical in the classiﬁcation of data from massive data sets.
+The SCP is a binary problem with m rows in M = {1, . . . , m}, and n columns in N =
+{1, . . . , n}. A mathematical formulation for the SCP is
+
+(SCP) : min{z = cx : Ax ≥ 1, x ∈ Bn} ,
+
+where c ∈ Zn
+
++ and A is a matrix of 0’s and 1’s.
+
+Many real-world applications can be formulated as SCP, including traditional delivery and
+routing problems, as well as scheduling and location problems. More recent applications of the
+SCP are found in probe selection in hybridization experiments for DNA sequencing (e.g., Borne-
+man et al. [2001]) and feature selection and pattern construction in LAD, (e.g., Boros et al.
+[2000]).
+
+The key ideas of the algorithm can be summarized as follows ([Caserta, 2007]): (i) An “al-
+lowed infeasible space” is deﬁned, composed of those partial solutions for which the number of
+uncovered rows is below a given threshold value. (ii) The proposed tabu search metaheuristic
+is able to escape from a locally optimal solution via an excursion into the allowed infeasible
+space, implementing a mechanism known as strategic oscillation. Owing to the monotone de-
+creasing property of the objective function with respect to x, solutions in the allowed infeasible
+space are, usually, more attractive than solutions in the feasible space. Thus, even when a lo-
+cally optimal solution is found, the algorithm will be able to escape from such local optimum
+via a sequence of moves in the allowed infeasible space. (iii) To prevent the algorithm from
+cycling, a tabu list is managed using the cancellation sequence method, in a fashion similar to
+what is presented in Glover [1990] and Dammeyer et al. [1991]. (iv) To balance intensiﬁcation
+and diversiﬁcation, the algorithm implements different restarting mechanisms, close to and far
+away from the best solutions found during the preceding phases, respectively. The proximity of
+the restarting solution is controlled by forbidding (or enforcing) structural characteristics on a
+subset of the attributes of the restarting point, and randomly perturbing all the other attributes
+of the best solution found in the preceding iterations.
+
+2.1.3 A Summary on the Use of Memory. Let us summarize below some of the relevant in-
+gredients of the aforementioned algorithms. In Table 1, we present a brief summary of the most
+relevant features presented in this section.
+
+by forbidding moves that have already been used.
+
+– Typically, the proposed algorithms are driven by “greedy” rules. By labeling previous moves
+as “tabu,” memory is used to prevent cycling over previously visited solutions. Three types
+of memory mechanisms can be identiﬁed:
+• Short-term memory: Implemented using a tabu list T L, it fosters solutions diversiﬁcation
+• Working memory: Implemented using an active tabu list AT L, it deﬁnes “active chains,”
+which allow to partially repeat moves, as long as previously visited solutions are not
+revisited. Working memory allows to deﬁne less “conservative” rules than the ones es-
+tablished via T L and, therefore, allows for a more thorough exploration of the solution
+space, thus striking the balance between intensiﬁcation and diversiﬁcation.
+• Long-term memory: Implemented using path relinking, it allows to intensify the search
+along promising trajectories between “elite” solutions. Long-term memory is thus used
+to foster intensiﬁcation.
+
+7
+
+The three aforementioned mechanisms can be used both separately and in conjunction with
+each other, privileging one mechanism over the others depending on the goal one wants to
+attain (intensiﬁcation vs. diversiﬁcation).
+
+– Another memory-based mechanism is the multiple restart scheme: The same algorithm can
+be used for multiple runs, each time starting from a different initial solution. By forbidding,
+or enforcing, parts of the solution attributes in the starting point, we achieve diversiﬁcation,
+or intensiﬁcation, respectively. Memory plays a role in the design of an effective restarting
+mechanism, since undesirable, or desirable, features must be collected during the previous
+runs.
+
+– Allowable infeasible space: This mechanism can be seen as a sort of relaxation and is based
+on the monotonicity of the (not necessarily linear) objective function and of some of the con-
+straints. Consider, e.g., a knapsack-type constraint Ax ≤ b. We enlarge the feasible space by
+modifying the constraint as follows: Ax ≤ b (1 + α), with α ≥ 0. Due to the monotonicity
+of the objective functions, solutions in the allowed infeasible space have a higher ﬁtness
+value than those within the feasible space. Thus, this enhancement of the solution space can
+be used to escape from local attractors. Since the use of greedy scores in selecting the next
+move is typically myopic, if the landscape contains strong attractors, e.g., local optima, the
+search trajectory might end up “trapped” by these local attractors. The mechanism allows to
+escape from these local attractors, by visiting a solution in the allowed infeasible space, thus
+compensating for the myopic behavior of the greedy move selection mechanism. To restore
+feasibility, the mechanism is typically coupled with repair schemes which, together with
+memory, force the search trajectory back into the feasible region. This exploration mecha-
+nism is also called strategic oscillation.
+
+Technique
+Component
+T L
+short term memory
+working term memory AT L
+
+long term memory
+path relinking
+allowed infeasible space Ax ≤ b (1 + α)
+
+Property
+avoid cycling, solutions diversiﬁcation
+intensiﬁcation, thorough exploration of
+a reduced portion of the solution space
+fostering exploration of promising trajectories
+between elite solutions
+relaxation of feasible space to escape
+from local optima
+
+multiple restart
+
+controlled perturbation algorithm restarts from multiple regions
+
+Table 1. Four memory-based components.
+
+to balance intesiﬁcation and diversiﬁcation
+
+2.2 Population Based Approaches
+
+Population based metaheuristics rely on the creation of a pool of solutions and the recombina-
+tion of such pool to give rise to an offspring. The key idea is that, in each generation, the most at-
+tractive features of the current pool of solutions are identiﬁed and transmitted to the offspring.
+Consequently, one expects that good solution traits will appear more and more often as the
+number of generations progresses over time. The most notable population based algorithms are
+genetic algorithms [Holland, 1975, Goldberg, 1989]. More recently, particle swarm optimization
+
+8
+
+[Kennedy and Eberhart, 1995], ant colony optimization [Dorigo et al., 1996, Dorigo and St ¨utzle,
+2004], and cross entropy [De Boer et al., 2005] have been been proposed.
+
+In the sequel, we ﬁrst present the general cross entropy framework. Next, we illustrate how
+the cross entropy method has been applied to three problems: The knapsack problem [Caserta
+et al., 2008], the system reliability problem [Caserta and Nodar, 2008], and the facility location
+problem [Caserta and Rico, 2009a].
+
+2.2.1 The Cross Entropy Method. The Cross Entropy (CE) method associates an estimation
+problem to the original combinatorial optimization problem, called the associated stochastic
+problem, characterized by a density function Φ. The stochastic problem is solved by identifying
+the optimal importance sampling density Φ∗, which is the one that minimizes the Kullback–
+Leibler distance with respect to the original density Φ. This distance is also called the cross-
+entropy between Φ and Φ∗. The minimization of the cross-entropy leads to the deﬁnition of
+“optimal” updating rules for the density functions and, consequently, to the generation of im-
+proved feasible vectors. The method terminates when convergence to a point in the feasible
+region is achieved.
+
+Let us consider the general 0-1 integer maximization problem
+
+(P): z∗ = max
+
+x∈X S(x),
+
+where X ⊂ Bn represents the feasible region. The CE method associates a stochastic estimation
+problem to (P) aimed at estimating P(S(x) ≥ z), for increasing values of z. With this aim, let us
+deﬁne a family of density functions Φ on X , parameterized by a vector p. For example, let us
+assume that we can deﬁne a family of Bernoulli density functions:
+
+Φ(x, u) =
+
+(ui)xi (1 − ui)1−xi
+
+n(cid:89)
+
+i=1
+
+(cid:88)
+
+x∈X
+
+Consequently, the associated stochastic estimation problem is
+
+(EP): P(S(x) ≥ z) =
+
+I{S(x)≥z}Φ(x, u),
+
+(4)
+
+(5)
+
+where I{S(x)≥z} is the indicator function, whose value is 1 if S(x) ≥ z and 0, otherwise.
+
+We want to estimate l = P(S(x) ≥ z) for z = z∗. It is possible to estimate l via Importance
+Sampling (IS). Let us take a random sample of size N, i.e., X1, . . . , XN , from a different density
+function Φ(x, p). In this case, we can use the likelihood ratio estimator
+
+N(cid:88)
+
+i=1
+
+ˆl =
+
+1
+N
+
+I{S(Xi)≥z}
+
+Φ(x, u)
+Φ(x, p)
+
+,
+
+where Φ(x, p) constitutes a change of measure and is chosen such that the cross entropy be-
+tween Φ(x, p) and Φ(x, u) is minimal. This corresponds to solving the problem
+
+(SP) : max
+
+p
+
+ˆD(p) = max
+
+p
+
+1
+N
+
+I{S(Xi)≥z} ln Φ(x, p),
+
+N(cid:88)
+
+i=1
+
+where Φ(x, p) is given by (4). To ﬁnd the maximum of (SP), we set
+
+∂ ˆD(p)
+
+∂p
+
+= 0.
+
+(6)
+
+Finally, from (6), we get the optimal updating rule:
+
+(cid:80)N
+(cid:80)N
+
+ˆpi =
+
+i=1 I{S(Xi)≥z}xi
+i=1 I{S(Xi)≥z}
+
+,
+
+i = 1, . . . , n.
+
+9
+
+(7)
+
+Rule (7) is iteratively used with the aim of generating a sequence of increasing threshold
+values z0, z1, . . ., converging either to the global optimum z∗ or to a value close to it. At each
+iteration t, the new value of zt is used to generate a better vector pt. The new vector pt is, in turn,
+used to draw a new sample population drawn under a different distribution function, which
+will lead to better values of z. The process stops when either we reach the global optimum value
+z∗ or the vector p converges to a vector in X .
+
+2.2.2 Integer Knapsack Problem with Setups. The Integer Knapsack Problem with Setup
+is described as an integer Knapsack Problem with additional ﬁxed costs of setup discounted
+both in the objective function and in the constraints. In the literature, it raises in two different
+contexts. First, it may be considered as a natural generalization of the pure integer knapsack
+problem. Secondly, it is viewed as a particular case of a well studied problem, the Multi-Item
+Capacitated Lot Sizing Problem with Setup Times. Our interest in the integer knapsack problem
+was related to the development of a metaheuristic for the multi-item multi-period capacitated
+lot sizing problem with setup times [Caserta and Rico, 2009b], where one wants to ﬁnd the op-
+timal schedule of a set of items over a time horizon, with items competing for a shared capacity.
+The problem is complicated by the existence of setup costs as well as inventory costs. For this
+reason, a trade-off exists between producing an item at every period, and, consequently, paying
+less inventory but more setup, or producing more sparingly, hence paying less setup but more
+inventory. Since the multi-item capacitated lot sizing problem with setups is difﬁcult to solve to
+optimality, many researchers have tried to tackle the problem by working on relaxations of the
+same.
+
+In Caserta and Rico [2009b] we propose a different approach to the lot sizing problem
+with setups, somehow related to the single-period relaxation. However, rather than solving
+the single-period problem through a study of the polyhedral structure of the model, we reduce
+the single-period problem to a series of integer knapsack problems with setups. We effectively
+solve each knapsack problem by using a metaheuristic-based scheme, which allows to sim-
+plify the knapsack problem with setups to a set of standard knapsack problems, easily solved
+via dynamic programming (DP). We hereby present this effective metaheuristic for the integer
+knapsack problem, as a key component of the overall lot sizing algorithm presented in Caserta
+and Rico [2009b].
+Let yj ∈ Z+ indicate the number of items of type j chosen, with j = 1, . . . , n. Let us set
+xj ∈ B to 1 if at least one unit of item j is chosen and to 0, otherwise. A standard formulation of
+the integer knapsack problem with setups as a linear model is
+
+n(cid:88)
+n(cid:88)
+
+j=1
+
+(IKPS): max
+
+s.t.
+
+(cjyj − fjxj)
+
+(ajyj + mjxj) ≤ b
+
+j=1
+
+yj − M xj ≤ 0,
+y ∈ Zn
+x ∈ Bn
+
++
+
+j = 1, . . . , n.
+
+10
+
+The number n stands for the number of items, cj and aj are the unitary value and unitary
+resource consumption of item i, respectively. Parameters fj and mj represent the setup cost
+and setup time that must be paid before any production of item i can occur. Finally, M > 0 is
+a large number. The objective of the problem is to select an appropriate number of each item,
+considering that setup times should be discounted. The ﬁrst constraint ensures that the produc-
+tion plan does not use more resources than available, including resources used by setup times.
+The second set of constraints ensures that appropriate setup time and cost are paid whenever
+production of an item occurs. We assume that cj > 0, aj > 0, fj ≥ 0, and mj ≥ 0 for all
+j = 1, 2, . . . , n. Additionally, without loss of generality, it is assumed that b − mj − aj > 0 for all
+j = 1, . . . , n.
+
+As previously mentioned, model (IKPS) is encountered as a subproblem in a number of
+well-known problems, such as capacitated lot-sizing problems or cutting stock problems. Fur-
+thermore, IKPS could be seen as a special case of a more general knapsack problem, known as
+multiple-class integer knapsack problem, when each class holds a single item.
+
+Let us deﬁne the lower bound of a variable yj, j ∈ N, as:
+
+(cid:40)(cid:106) fj
+
+(cid:107)
+
+cj
+
+−1,
+
+lbj =
+
++ 1, if
+
+b − aj(
+otherwise.
+
+(cid:107)
+
+(cid:106) fj
+
+cj
+
++ 1) ≥ 0
+
+We assume that any item whose lbj = −1 can be eliminated from the problem. This implies that
+an item is produced only if its ﬁxed costs can be covered. Furthermore, given a binary vector
+x ∈ Bn, let us deﬁne J x = {j ∈ N : xj = 1} as the set of variables set to 1 in x.
+
+The central idea of the algorithm is the design of an “intelligent” guessing mechanism. Prob-
+lem (IKPS) is especially hard due to the presence of ﬁxed costs and setup times. However, if we
+knew which items should be in the knapsack, the problem could be reduced to an integer knap-
+sack problem and solved via a dynamic programming algorithm. A naive approach could be to
+randomly pick some of the items of the original problems, discount their ﬁxed costs and setups,
+and solve the associated integer knapsack problem. However, since the number of possible
+combinations of items is extremely large, the random approach is unpractical. The proposed
+cross entropy scheme intelligently guesses which items should be in the knapsack. At each iter-
+ation t, we produce a population of N binary vectors based upon a Bernoulli distribution Φt(x)
+characterized by a parameter vector pt:
+
+n(cid:89)
+
+j=1
+
+Φt(x) =
+
+t,j(1 − pt,j)1−xj , xj ∈ {0, 1}, j = 1, . . . , n
+pxj
+
+We deﬁne an associated knapsack problem (AKP) for each binary vector Xi, which is:
+
+(AKP): max
+
+z =
+
+s.t.
+
+cjyj
+
+ajyj ≤ b
+
+(cid:88)
+(cid:88)
+
+j∈J Xi
+
+j∈J Xi
+y ∈ Z|J Xi|
+
++
+
+where b = b − ((cid:80)
+
+j∈J Xi ajlbj + mj). (AKP) is a classical integer knapsack problem derived
+from (IKPS) by assuming that at least lbj articles are chosen for each item j ∈ J Xi. However,
+since we enforce that an item enters into the knapsack only if it covers its ﬁxed costs, there is
+
+no guarantee that, for a given vector Xi, the resulting b be positive. For this reason, every time
+an infeasible vector Xi is generated, we apply a heuristic scheme aimed at producing a new
+vector XF
+i , whose (AKP) is feasible. We can thus suppose that the random vector Xi be feasible,
+since it is always possible to apply the aforementioned scheme to any infeasible vector to reach
+a feasible solution. Given a random vector Xi, we need to evaluate how good is the guess, in
+terms of which items should be in the knapsack, by solving the (AKP). The optimal solution
+of (AKP) is the best solution for the knapsack problem with setup when only items in J Xi are
+considered. Problem (AKP) can be solved by using the dynamic recursion:
+
+
+
+0,
+
+max
+
+z(d − 1), max
+
+j∈JXi
+aj≤d
+
+z(d) =
+
+{cj + z(d − aj)}
+
+d = 0, . . . , d − 1
+
+ , d = d, . . . , b
+
+11
+
+(8)
+
+where d = minj∈J Xi {aj}. It is easy to see that the objective function value of the optimal
+(cid:80)
+solution of the original knapsack problem is z∗ = zAKP + z, where zAKP = z(b) and z =
+j∈J Xi cjlbj − fj.
+The proposed algorithm has been thoroughly tested in [Caserta et al., 2008] and the results
+testify its robustness as well as effectiveness in solving large instances of the knapsack problem
+with setups.
+
+2.2.3 System Reliability Problem. In Caserta and Nodar [2008] we build on the work pre-
+sented in Caserta et al. [2008] and Caserta and Uribe [2009]. The problem addressed is problem
+(RP), introduced in Section 2.1.1, which is composed of knapsack-type constraints, i.e., con-
+straints (2), as well as set covering-type constraints, i.e., (3). We thus exploit the ideas presented
+in the two aforementioned papers to design a cross entropy scheme to generate feasible so-
+lutions for the (RP). We ﬁrst draw an analogy between the discrete and the binary reliability
+problems. We illustrate how a discrete problem can always be transformed into an equivalent
+binary problem, provided that both the constraints and the objective function are monotonically
+non-decreasing in x, the components vector. A step-by-step explanation of such transformation
+is presented in Caserta and Voß [2015b]. In addition, alternative approaches for the reliabil-
+ity problem are presented in Caserta and Voß [2015a], where a reformulation and a dynamic
+programming are used to design an exact approach, and in Caserta and Voß [2016a], where a
+corridor method is proposed.
+
+Let us ﬁrst consider how the CE scheme deals with the set covering type constraints (3).
+These constraints enforce that each module of the system has at least one version in the ﬁnal
+solution. In order to ensure that such set of constraints is veriﬁed, we apply a normalization
+scheme during the construction of each point of the CE population. Let us suppose that we
+are trying to decide which versions of module i should be included in the solution. Let us
+assume that module i has mi versions, and let xij = 1 if version j of module i is added to the
+ﬁnal solution and xij = 0, otherwise. The CE scheme is aimed at randomly establishing which
+of these versions should be in the ﬁnal solution, by drawing a random value from {0, 1} for
+each version xij. However, the CE mechanism does not guarantee that at least one version per
+module will be chosen. In order to make sure that each module has at least one version in the
+ﬁnal solution, we normalize the probability values pij in such a way that the sum of pij over
+the remaining versions is 1. However, we want to make sure that the probability of including a
+component within the system is still determined by the pij values of the CE method. Therefore,
+the relative magnitudes of these probabilities remains unaltered.
+
+12
+
+Beside ensuring that each module has at least one version in the ﬁnal solution, we need to
+ensure that the knapsack-type constrains (2) are satisﬁed. This is accomplished by means of
+a projection scheme. The scheme takes as input an infeasible vector and gradually reduces the
+number of versions in the solution until a solution Xp ∈ PX (X) feasible with respect to the
+knapsack-type constraints is reached. The projection scheme iteratively sets to zero version xr
+chosen according to the value of a greedy score: We iteratively set to 0 the variable that generates
+the minimum decrease of the objective function per unit of resource released, provided that the
+set covering-type constraint for that module is still respected. Owing to the monotonic property
+of the knapsack-type constraints, by iteratively removing components from the current solution,
+either a feasible solution is reached, or, if no feasible solution can be reached, (e.g., due to the
+set covering-type constraints) a value of zero is assigned to the objective function value of the
+current solution.
+
+2.2.4 Capacitated Facility Location. Facility location problems aim at ﬁnding the best location
+for a set of facilities to be used to serve a set of customers at minimum cost. In an attempt to
+cover different strategic and operational issues, a growing number of models for facility location
+have been proposed. In Section 2.3.2 we discuss a general formulation for the single-product,
+single-period capacitated facility location problem, which can be characterized in different ways
+to account for, e.g., demand uncertainty and multiple sources. (A complete description of the
+general facility location problem is provided in Caserta and Voß [2016b].) In this section, we
+present an algorithm for a speciﬁc variant of the general capacitated facility location problem
+(CFLP), namely the multi-source deterministic capacitated facility location problem, which can
+be modeled as follows (see, e.g., Caserta and Rico [2009a]):
+
+(MS-CFLP) : min
+
+s.t.
+
+fiyi +
+
+cijxijdj
+
+i=1
+
+j=1
+
+xij = 1,
+
+j = 1, . . . , n
+
+m(cid:88)
+
+n(cid:88)
+
+i=1
+
+m(cid:88)
+m(cid:88)
+n(cid:88)
+
+i=1
+
+djxij ≤ siyi,
+
+j=1
+
+yi ∈ {0, 1} ,
+0 ≤ xij ≤ 1,
+
+i = 1, . . . , m
+
+i = 1, . . . , m
+
+i = 1, . . . , m,
+
+j = 1, . . . , n
+
+(9)
+
+(10)
+
+(11)
+
+(12)
+(13)
+
+where i = 1, . . . , m and j = 1, . . . , n span the set of candidate facilities and customers, respec-
+tively, cij is the unitary transportation cost between facility i and customer j, fi is the ﬁxed cost
+of opening facility i, and dj is the demand of customer j. The binary vector y indicates which
+facilities must be opened among the set of m available facilities, by setting yi = 1 (y = 0) if
+facility i is opened (closed). In addition, x = (xij) is the set of ﬂow variables, deﬁning which
+fraction of the total demand of customer j is satisﬁed by facility i. Since xij is a continuous vari-
+able, the variant studied in this paper is the multi-source capacitated facility location problem,
+in which the same customer can be served by more than one facility. In the model, the ﬁrst set
+of constraints deals with the demand of each client, ensuring the the total demand of customer
+j is satisﬁed, whereas the second set of constraints ensures that a facility does not ship more
+than what its capacity allows and, at the same time, it enforces the logical relation between ﬂow
+variables and binary variables.
+
+13
+
+The CE scheme proposed in this paper relies on the key observation that, if one knew which
+facilities should be open, the problem would reduce to a simple single-commodity single-period
+transportation problem, which can be efﬁciently solved.
+
+In Caserta and Rico [2009a], we proposed a three-phase algorithm: The ﬁrst phase, the solu-
+tion construction phase, is made up by two main steps: First, the set of facilities to be opened
+is identiﬁed by using a CE based algorithm; next, taking as input the set of facilities that are to
+be opened, an Associated Transportation Problem (ATP) is deﬁned and efﬁciently solved via a
+network algorithm; the second phase, the local search phase, is aimed at exploring the neigh-
+borhood of “elite” solutions of the previous phase, via a deﬁnition of a swapping mechanism,
+e.g., opening closed facilities and closing some of the open facilities; ﬁnally, the third phase, the
+learning phase, is used to ﬁne-tune the stochastic parameters of the algorithm, using updating
+rules akin to what presented in Section 2.2.1.
+
+In the computational section, we presented the results of a descriptive study of the algo-
+rithm, to better understand the effect of some of the key components of the scheme on the
+solution quality. With this aim, we investigated how the algorithm performed when only the
+CE scheme is used, as well as when the local search scheme is used in conjunction with the CE
+scheme. Not surprisingly, we observed that the local search feature becomes relevant with the
+growth of the instance size.
+
+2.2.5 Logical Analysis of Data. Logical Analysis of Data was introduced in Boros et al. [1997,
+2000] and is a data analysis methodology that combines ideas from combinatorial optimization
+and boolean functions and belongs to the family of supervised learning techniques. Thus, LAD
+takes as input a matrix, where each row corresponds to an observation and each column is
+an attribute. Typically, observations are described by a large number of attributes. In addition,
+in line with supervised learning, we assume that the class each observation belongs to is also
+known. We assume the problem at hand is a binary classiﬁcation problem and, therefore, only
+two classes are deﬁned. The goal of LAD is to ﬁnd the minimum set of patterns, i.e., combination
+of attributes, such that it is possible to discriminate observations between the two classes with
+the maximum accuracy level. A major advantage of LAD over other data mining techniques is
+that LAD patterns are “justiﬁable,” thus enhancing the ability to motivate the reasons behind a
+certain decision and, consequently, allowing for human insight into what is learned.
+
+LAD is based on four steps: (i) data binarization, (ii) support feature selection, (iii) pattern
+generation, and (iv) theory formation. It is well understood that one of the key features of LAD
+is concerned with the pattern generation process. On the one hand, empirical evidence shows
+that the way in which patterns are built within LAD has a strong bearing on the classiﬁcation
+accuracy. On the other hand, due to the large number of patterns that can be constructed from
+a dataset, the algorithm used to build such patterns strongly determines the practical usability
+of LAD, especially when it comes to dealing with very large datasets.
+
+The goal of Caserta and Reiners [2016] is to present a novel metaheuristic method to generate
+patterns within LAD, which allows to construct patterns with a predeﬁned criterion in mind,
+while limiting the computational time required by the pattern generation phase. We introduce
+the concept of pool of patterns, where each pattern generated by a metaheuristic scheme is added
+to the pool only if some criteria are satisﬁed (e.g., diversity, coverage, homogeneity, etc.). The
+contribution of the paper is twofold: On the one hand, a methodological contribution is made,
+since it is the ﬁrst time that a metaheuristic is used for generating a pool of patterns with pre-
+speciﬁed characteristics within LAD and, on the other hand, a further contribution, based on
+empirical evidence, is made in the direction of accuracy and computational running time, thus
+allowing to extend the use of LAD to large datasets.
+
+14
+
+In addition, we propose a solution to one of the major drawbacks of a number of data mining
+algorithms, i.e., the calibration and ﬁne-tuning of the algorithmic parameters, via the use of a
+novel technique to automatically ﬁne-tune such parameters. (See Section 3.2 for more details.)
+The key observation underlying the development of the algorithm is that, as mentioned
+in Bonates et al. [2008], empirical evidence supports the conclusion that patterns with higher
+coverage provide a stronger indication about the nature of new observations than those with
+lower coverage. Consequently, owing to our interest in classiﬁcation methods, and especially
+considering the goal of developing a classiﬁcation algorithm for very large scale datasets, we see
+ﬁt of the development of a metaheuristic for the creation of maximum patterns. It might seem
+that the major drawback of using a metaheuristic, rather than an exact approach, for pattern
+generation is related to the lack of guarantee of optimality of the achieved solution. However,
+as a number of authors pointed out, e.g., Bonates et al. [2008] and Dietterich [1995], in machine
+learning in general and in LAD in particular, the use of exacts patterns of maximum coverage
+does not exhibit superior classiﬁcation performance compared to classiﬁcation models built
+using near-optimal patterns. Consequently, the use of a metaheuristic for pattern generation
+offers the advantage of requiring shorter computational time than an enumerative technique or
+even a mixed integer programming (MIP)-based approach while, on the other hand, does not
+necessarily pay a price in terms of accuracy of the ﬁnal classiﬁcation model.
+
+We propose a CE-based approach to generate patterns for the LAD algorithm. The proposed
+CE can be seen as a population-based stochastic approach for pattern generation. The funda-
+mental idea lies on the identiﬁcation of structural characteristics and prominent traits in the
+dataset and on the design of a stochastic mechanism that creates patterns reﬂecting those promi-
+nent traits with a probability proportional to the level of prominence of the traits themselves.
+For example, let us imagine that, e.g., p of the observations in one of the two classes have a
+value of 1 for attribute aj. The CE scheme will generate patterns that contain the attribute with
+probability proportional to the level of occurrence of such trait, or attribute, in that class, i.e.,
+p/|Ω+|, where |Ω+| is the cardinality of the class. Interestingly, though, while the stochastic
+scheme attaches a high probability to the inclusion of attribute aj in a positive pattern, due to
+its probabilistic nature the scheme still leaves some room to the generation of patterns that do
+not include such prevalent trait and, apparently, might seem less “suitable” to describe subset
+Ω+. However, as it is shown in the computational section of the paper, this calibrated mix of
+“suitable” and “less suitable” patterns, which attempts to strike the balance between intensi-
+ﬁcation and diversiﬁcation, seems to be beneﬁcial in addressing one of the major concerns in
+data mining, related to overﬁtting. LAD models that make use of a well-designed pool of near-
+optimal patterns might actually have superior performance. Empirical evidence to substantiate
+this argument is provided in the computational section of the paper.
+
+2.2.6 A Summary on the Use of Population-based Methods. Let us summarize here the most
+important ingredients of a population-based approach. Table 2 provides an overview of the
+most important mechanisms presented in this section. These approaches rely on the use of a
+cross entropy scheme, which generates a pool of solutions. We typically use:
+
+– A roulette-wheel mechanism: The wheel is adjusted at each iteration, to ensure that attrac-
+tive solution features are more likely to appear in the next generation. We thus enforce a
+“guided randomness,” since prominent features are privileged in the transmission of traits
+to the next generation.
+
+– A solution construction mechanism based on two levels. We typically use a population-
+based approach in the context of a MIP with two-level variables: (i) Binary variables to
+model strategic decisions, e.g., open/close, setup, invest/not invest, etc.; (ii) Continuous
+
+15
+
+variables to capture operational decisions, e.g., quantities to be produced, invested, etc. We
+apply the roulette-wheel to identify a subset of promising values for the binary variables.
+Next, the solution induced by the chosen set of binary variables is obtained by solving a
+simpler, smaller problem deﬁned by the operational variables. This approach requires the
+existence of an inexpensive ﬁtness score computation mechanism, since a large number of
+induced solutions are evaluated.
+
+– A repair mechanism. The solution induced by the random selection of a set of strategic
+variables might be infeasible. In this case, a repair mechanism is used to restore feasibil-
+ity while preserving the main characteristics of the induced solution. A typical approach
+is based on the use of a projection scheme, which projects back into the feasible space the
+solution induced by the roulette-wheel mechanism. The projected solution is then fed back
+to the roulette-wheel scheme, thus readjusting the wheel in such a way that the likelihood
+of generating feasible solutions in the next steps increases.
+
+It is worth noting that population-based approaches can be of great interest in contexts in which
+more than one solution, perhaps with similar ﬁtness values, can be of value to the decision
+maker. Consider, e.g., the pattern generation problem in data mining and, more speciﬁcally, in
+LAD: Having near-optimal patterns could be valuable, especially if diversiﬁcation is pursued.
+Near-optimal patterns can be associated to different interpretations of the classiﬁcation rules,
+thus offering a more comprehensive overview of the phenomenon. In addition, it has been
+reported in Bonates et al. [2008] that working with a pool of near-optimal patterns, as opposed
+to using the optimal pattern, mitigates the problem of overﬁtting.
+
+Along the same line, a population-based approach that leads to the generation of near-
+optimal solutions might be of interest to a decision maker in business. Managers might be
+interested in analyzing multiple high-quality solutions, which might have different manage-
+rial implications (e.g., opening a small number of large facilities vs. a large number of small
+facilities.)
+
+Component
+roulette-wheel
+construction mechanism problem-speciﬁc method complete the partial solution induced by the
+
+Property
+guided randomness
+
+Technique
+search algorithm
+
+repair mechanism
+
+projection
+Table 2. Three population-based components.
+
+roulette-wheel
+restore feasibility of the induced solution
+
+2.3 Constraint-based Approaches
+The key idea of constraint-based approaches is to reduce the size of the solution space by in-
+cluding exogenous constraints into the original problem, thus obtaining a “reduced” problem,
+typically amenable to solutions via a mathematical programming technique. The term soft ﬁx-
+ing is also employed in the aforementioned cases. With soft ﬁxing, one reduces the size of the
+solution space by adding a linear constraint to the original model, cutting out from the solution
+space all the solutions that are beyond a certain distance from an incumbent solution.
+
+Some of the methods that make use of soft ﬁxing are POPMUSIC [Taillard and Voß, 2002],
+Kernel Search [Angelelli et al., 2010], Local Branching [Fischetti and Lodi, 2003], Variable Neigh-
+borhood Decomposition Search [Hansen et al., 2001], coupled with local branching [Hansen
+
+16
+
+et al., 2006], and Diversiﬁcation, Reﬁning and Tight-reﬁning [Fischetti et al., 2004], and the Cor-
+ridor Method [Sniedovich and Voß, 2006]. In this section, we ﬁrst present a detailed description
+of a general corridor method scheme. Next, we illustrate how this method has been employed
+to design problem-speciﬁc matheuristics to tackle real-world problems. Finally, we show how
+the corridor method is linked to other matheuristics.
+
+2.3.1 The Corridor Method. The corridor method (CM) has been presented by Sniedovich
+and Voß [2006] and is a hybrid metaheuristic that intertwines mathematical programming tech-
+niques with heuristic rules.
+Let us consider an optimization problem P , deﬁned over a feasible space X , and an exact
+method M that could solve problem P if the solution space were not too large. However, in
+order to be of interest, we assume that the size of the solution space grows exponentially with
+respect to the input size and, consequently, using method M to solve problem P becomes im-
+practical when dealing with large instances.
+
+The CM builds method-based neighborhoods, i.e., a set of neighborhoods whose size and
+structure depend on the method M used to explore them. The method also requires a scheme
+to generate incumbent (partial) solutions x.
+Given an incumbent solution x, the CM builds a neighborhood of x, i.e., N (x), which is large
+enough to ensure that good quality feasible solutions can be found using method M, but small
+enough to guarantee a thorough exploration of the neighborhood itself within a reasonable
+amount of computational time. It is worth noting that the incumbent solution x does not need
+to be feasible. However, we need to ensure that at least part of the neighborhood of x does
+overlap with the feasible space, i.e., N (x) ∩ X (cid:54)= ∅. How this is done is problem-speciﬁc and
+depends on the mathematical properties of the problem at hand.
+A high-level general description of the CM is provided below:
+
+Algorithm 1 : corridor method()
+Require: Corridor size γ ∈ (0, 1]
+Ensure: Best feasible solution xb or proof of infeasibility
+1: while !termination criterion() do
+2:
+3:
+4:
+5:
+6:
+7:
+8:
+9:
+10: end while
+
+Generate incumbent solution x
+Deﬁne corridor/neighborhood around x, i.e., N (x)
+Solve P CM deﬁned over X ∩ N (x) using method M
+if X ∩ N (x) = ∅ then
+
+end if
+Update xb if a new best solution is found
+Update incumbent generator mechanism and go back to Step 2
+
+Increase γ and go back to Step 3
+
+{incumbent generator}
+{add corridor constraint}
+{explore neighborhood}
+{corridor enhancement}
+
+The method takes as input parameter γ, used to ﬁne tune the corridor (or neighborhood)
+width: When γ = 0, the corridor reduces to a single point x (the incumbent) and, therefore, the
+CM returns a feasible solution only if the incumbent solution itself is feasible. Conversely, when
+γ = 1, the corridor deﬁned in Step 3 embraces the entire feasible space and, consequently, the
+CM will necessarily return a feasible solution as long as the original problem is feasible. Thus,
+we can state the following:
+
+Remark 1: Termination. Given a problem P , a method M known to terminate when applied
+on P , and a termination criterion for CM, the CM terminates, either proving that the instance is
+
+17
+infeasible, i.e., X = ∅, or delivering a solution that is feasible for the instance at hand, i.e., when
+X (cid:54)= ∅.
+
+The characterization of the basic steps presented above depends on the mathematical prop-
+erties of problem P , the method M employed to explore the neighborhood, as well as the
+technique used to generate incumbent solutions, e.g., whether these solutions are feasible and
+whether an updating mechanism exists (see Step 9.) Alternative characterizations of these steps
+are provided below:
+
+– Problem P : Capacitated facility location problems [Caserta and Voß, 2016b], redundancy al-
+location in reliability problems [Caserta and Voß, 2016a], blocks relocation problem [Caserta
+et al., 2011b], containers pre-marshalling problem [Caserta and Voß, 2009a], DNA sequenc-
+ing problem [Caserta and Voß, 2010b, 2014], lot sizing problems [Caserta et al., 2010b, Caserta
+and Voß, 2013a,b], construction of discrete support vector machine classiﬁers [Caserta et al.,
+2010a].
+
+– Incumbent solution generator: The cross entropy method [.Caserta and Voß, 2013, Caserta
+and Voß, 2013b, 2014, 2016a, Caserta and Reiners, 2016], a black-box solver [Caserta et al.,
+2010a, Caserta and Voß, 2010b], Lagrangean relaxation [Caserta and Voß, 2016b], a heuris-
+tic scheme, e.g., Wagner-Whitin [Caserta and Voß, 2013a], dynamic programming [Caserta
+et al., 2011b, Caserta and Voß, 2016a].
+
+– Corridor deﬁnition: Using a distance metric, e.g., hamming distance [Caserta et al., 2010a,
+Caserta and Voß, 2016b], edit distance [Caserta and Voß, 2014]), Euclidean distance [Caserta
+and Voß, 2009a], limiting the state space of a dynamic programming recursion [Caserta
+et al., 2011b, Caserta and Voß, 2014, 2016a], adding a (cut-type) linear constraint [Caserta
+and Voß, 2010b, 2013a, 2014].
+
+– Choice of method M: Dynamic programming [Caserta et al., 2011b, Caserta and Voß, 2014,
+2016a], a general purpose MIP solver [Caserta et al., 2010a, Caserta and Voß, 2013b, 2016b].
+– Fine tuning of parameter γ: Response Surface Methodology [Caserta and Voß, 2009b, 2016a],
+online ﬁne tuning via an oscillation mechanism [Caserta and Voß, 2010b], Biased Random
+Key Genetic Algorithm [Caserta and Reiners, 2016, Caserta and Voß, 2016b].
+
+In the next sections, we present some of the most relevant applications of the CM.
+
+2.3.2 Capacitated Facility Location Problem. Let us consider the general single-product, single-
+period capacitated facility location problem (CFLP):
+
+(CFLP): min
+
+s.t.
+
+i=1
+
+m(cid:88)
+m(cid:88)
+n(cid:88)
+
+i=1
+
+m(cid:88)
+
+n(cid:88)
+
+fiyi +
+
+cijxij
+
+˜dj
+
+i=1
+
+j=1
+
+xij = 1,
+
+˜djxij ≤ siyi,
+
+j = 1, . . . , n
+
+i = 1, . . . , m
+
+j=1
+
+y ∈ {0, 1}m
+x ∈ X
+˜d ∈ U•
+
+(14)
+
+(15)
+
+(16)
+
+(17)
+(18)
+(19)
+
+18
+
+where m and n indicate the number of facilities and the number of customers, respectively, fi is
+the ﬁxed cost incurred when facility i is open, cij is the unitary transportation cost from facility
+i to customer j, si is the maximum capacity of facility i, and ˜dj is the (uncertain) demand of
+customer j.
+
+The objective function (14) accounts for the ﬁxed cost associated with a facility and the trans-
+portation cost incurred to satisfy the customers’ demands; constraints (15) ensure that the de-
+mand of each customer is met; constraints (16) deﬁne limits on the capacity of each candidate
+plant. Two sets of decision variables are used: (i) the binary variables y = {yi}, which take
+value 1 if the corresponding facility i is open and, (ii) the variables x = {xij}, which are used
+to decide upon the fraction of demand of customer j covered by facility i. Vector ˜d =
+identiﬁes the customers’ demand and is treated as an uncertain parameter of the model. In line
+with the literature on robust models, as expressed by Equation (19), we limit the uncertainty to
+a pre-speciﬁed uncertain set U•.
+The characterization of sets X , i.e., the feasible region of the variables xij, and U•, i.e., the
+interval within which the unknown demands ˜dj are supposed to vary, determines the variation
+of the CFLP at hand. More speciﬁcally:
+
+(cid:110) ˜dj
+
+(cid:111)
+
+X = {xij : xij ∈ {0, 1}}
+
+deﬁnes the single-source Capacitated Facility Location Problem (SS-CFLP), where each cus-
+tomer’s demand must be entirely fulﬁlled by a single facility, while
+
+X = {xij ∈ R : 0 ≤ xij ≤ 1}
+
+characterizes the multi-source Capacitated Facility Location Problem (MS-CFLP), in which the
+demand of a customer can be satisﬁed using multiple facilities. (See Section 2.2.4.)
+
+A second dimension along which the CFLP can be classiﬁed is that of a nominal vs. a robust
+problem formulation [Ben-Tal et al., 2009]. In the nominal version of the problem, all the param-
+eters of the model (14)–(19) are assumed to be deterministically known; on the other hand, in
+the robust version of the problem, some of the parameters of the model are stochastic in nature.
+Let us assume, e.g., that the customers’ demands are known with uncertainty. The robust ap-
+proach considers the demand of each customer unknown, but the uncertainty associated with
+the demand to be bounded on a pre-speciﬁed interval, called the uncertainty set U. Therefore,
+the uncertainty set deﬁnes the limits of the robustness of the proposed solution. Two typical un-
+certainty sets are the box and the ellipsoid uncertainty sets. The box uncertainty set is deﬁned
+as follows:
+
+(cid:110) ˜dj ∈ R : | ˜dj − ¯dj| ≤  ¯dj
+
+(cid:111)
+
+U B =
+
+where ¯dj is the mean or nominal demand value, and 0 ≤  ≤ 1 is the uncertainty level common
+across all entries [Ben-Tal et al., 2005]. The ellipsoid uncertainty set is given by:
+
+(cid:110) ˜dj ∈ R : ( ˜dj − ¯dj)T Σ−1( ˜dj − ¯dj) ≤ Ω2(cid:111)
+
+U E =
+
+where Σ is the covariance matrix that captures the dependencies between demands of any two
+customers and Ω is a safety parameter indicating the amount of uncertainty to be covered by
+the robust solution, as in Baron et al. [2010].
+
+Let us see how the CM is applied to the facility location problem. Let us assume that problem
+P is any of the variants of the CFLP presented above. The method M proposed is a branch
+and cut scheme as implemented in a general purpose MIP solver. In order to quickly obtain a
+solution x to be used to build an initial corridor, we relax some of the hard constraints of P ,
+
+e.g., in a Lagrangean fashion. (Details about the Lagrangean relaxation scheme are provided in
+Section 2.4 in the context of relaxation-based approaches.) The Lagrangean problem, indicated
+with P L, is thus simpler to solve than P . We then use method M to obtain an optimal solution
+for P L, i.e., (yL, xL). It is worth noting that, since P L is a relaxation of P , solution (yL, xL) does
+not need to be feasible with respect to P . In reality, if it were, this would mean that an optimal
+solution to P had been found and the algorithm could therefore be stopped. Let us assume that
+(yL, xL) is, therefore, not feasible with respect to P and let us build a “corridor” around the
+infeasible solution. The way in which the corridor is set up is problem speciﬁc. For the CFLP,
+we deﬁne a neighborhood around the solution imposing a maximum hamming distance with
+respect to the binary variables yi, i.e.:
+
+m(cid:88)
+
+(cid:2)yL
+i (1 − yi) +(cid:0)1 − yL
+
+i
+
+(cid:1) yi
+
+(cid:3) ≤ γm
+
+19
+
+(20)
+
+i=1
+
+where 0 < γ ≤ 1 deﬁnes the width of the corridor and, consequently, the size of the neighbor-
+hood to be explored. We now use method M to solve problem P CM = P ∪ {(20)}. It can be
+observed that the effect of the corridor deﬁned via constraint (20) is such that, in the quest for
+a feasible solution, only a percentage of the candidate facilities can swap their state (from open
+to closed and vice versa) with respect to the solution given by the relaxed problem P L. We also
+observe that, if γ = 1, P CM ≡ P , and therefore a solution that is feasible for P must exist in
+P CM . On the other hand, if γ is too small, i.e., the corridor is too narrow, it might happen that
+P CM does not contain a feasible solution. In this case, we progressively increase the value of γ
+until a feasible problem P CM is deﬁned, or until infeasibility is proven.
+Let us thus assume that a solution feasible to P is found in N (x). If a pre-speciﬁed stopping
+criterion is met, the search stops. Otherwise, we update the Lagrangean multipliers using a
+subgradient optimization technique, and we repeat the cycle.
+
+Algorithm corridor base() provides a pseudo-code of one iteration of the CM algo-
+rithm. In the paper, we also show how the general CM algorithm can easily be adapted to
+deal with the different variants of the CFLP. Algorithm corridor base() receives as input
+
+the current Lagrangean solution(cid:0)yL, xL(cid:1), and builds a corridor around the current solution via
+
+constraint (20). If the corridor is too narrow, i.e., γ is too small, we progressively enhance the
+size of the neighborhood by increasing the value of γ within the interval (0, 1]. (Line 4 below.)
+
+Algorithm 2 : corridor base()
+
+Require: corridor size γ ∈ (0, 1], Lagrangean solution(cid:0)yL, xL(cid:1)
+
+Ensure: best feasible solution (y, x)
+1: Deﬁne problem P CM using Equation (20)
+2: (y, x) ← Solve current corridor problem P CM
+3: if P CM ∩ X = ∅ then
+4:
+5: end if
+
+γ ← 1.1γ and go back to Step 1
+
+{add corridor constraint}
+{explore N (yL)}
+{corridor enhancement}
+
+2.3.3 DNA Sequencing Problem. One of the most challenging problems in computational
+molecular biology is the DNA sequencing problem, where one wants to determine the order in
+which sequences of nucleotides appear in an unknown fragment of the DNA.
+
+Given an unknown DNA fragment, such fragment can be deduced via the sequencing by
+hybridization method. During the hybridization phase, a spectrum, or ﬁngerprint, of a DNA
+
+20
+
+fragment is produced. The DNA sequencing problem is aimed at reconstructing the unknown
+fragment of DNA based upon a set of oligonucleotides that makes up the fragment’s spectrum.
+We are given a set of m oligos S = {o1, o2, . . . , om} that composes the spectrum of an
+unknown DNA fragment of length n. The length of each oligo oi is identiﬁed with li, with
+i = 1, . . . , m. The goal is to ﬁnd a permutation of (not necessarily all) the oligos in S, indicated
+with π(S) such that, from such permutation, a sequence with length less than or equal to n
+with maximum pairwise alignment score with the unknown DNA fragment is derived. This
+approach is valid under the reasonable assumption that most of the data coming from the hy-
+bridization experiment are correct. Therefore, one would expect that ﬁnding a sequence with
+length less than or equal to n that uses the maximum number of elements from S corresponds
+to ﬁnding a sequence with highest pairwise similarity score with the unknown DNA fragment.
+We modeled the DNA sequencing problem as an Orienteering Problem (OP), which is a
+variation of the traveling salesman problem (TSP) with proﬁts. The OP was introduced by Tsili-
+girides [1984] and ﬁnds application in the TSP where the salesman has a number of cities that he
+could visit, but he is not forced to visit all of them. Given that the proﬁt that can be collected at
+any city is known, the salesman wants to maximize the overall collected prize while respecting
+a maximum length constraint.
+
+Due to our interest in the DNA sequencing problem, let us focus our attention on the di-
+rected version of the OP, as illustrated in Feillet et al. [2005]. Let us consider a complete graph
+G = (V, A), where V is the set of m vertices and A is the set of m × m arcs. In addition, let us in-
+dicate with pi the proﬁt associated with the inclusion of node vi ∈ V into the ﬁnal solution and
+with dij the cost/distance associated with each arc (vi, vj) ∈ A. Typically, vertex v1 indicates
+the depot. The OP can be formulated as the problem of ﬁnding a circuit in which each point is
+visited at most once, with the following characteristics: (i) it begins in vertex v1; (ii) the proﬁt
+associated with the set of visited vertices is maximal; and (iii) the total distance of the circuit is
+below a given threshold value dmax.
+Two sets of binary variables are used to model the OP: A binary variable xij is associated
+with each arc (vi, vj) ∈ A, whose value is 1 if such an arc is included in the ﬁnal solution, and
+a binary variable yi is associated with each vertex vi ∈ V , and it is set to 1 if such vertex is
+selected. An integer linear formulation for the directed version of the OP is as follows:
+
+max z(OP ) =
+
+s.t.
+
+piyi
+
+vi∈V
+
+(cid:88)
+(cid:88)
+(cid:88)
+(cid:88)
+(cid:88)
+(cid:88)
+
+vj∈V \{vi}
+
+vj∈V \{vi}
+
+(vi,vj )∈δ−(S)
+
+(vi,vj )∈δ+(S)
+
+xij = yi,
+
+xji = yi,
+
+vi ∈ V
+
+vi ∈ V
+
+xij ≥ yk, S ⊂ V \ {v1} , vk ∈ S
+
+xij ≥ yk, S ⊂ V \ {v1} , vk ∈ S
+
+dijxij ≤ dmax
+
+= 1
+∈ {0, 1} ,
+∈ {0, 1} ,
+
+(vi, vj) ∈ A
+vi ∈ V
+
+(vi,vj )∈A
+y1
+xij
+yi
+
+(21)
+
+(22)
+
+(23)
+
+(24)
+
+(25)
+
+(26)
+(27)
+(28)
+
+21
+
+In the model, constraints (21) and (22) are assignment constraints, i.e., they ensure that if
+vertex vi is selected, then it must have an incoming and an outgoing arc. Constraints (23) and
+(24) are subtour elimination constraints, as proposed in Fischetti et al. [1998], where δ−(S) =
+{(vi, vj) ∈ A : vi ∈ V \ S, vj ∈ S} and δ+(S) = {(vi, vj) ∈ A : vi ∈ S, vj ∈ V \ S}. These subtour
+elimination constraints guarantee that, for every subset S \ V , if a vertex vk is visited, then
+there must be an arc entering subset S and an arc leaving S. Finally, constraint (25) deﬁnes the
+threshold value (maximum circuit length) and constraint (26) ensures that the depot is included
+in the solution. It is worthwhile to point out that the knapsack constraint (25) deﬁnes a relation
+between the knapsack polytope and the OP polytope.
+
+We now deﬁne the following correspondence between the OP and the DNA sequencing
+
+problem:
+
+– V = S, i.e., the set of vertices corresponds to the oligos in the spectrum;
+– A = {vi, vj} = {oi, oj} corresponds to placing oligo oj after oligo oi in a sequence;
+– vertex v1 is a dummy vertex, i.e., we add to the spectrum a dummy oligo, corresponding to
+
+the ﬁrst oligo in the reconstructed sequence;
+
+– pi is ﬁxed to 1 for every oligo oi;
+– dij is inversely proportional to the overlapping degree between oligos oi and oj (a deﬁnition
+
+of overlapping degree is provided below);
+
+– the threshold value dmax is equal to the total length of the DNA sequence, i.e., n;
+– variable yi indicates whether oligo oi is included in the ﬁnal sequence;
+– variable xij indicates whether oligo oj follows oligo oi in the ﬁnal sequence.
+
+Given two oligos, e.g., oi =TAAATCCTGT and oj= CCTGTCCTGT, we deﬁne the overlapping
+degree od(oi, oj) between oligos oi and oj as the maximum number of consecutive identical
+nucleotides, where the terminating part of oi is juxtaposed with the initial part of oj, i.e.:
+
+oi: TAAATCCTGT
+oj:
+
+CCTGTCCTGT
+
+Thus, od(oi, oj) = 5. Consequently, we deﬁne dij = lj − od(oi, oj), where lj indicates the
+
+length, i.e., the number of nucleotides, of oligo oj.
+
+Given the above correspondence, it is possible to observe that a solution to the OP deﬁnes
+a unique sequence of nucleotides, i.e., a unique permutation of oligos π(S) whose length is
+below the total length n and made up of the maximum number of oligos from the spectrum
+S. Therefore, solving the OP corresponds to solving the DNA sequencing problem as deﬁned
+above.
+
+With respect to the solution approach, we ﬁrst observe that the DNA sequencing problem
+is a variation of the shortest path network problem on G = (V, A), with G being deﬁned by
+a set of vertices V = {1, . . . , m} – where each vertex corresponds to an oligo – and a set of
+arcs A = {oi, oj}, whose length is inversely proportional to the overlapping degree between
+i and j, i.e., dij = lj − od(oi, oj). We thus propose a dynamic programming scheme inspired
+by the classical dynamic programming recursion used to compute shortest paths. However,
+it is possible to observe that such DP scheme could seldom be applied, due to the curse of
+dimensionality. Therefore, we embed such scheme into a corridor method algorithm. The key
+idea is that, rather than applying the DP recursion on the entire sequence, we solve to optimality
+via DP only a subportion of the sequencing problem. We assume that an incumbent solution is
+given in the form of a permutation. We then identify a critical portion of the permutation made
+by γ oligos (where γ deﬁnes the corridor width) and we then apply the DP scheme only on
+those γ oligos previously selected. In the paper, we explored the creation of ﬁxed corridors as
+well as dynamic corridors around an incumbent solution.
+
+22
+
+As incumbent generator we used a Markov Chain-based cross entropy scheme, in which ran-
+dom feasible permutations were produced simulating a random walk on an absorbing Markov
+Chain, and the transition probability matrix was updated using the updating rules of the cross
+entropy method presented in Section 2.2.1.
+
+2.3.4 The Corridor Method Applied to the Blocks Relocation Problem. Relocation is one
+of the most important factors contributing to the productivity of operations at storage yards
+or warehouses [Yang and Kim, 2006, Caserta et al., 2011a]. A common practice aimed at effec-
+tively using limited storage space is to stack blocks along the vertical direction, whether they be
+marine containers, pallets, boxes, or steel plates [Kim and Hong, 2006]. Given a heap of blocks,
+relocation occurs every time a block in a lower tier must be retrieved before blocks placed above
+it. Since blocks in a stack can only be retrieved following a LIFO (Last In First Out) strategy, in
+order to retrieve a low-tier block, relocation of all blocks on top of it will be necessary. Figure 1
+illustrates how the block stacking technique is used at a bay. Each vertical heap is called stack.
+A stack is made up by a number of tiers, which deﬁne the height of the stack. A bay is the col-
+lection of stacks and the width of the bay is given by the number of stacks. In Figure 1, the order
+in which a block is to be retrieved is indicated by a progressive number. Consequently, in order
+to pickup block 1, blocks 5 and 4, in this order, must ﬁrst be relocated to either stack 1 or 3.
+
+Fig. 1. An example of a bay with m = 3 stacks and n = 7 blocks.
+
+The objective of the blocks relocation problem (BRP) is to retrieve all the containers from the
+bay in the prescribed order, i.e., determined by the block priorities, while minimizing the num-
+ber of rehandling operations. The complexity of the BRP is stated as NP-hard for the restricted
+as well as for the unrestricted BRP by Caserta et al. [2012]. In the same paper, a mathematical
+formulation for the BRP is also presented, later improved in Zehendner et al. [2015]. A survey
+on the BRP as well as two connected problems, i.e., the pre-marshalling and the re-marshalling
+problems, is presented in Caserta et al. [2011a].
+
+The paper presents a dynamic programming scheme that captures all the possible states of
+the bay at any given time. Given an incumbent bay conﬁguration and a target block to retrieve,
+we distinguish two cases: (i) the block to be retrieved is free, i.e., no block is currently above
+it. In this case, the only acceptable decision is to retrieve the target block and place it into its
+
+23
+
+ﬁnal destination. On the other hand, (ii) if at least one block is currently placed upon the target
+block, we enumerate all the possible relocations for the uppermost block and move this block
+to another stack, giving rise to a new bay conﬁguration. This enumeration process is repeated
+until case (i) is reached, after which the current target block is retrieved and the next target block
+is addressed. The process terminates when the last block to be retrieved is freed up.
+Let us now present a recursive formulation and a dynamic programming algorithm for the
+BRP. Let us consider the case of a bay with N blocks, indicated with {1, . . . , N}, in which the
+ﬁrst n blocks must be retrieved, with n ≤ N. Without loss of generality, we assume that not
+necessarily all the blocks must be retrieved. Let us indicate with i ∈ {1, . . . , m} a stack in the
+bay and with k ≤ n the current block to be retrieved. Throughout this section, we will use the
+bay of Figure 1 as reference example.
+
+In the following, let us deﬁne the basic elements of the DP model:
+– State variable: Let us indicate with s = (k, i, t, C) the state variable, where k ∈ {1, . . . , n} is
+the block to be retrieved, i ∈ {1, . . . , m} is the stack in which the target block is found, t is
+the list of blocks above the target block and C is the conﬁguration of the remaining blocks
+(e.g., with respect to Figure 1, we have k = 1, i = 2, t = {5, 4}, and C = {{3, 2} ,{7, 6}}).
+
+– Decision variable: At each step, one of two different cases arises, i.e., (i) the target block
+has no other blocks placed above and can currently be retrieved and placed outside of the
+bay, i.e., t = ∅. In this case, the only alternative is to retrieve the target block and to place it
+into its ﬁnal destination; (ii) the target block cannot be retrieved since at least one block is
+still above it, i.e., t (cid:54)= ∅. Let us indicate with τ the uppermost block in the sequence t, i.e.,
+the block which is currently on top in stack i. In this case, the decision is about identifying
+which stack block τ should be relocated to. Let us indicate with x such a stack and with
+D(s) the set of all feasible values of x with respect to the current state s (e.g., with respect to
+Figure 1, we have τ = 5 and D(s) = {1, 3}, i.e., the next decision concerns where to relocate
+block 5 and the only feasible moves are either to move it to stack 1 or to stack 3).
+– State transition function: Let us indicate with s(cid:48) = (k(cid:48), i(cid:48), t(cid:48), C(cid:48)) the state obtained by apply-
+ing decision x ∈ D(s) to the current state s, i.e., s(cid:48) = T (s, x). Here T represents the state
+transition function. As previously mentioned, two different cases may arise: (i) t = ∅; or (ii)
+t (cid:54)= ∅. In case (i), we have that k(cid:48) = k + 1, i(cid:48) is the stack in which block k + 1 is currently
+located, t(cid:48) is a new list of blocks currently above the target block k + 1 and, ﬁnally, C(cid:48) = C
+is the conﬁguration of the remaining blocks. On the other hand, in case (ii), it is easy to
+see that k(cid:48) = k, i(cid:48) = i, t(cid:48) = t \ {τ}, and C(cid:48) depends on the application of move x to block
+τ (e.g., with respect to Figure 1, let us suppose that x = 1; in this case, the new state is
+s(cid:48) = T (s, 1) = (1, 2,{4} , C(cid:48)), where C(cid:48) = {{5, 3, 2} ,{7, 6}}).
+
+– Functional equation: The DP “backward” functional equation is
+
+(cid:110)
+f(cid:0)T (s, x)(cid:1)(cid:111)
+
+,
+
+k = n − 1, . . . , 1,
+
+f (s) = 1 + min
+x∈D(s)
+
+where s = (k, i, t, C) indicates the current state, and T (s, x) is the state transition function
+that accounts for the application of decision x upon the current state s. We set f (s) = 1 for
+s = (n, i,∅, C), which is the cost of retrieving a block from the bay and moving it to its ﬁnal
+destination.
+More formally, we can explicitly distinguish between the aforementioned cases (i) and (ii).
+Consequently, the functional equation can be rewritten, for k = n − 1, . . . , 1, as
+
+1 + f(cid:0)k + 1, i(cid:48), t(cid:48), C(cid:1),
+(cid:110)
+f(cid:0)k, i, t \ {τ} , C(cid:48)(cid:1)(cid:111)
+
+x∈D(k,i,t,C)
+
+min
+
+1 +
+
+,
+
+t = ∅,
+t (cid:54)= ∅,
+
+f (k, i, t, C) =
+
+24
+
+with f (n, i,∅, C) = 1.
+Now that the dynamic programming scheme is deﬁned, we illustrate how the corridor
+method is applied to the BRP. The main drawback of the DP algorithm is the exponential growth
+of the number of reachable states. To cope with it, we deﬁne a “two-dimensional” corridor
+around the current conﬁguration, in such a way that the number of states generated from the
+current conﬁguration is limited. Given a current bay conﬁguration s, the number of new con-
+ﬁgurations that can be generated starting from s is equal to |D(s)|. Consequently, in order to
+reduce the number of generated states, one can apply exogenous constraints that impose hori-
+zontal as well as vertical limits upon the bay. For example, horizontal limits could be introduced
+by reducing the number of stacks to which blocks can be relocated. Similarly, vertical limits are
+imposed establishing a maximum height, in terms of number of blocks in the same stack.
+For example, let us suppose we are given the initial bay conﬁguration of Figure 2, indicated
+by the state variable s = (k, i, t, C) = (1, 3,{5, 4} , C), with C = {{11, 9, 8} ,{3, 2} ,{7, 6} ,{10}}.
+It is easy to see that D(s) = {1, 2, 4, 5}, i.e., four different conﬁgurations can be reached starting
+with the current state s. In order to limit the number of alternative conﬁgurations, we deﬁne
+two parameters, i.e., δ, λ ∈ N. Parameter δ deﬁnes the corridor width around stack i, such that
+blocks 5 and 4 can be placed only on stacks in the interval i ± δ. Hence, δ provides a horizontal
+limitation, or a corridor, around the current stack i. For example, if δ = 1, only stacks 2 and 4 can
+be used to relocate elements 5 and 4. Consequently, rather than four different conﬁgurations,
+only two conﬁgurations will be generated. The admissible decisions are thus D(s, δ) = {2, 4}.
+
+Fig. 2. An example of a bay with m = 5 stacks and n = 11 blocks.
+
+Another way of reducing the number of generated conﬁgurations is by deﬁning a vertical
+corridor, i.e., a maximum height for stacks in the bay, indicated by parameter λ. Parameter λ
+deﬁnes the corridor height, such that blocks 5 and 4 can be placed upon a given stack only if the
+resulting height of the stack is less than or equal to λ. For example, if we establish λ = 3, the set
+of admissible decisions is given by D(s, λ) = {2, 4, 5}.
+
+Finally, to tighten even more the set of admissible bay conﬁgurations, we combine the use
+of parameter δ with parameter λ, in such a way that we build a “two-dimensional” corridor
+around the current bay conﬁguration, where the width of the corridor is deﬁned by the value
+of δ and the height of the corridor is established by the value of λ. For example, if we set δ = 1
+
+and λ = 3, we have a reduced set of admissible decisions, which are
+
+D(s, δ, λ) = {2, 4} .
+
+Figure 3 illustrates the different use of the CM for the BRP. Three alternatives arise: if λ = ∞,
+only the horizontal corridor is setup, as illustrated in Figure 3-(a); on the other hand, if δ = ∞, a
+vertical corridor is deﬁned, as presented in Figure 3-(b); ﬁnally, the integrated use of horizontal
+and vertical constraints leads to the deﬁnition of a two-dimensional corridor, as in Figure 3-(c).
+
+25
+
+Fig. 3. Alternative corridors around the initial conﬁguration: (a) horizontal corridor of size 2δ around stack
+i = 3; (b) vertical corridor of size λ; and (c) two-dimensional corridor of size 2δ × λ.
+
+Let us now formally deﬁne the “constrained” neighborhood induced by the application of
+the CM upon a given conﬁguration. Let us indicate with s = (k, i, t, C) the current bay conﬁgu-
+ration, where C = {c1, . . . , cm} \ {ci} indicates all the stacks of the bay excluding stack i. Let us
+indicate with |cl| the number of blocks currently on stack l. Given two parameters δ and λ, we
+deﬁne the set of restricted admissible decisions as
+
+D(s, δ, λ) = {x ∈ {1, . . . , m} \ {i} : i − δ ≤ x ≤ i + δ, |cx| < λ} .
+
+26
+
+Finally, we deﬁne the restricted neighborhood of the current conﬁguration s, i.e., the set of
+
+“feasible” bay conﬁgurations that can be created from s as
+
+N (s) = {s(cid:48) : s(cid:48) = T (s, x), for all x ∈ D(s, δ, λ)} .
+
+Consequently, the size of the neighborhood can be made arbitrarily small by changing the
+value of δ and λ. For this reason, we can say that the “corridor” around the incumbent bay
+conﬁguration is deﬁned by imposing exogenous constraints on the solution space of the problem
+via calibration of parameters δ and λ.
+
+In the paper, we presented computational results on medium and large scale instances, as
+well as an analysis of the relation between the value of δ, i.e., the corridor width, and the per-
+formance of the algorithm, measures in terms of running time and number of relocations.
+
+2.3.5 The Corridor Method and other Mathematical Programming Techniques. The CM pre-
+sented in Section 2.3.1 belongs to the family of algorithms that intertwine mathematical pro-
+gramming techniques with metaheuristic methods. A broad overview of the state-of-the-art in
+the ﬁeld of matheuristics is provided in Maniezzo et al. [2010]. However, due to the different
+ways in which the ingredients of an algorithm can be hybridized, it is difﬁcult to ﬁnd a clear
+taxonomy of matheuristics. An interesting, albeit not unique, classiﬁcation of hybrid algorithms
+is provided in Raidl and Puchinger [2008].
+
+The corridor method can be placed in the context of frameworks that use an exact method
+as a black-box to solve smaller portions of a difﬁcult MIP problem. The general idea is to apply
+an exact method on a reduced portion of the original problem’s feasible space. Frameworks of
+this nature differ in the way in which these smaller portions are generated and, subsequently,
+explored.
+
+The CM is not the only method employing the aforementioned “philosophy.” The idea of
+reducing the size of the original problem can be traced back to Balas and Zemel [1980]. Since
+then, a large body of literature has been developed in this direction. Broadly speaking, the def-
+inition of a reduced problem is attained either via “hard ﬁxing,” i.e., directly excluding some of
+the decision variables from the problem, or “soft ﬁxing,” in which case no variables are ﬁxed
+to a speciﬁed value but a linear constraint is added to the original model, cutting out from the
+problem all the solutions that are beyond a certain distance from an incumbent solution.
+
+A successful method that employs “hard ﬁxing” is, e.g., Relaxation Induced Neighborhood
+Space (RINS) [Danna et al., 2005]. RINS ﬁxes the variables that have the same value both in
+the incumbent and in the linear programming relaxation solutions, thus deﬁning a reduced
+MIP, composed of the variables that differ in the linear programming relaxation and in the
+incumbent. This reduced search space is then explored by the general purpose MIP solver until
+a pre-speciﬁed number of nodes is explored.
+
+Some of the methods that make use of “soft ﬁxing” are POPMUSIC [Taillard and Voß, 2002],
+Kernel Search [Angelelli et al., 2010], Local Branching [Fischetti and Lodi, 2003], Variable Neigh-
+borhood Decomposition Search [Hansen et al., 2001], coupled with local branching [Hansen
+et al., 2006], and Diversiﬁcation, Reﬁning and Tight-reﬁning [Fischetti et al., 2004].
+
+POPMUSIC [Taillard and Voß, 2002] divides the initial solution space into “parts,” (the way
+in which parts are deﬁned is problem-speciﬁc) and then deﬁnes a subproblem that includes
+the parts that are closer, according to a given metric, to the incumbent solution. Thus, all the
+solutions that do not belong to the parts included in the current subproblem are excluded from
+the problem.
+
+Kernel Search [Angelelli et al., 2010] is similar to POPMUSIC since “buckets,” analogous to
+parts, are deﬁned at the beginning of the search process. During the execution, the algorithm re-
+vises the deﬁnition of the core problem, called “kernel,” by adding/removing buckets to/from
+
+27
+
+the current problem. Once the current kernel is deﬁned, an exact method, e.g., a general purpose
+MIP solver, is applied to the restricted problem.
+
+Local Branching [Fischetti and Lodi, 2003] is another soft ﬁxing technique, in which the
+introduction of linear constraints is used to cut solutions from the feasible space. Such linear
+constraints deﬁne boundaries based on maximum distance, typically a hamming distance, from
+the incumbent solution. In other words, the feasible space of the constraint problem includes
+only solutions that are not too far away from the incumbent. When presented, local branching
+was used within a branch and bound framework and, therefore, it produced provably optimal
+solutions.
+
+Variable Neighborhood Decomposition Search [Hansen et al., 2001] is in line with the strat-
+egy employed by POPMUSIC and Kernel Search. Neighborhoods around an incumbent are
+deﬁned using a distance metric and explored via any method, e.g., a general purpose MIP
+solver. If a local optimum better than the incumbent is found in the current neighborhood,
+the neighborhood is re-centered around the new incumbent and the mechanism moves on to
+the exploration of the new neighborhood. If no improvement occurs, the search moves to the
+next neighborhood deﬁned around the same incumbent. An interesting modiﬁcation of variable
+neighborhood decomposition is provided in Hansen et al. [2006], where variable neighborhood
+search is coupled with local branching. Neighborhoods are deﬁned imposing linear constraints
+on the MILP model, as done in local branching, and then explored using a general purpose MIP
+solver as black box.
+
+Finally, another successful framework has been proposed in Fischetti et al. [2004]. The
+method is called Diversiﬁcation, Reﬁning and Tight-reﬁning (DRT) and is aimed at tackling
+problems with two-level variables, in which ﬁxing the value of the ﬁrst-level variables leads to
+an easier to solve, but still hard, subproblem. This is the case in, e.g., the CFLP, since ﬁxing a set
+of open facilities greatly reduces the complexity of the associated subproblem. The authors pro-
+pose to initially use local branching on the ﬁrst-level variables by adding a “reﬁning” constraint
+to the original MIP and then applying a MIP solver to the derived subproblem. If this subprob-
+lem is not solved to optimality within a prespeciﬁed time limit, a local branching constraint
+that deﬁnes boundaries for the second-level variables is added to the current subproblem. The
+tight-reﬁned subproblem is then addressed using the general purpose MIP solver at hand.
+
+All the methods presented above share similarities among themselves and present unique
+peculiarities that separate each one of them from the others. The corridor method can be prop-
+erly framed in this context, since it shares some features with many of the aforementioned meth-
+ods, e.g., the soft-ﬁxing, the use of linear constraints to deﬁne a corridor around the incumbent
+solution, the partial exploration of the subproblem via a black-box method (an MIP solver, dy-
+namic programming, etc.). However, its intertwined use of the aforementioned features with
+other techniques, e.g., Lagrangean relaxation, the cross entropy method, etc. in the deﬁnition
+of the “corridor” makes the proposed algorithm quite successful in dealing with a wide spec-
+trum of combinatorial optimization problems. Beside the applications presented in this sec-
+tion, the corridor method has been successfully applied to, e.g., the container pre-marshalling
+problem [Caserta and Voß, 2009a], the construction of a discrete support vector machine clas-
+siﬁer [Caserta et al., 2010a], the lot sizing problem [Caserta and Voß, 2013b], and the reliability
+problem [Caserta and Voß, 2016a].
+
+2.3.6 A Summary on the Use of Constrained-based Approaches. Constrained-based ap-
+proaches rely on the use of:
+
+– An incumbent generator, to inexpensively obtain an initial solution. Such incumbent gener-
+
+ator mechanism can be designed:
+
+28
+
+• Using an MIP solver, which is stopped right after the ﬁrst feasible solution is reached;
+• Using a greedy construction mechanism;
+• Using a relaxation-based mechanism, which enlarges the “feasible” space and, there-
+fore, allows to quickly ﬁnd an initial solution. This is somehow similar to the allowed
+infeasible space presented in Section 2.1. However, using a dual-based relaxation ap-
+proach provides, as a byproduct, a set of dual costs, which can be used to deﬁne a “core
+problem.”
+
+– A two-level problem, with a set of binary variables, which capture strategic decisions, and
+
+a set of continuous variables, modeling operational decisions.
+
+– An exogenous constraint, which reduces the solution space, e.g., via state reduction in the
+case of dynamic programming, or imposing a maximum hamming distance, for a MIP-
+based approach, etc. Such exogenous constraint typically “soft-ﬁxes” some of the strategic
+variables, thus imposing a maximum distance from the incumbent. If the incumbent is ob-
+tained via some sort of relaxation mechanism, we need to ensure that the size of the corridor,
+i.e., the maximum distance, is large enough to ensure that the intersection with the feasible
+space is not empty.
+
+– A solution method, possibly exact, which is used to explore the reduced solution space in-
+duced by the application of the exogenous constraint onto the original feasible space. The
+method employed is problem speciﬁc and can be borrowed from mathematical program-
+ming, constraint programming, or other optimization techniques.
+
+Component
+incumbent generator greedy, MIP,
+
+Technique
+
+relaxation
+exogenous constraint soft-ﬁxing
+solution method
+
+Property
+inexpensive; an infeasible incumbent might
+be produced. Dual costs with relaxation
+a distance is imposed w.r.t. the incumbent
+
+DP, B&C, etc. a method than can solve the induced problem,
+
+perhaps using a “core” set of variables
+
+Table 3. Three constraint-based components.
+
+2.4 Relaxation-based Approaches
+
+Relaxation-based approaches refer to algorithms in which the exploration of the solution space
+is driven by a relaxation mechanism and the corresponding dual values. For example, a linear
+programming mechanism that exploits the reduced cost values to decide which portions of
+the solution space should be explored can be seen as a relaxation-based approach. Along the
+same line, one could use Lagrangean relaxation to quickly generate infeasible solutions and
+then rely on the Lagrangean costs to identify a set of promising variables, or a subportion of
+the solution space worth exploring with a primal scheme. Such relaxation-based approaches
+have been widely employed in the context of matheuristics, and are in general quite successful,
+especially when combined with an effective primal scheme.
+
+Let us consider again the capacitated facility location problem presented in Section 2.3.2.
+(Other relaxation-based approaches are presented in Caserta [2007] and Caserta and Rico
+[2009b].) More precisely, we study here the deterministic multi-source variant (MS-CFLP) pre-
+sented in Section 2.2.4 and deﬁned by (9)–(13), where dj is set at its mean or nominal value ¯dj.
+
+29
+
+The peculiarity of this variant of the CFLP is that each customer can be served by more than
+one facility, as implied by the continuous nature of the transportation variables xij. Let us relax
+the capacity constraints (11) in a Lagrangean fashion, such that the objective function can be
+rewritten as:
+
+m(cid:88)
+
+n(cid:88)
+
+ n(cid:88)
+
+m(cid:88)
+
+λi
+
+
+
+djxij − siyi
+
+min zL =
+
+=
+
+fiyi +
+
+i=1
+
+j=1
+
+yi (fi − λisi) +
+
+cijxijdj +
+
+m(cid:88)
+
+n(cid:88)
+
+i=1
+
+j=1
+
+xijdj (cij + λi)
+
+m(cid:88)
+m(cid:88)
+
+i=1
+
+i=1
+
+i=1
+
+j=1
+
+where λi ≥ 0 is the Lagrangean multiplier associated to the ith capacity constraint.
+
+Given a vector of multipliers λ = (λ1, . . . , λm), let us deﬁne the Lagrangean costs of variables
+
+yi and xij as:
+
+i (λi) = fi − λisi
+f(cid:48)
+c(cid:48)
+ij(λi) = dj (cij + λi)
+
+(29)
+(30)
+
+Thus, for any given set of multipliers, we can write the Lagrangean relaxation of the (MS-
+
+CFLP) as:
+
+L(λ) = min
+
+s.t.
+
+m(cid:88)
+
+n(cid:88)
+
+f(cid:48)
+i (λi)yi +
+
+i=1
+
+j=1
+
+xij = 1,
+
+siyi ≥ n(cid:88)
+
+dj
+
+i=1
+
+m(cid:88)
+m(cid:88)
+m(cid:88)
+
+i=1
+
+i=1
+
+j=1
+
+yi ∈ {0, 1} ,
+0 ≤ xij ≤ 1,
+
+c(cid:48)
+ij(λi)xij
+
+j = 1, . . . , n
+
+i = 1, . . . , m
+
+i = 1, . . . , m
+
+j = 1, . . . , n
+
+(31)
+
+(32)
+
+(33)
+
+(34)
+(35)
+
+where we have included the cumulative demand constraint (33) to tighten the relaxation. In
+addition, since we want to use the Lagrangean solution as incumbent for the CM scheme pre-
+sented in Section 2.3.2, this constraint is of paramount importance, since it ensures that the pool
+of facilities that are open in a Lagrangean solution have enough capacity to satisfy the total
+demand.
+
+For any given value of the Lagrangean multipliers λ, problem L(λ) can be efﬁciently solved
+using, e.g., a general purpose MIP solver. Due to the fact that L(λ) is a relaxation of the original
+(MS-CFLP), we know that, for every value of λ, z∗ ≥ L(λ), where z∗ is the objective function
+value of an optimal solution of the (MS-CFLP). Consequently, one wants to solve the following
+Lagrangean dual problem with respect to the set of multipliers λ ≥ 0:
+
+L(cid:0)λ, yL, xL(cid:1)
+
+max
+λ≥0
+
+(36)
+
+However, since ﬁnding an optimal solution to the Lagrangean dual is still too costly, we attempt
+to ﬁnd a near optimal set of multipliers λ using the subgradient optimization method. Let us deﬁne
+
+30
+
+the subgradient along direction i as:
+
+n(cid:88)
+
+si(λ) =
+
+djxL
+
+ij − siyL
+i ,
+
+i = 1, . . . , m
+
+j=1
+
+where the subgradient si(λ) is a function of λ via both yL and xL.
+
+At every iteration t of the subgradient optimization phase, a simple update rule for the
+
+multipliers is, therefore, given by:
+
+λt+1
+i = λt
+
+i + δ
+
+ub − lb
+||s(λt)||2 si(λt),
+
+i = 1, . . . , m
+
+where lb is the best (i.e., tightest) lower bound found via (36), ub is the best upper bound (ob-
+tained, e.g., using a repair heuristic or, as explained below, a corridor method-based approach),
+and δ is the step size.
+
+At this point, the connection between the Lagrangean relaxation scheme and the corridor
+method-based approach presented in Section 2.3.2 should be clear. Given the current set of
+multipliers λ, we obtain a current optimal solution to the Lagrangean problem L(λ). Due to the
+nature of the relaxation, unless (yL, xL) is optimal for the (MS-CFLP), the Lagrangean solution
+will not be feasible. Thus, to obtain a feasible solution for the (MS-CFLP), we need to employ a
+reﬁning mechanism that takes into account the capacity constraints (16). We employ the corridor
+method to restore feasibility starting from a Lagrangean solution. More precisely, we deﬁne a
+corridor around the Lagrangean solution using constraint (20), which bounds the feasible space
+of problem (MS-CFLP) to solutions that are “not too different” from the current Lagrangean
+solution. More precisely, we set a limit on the number of facilities that swap their state (from
+open to closed and vice versa) to no more than γm facilities. Consequently, with γ, we control
+the width of the corridor and, with that, the size of the search space. Finally, constraint (20)
+is added to the (MS-CFLP) and a general purpose MIP solver is used to explore the reduced
+solution space. In addition, we further use the information provided by the Lagrangean phase to
+reduce the size of the problem, i.e., to identify a set of variables that can be ﬁxed to zero. When a
+near-optimal Lagrangean multiplier is given, the Lagrangean cost of a variable provides a good
+proxy for the goodness of the variable. Consequently, we use Equations (29) and (30) to identify
+the most expensive, i.e., least attractive, variables of the problem and we set these variables to
+zero. The intertwined use of the corridor constraint and the ﬁxing scheme allows to deﬁne a
+“core” problem of manageable size, amenable to solution via a MIP solver.
+
+3 Algorithm Calibration and Fine Tuning
+
+In this section, we discuss an important issue related to the design and analysis of metaheuris-
+tics and related algorithms. As mentioned in the introduction, a key factor that has a bearing
+on the overall performances of most of these algorithms is the calibration of the algorithmic pa-
+rameters. Thus, a natural question concerns how to select an appropriate set of values for these
+parameters. This important topic in metaheuristic design goes under the name of ﬁne tuning of
+algorithmic parameters.
+
+According to Adenso-Diaz and Laguna [2006], there is evidence that 10% of the time re-
+quired to develop a new metaheuristic is devoted to the actual development and that the re-
+maining 90% is spent on ﬁne tuning of algorithmic parameters. In addition, ﬁne tuning of
+parameters strongly affects the ﬁnal performance of an algorithm. For these reasons, it is of
+
+31
+
+paramount importance to make a concerted effort in identifying and establishing a set of “stan-
+dard” techniques to ﬁne-tune a metaheuristic. One of the major achievements of such an ef-
+fort would be to offset parameter speciﬁc issues in evaluating an algorithm. In addition, repro-
+ducibility of results would also be enhanced by such an approach, by making transparent the
+way in which parameter values should be set to tackle a given problem instance.
+
+A relevant issue in ﬁne tuning methods is related to the “budget” available to carry out the
+experiments, in the sense that the type of techniques used depends on the amount of time and
+computational power available. These elements affect the number of factors (parameters) and
+the number of levels (values) that can be considered in the experimental design.
+
+A second issue concerns the analysis of results in terms of robustness and sensitivity. In
+many circumstances, it is necessary to provide not only a “good” set of parameter values but
+also a measure of robustness and sensitivity with respect to those parameters. For this reason,
+the experiment should be designed in such a way that training and testing sets are used to create
+and to validate the model, respectively.
+
+Starting with the seminal paper of Johnson et al. [1989], in recent years a number of papers
+discussing the issue of algorithmic ﬁne tuning, and corresponding methods, have appeared in
+the literature. A review of some ﬁne tuning mechanisms is provided in Caserta and Voß [2010a].
+In the sequel, we present the author’s experience with the ﬁne tuning of matheuristics.
+
+3.1 Response Surface Methodology for the Lot Sizing Problem
+
+Let us consider the cross entropy method presented in Section 2.2.1. This population based
+method requires the calibration of two parameters, namely N, the population size, and ρ, the
+percentile used to identify the set of “elite solutions.” In this work, we illustrate how we adapted
+the response surface methodology of Box and Wilson [1951] to calibrate these two algorithmic
+parameters (with an application in lot sizing; cf. [Caserta and Rico, 2009b]). A similar approach
+was also employed in Caserta and Nodar [2008].
+
+We use the response-surface methodology with the two factors N and ρ to ﬁnd a good com-
+bination of factor levels for any given instance size. This phase of the experiment is divided into
+two parts:
+
+1. Experimentation phase: This phase can be seen as a preliminary study aimed at locating
+“promising” regions. First, an initial set of factor levels is chosen and, subsequently, using
+the steepest ascent method, the search is driven towards more attractive regions. The underly-
+ing assumption is that the surface can be approximated by a plane in the explored region.
+
+2. Exploration phase: Once the ﬁrst phase is concluded, we devote more attention to the region
+containing an optimal point. Using canonical analysis, the surface is explored in more details,
+abandoning the planarity assumption and introducing higher order terms.
+
+To begin with the ﬁrst phase, we need to select an initial set of factor levels. Figure 4 and
+Table 4 illustrate the initial conﬁguration for the ﬁrst phase of the experiment. Once we identify
+the region in which the initial search is to be performed, we run instances of different size
+with the ﬁve combinations of parameters illustrated in Table 4. More speciﬁcally, we run the
+algorithm on each instance for each combination of N and ρ. In Figure 4, O = (500, 0.15), and
+A = (100, 0.1), where for each pair the ﬁrst number indicates the value of N and the second
+number provides the value of ρ. Next, we collect the objective function value provided by the
+algorithm on each run and test the following linear model:
+
+Ye = β0 + β1N + β2ρ
+
+32
+
+Table 4. Design Center for Phase I.
+
+N ρ
+O 500 0.15
+A 200 0.10
+B 800 0.10
+C 800 0.20
+D 200 0.20
+
+After computing the coefﬁcients value of the regression model, we measure the signiﬁcance
+level of the regression via ANOVA. Using the steepest ascent method, we move the center of the
+experiment in the direction indicated by the gradient of Ye and, eventually, we identify a region
+that contains a minimum of Ye, which is, a region with a pronounced lack of ﬁt to a plane. At
+this point, we move to the second phase of the methodology.
+
+Fig. 4. Experimental design: Experimentation phase.
+
+In the second phase, we test a fourth-order model using a robust composite design based
+upon the Box-Behnken design. We center the experiment in the point N = 250, ρ = 0.15, with
+ranges of 300 for N and of 0.1 for ρ. However, due to the higher-order of the regression model,
+the number of combinations of factors tested must be increased. More speciﬁcally, the new
+design is presented in Figure 5, where eight points – E, F, G, H, I, L, M, and N – have been
+added to the design.
+
+Following the new design, we run the algorithm with the 13 different combinations of factor
+levels and, for each instance size, we collect the results in terms of the objective function value.
+The process is repeated with different instance size, both in terms of number of items and num-
+ber of periods. One interesting result observed from the ANOVA table of the fourth-order model
+is that the null hypothesis that states that the coefﬁcients of ρ of any order are different from zero
+could not be rejected. Consequently, it appears that ρ is not a meaningful parameter in the re-
+gression model, provided that its value is kept within the interval [0.1, 0.2]. Finally, the response
+surface function was used during the computational phase, to select appropriate values of N
+for any given instance size.
+
+33
+
+Fig. 5. Experimental design: Exploration phase.
+
+3.2 Biased Random Key Genetic Algorithm to ﬁne tune a Logical Analysis of Data
+
+Algorithm
+
+Let us consider the pattern generation phase for the Logical Analysis of Data presented in Sec-
+tion 2.2.5. The algorithm requires the calibration of four different parameters, namely:
+– the fuzziness level, which inﬂuence the properties of the patterns produced by CE;
+– the cross entropy population size N;
+– the cross entropy smoothing factor α;
+– a structural parameter of the algorithm that indicates whether the local search component
+
+should be used (parameter value equal to 1) or not used (value 0).
+To calibrate the algorithm in Caserta and Reiners [2016], we employ a recently proposed
+scheme known as biased random key genetic algorithm (BRKGA) [Gonc¸alves and Resende,
+2011], in a fashion similar to what is proposed in Mor´an-Mirabal et al. [2013]. The BRKGA
+is used to ﬁnd a good conﬁguration of the algorithmic parameters in an automatic fashion,
+thus reducing the time and effort of the calibration phase. In addition, as illustrated in Mor´an-
+Mirabal et al. [2013], the results obtained via automatic ﬁne tuning are often superior to those
+obtained via manual conﬁguration. BRKGA is implemented using the API available from Toso
+and Resende [2012]. We setup the BRKGA using each individual of the genetic algorithm to
+encode a speciﬁc set of parameters, then employing the ﬁtness value of the individual as a
+measure of the goodness of that speciﬁc choice of parameter values, where the ﬁtness value of
+each conﬁguration is the classiﬁcation accuracy produced by the algorithm running that speciﬁc
+conﬁguration of parameters. More speciﬁcally, we setup the following design (see Figure 6 for
+a representation of the chromosome and Mor´an-Mirabal et al. [2013] for a deeper explanation
+of the method):
+– fuzziness level φ ∈ {0.0, 0.05, 0.10, 0.15}
+– cross entropy population size N ∈ {10, 50, 100, 200}
+– cross entropy smoothing factor δ ∈ {0.1, 0.2, 0.5, 0.9}
+– with local search ls ∈ {0, 1}, where 0 indicates that the local search feature is not used, while
+
+1 indicates that the local search is activated.
+Consequently, the method works as follows: Let us suppose a chromosome is randomly
+
+produced as:
+
+x = [0.37, 0.54, 0.28, 0.61]
+
+34
+
+φ
+
+N
+
+δ
+
+ls
+
+Fig. 6. A chromosome for the BRKGA, used for the ﬁne tuning of four parameters: φ, N, δ, and ls.
+
+where each allele is associated to the parameter indicated in Figure 6. Thus, chromosome x de-
+termines the following value of parameters: φ = 0.05; N = 100; δ = 0.2, and ls = 1.1 Next,
+we run the algorithm with this speciﬁc set of parameter values and we associate the objective
+function value obtained with this conﬁguration of parameters to the ﬁtness value of the chro-
+mosome. The evolution of the population is governed by the rules of the BRKGA deﬁned in
+Gonc¸alves and Resende [2011].
+
+Interestingly, the BRKGA not only allows to automatically determine the numerical value
+of the parameters but also to test different versions of the same algorithm, via activa-
+tion/deactivation of some portions of the algorithm itself. As mentioned above, the parame-
+ter ls takes value 0 when the algorithm that makes use of the CE only is employed, while it
+takes value 1 when the full algorithm CE+LS is used. Thus, via automatic ﬁne-tuning we can
+determine what are the ingredients of the algorithm that should be used to achieve the best
+performance.
+
+3.3 Data Mining Approach for Metaheuristic Fine-tuning
+
+We propose a data mining based solution to the problem of tuning metaheuristics parameters
+and providing empirical evidence of its efﬁcacy ([Lessmann et al., 2011]). To that end, a case
+study is undertaken to systematically explore the feasibility of forecasting effective parame-
+ter settings for one particular metaheuristic, the Particle Swarm Optimization (PSO) algorithm.
+The study comprises established as well as state-of-the-art regression methods to scrutinize
+the nature of the relationship between the employed independent variables and effective pa-
+rameter values (e.g., linear versus nonlinear) and identiﬁes promising candidate models. Since
+embedding a forecasting model as tuning agent into PSO, or any other metaheuristic, would in-
+volve processing batches of data that become available throughout successive PSO iterations, a
+learning curve analysis [Perlich et al., 2003] is conducted to explore the forecasting models’ sen-
+sitivity towards data size and simulate online learning. With this analysis, additional records
+are iteratively added to the dataset and the accuracy of forecasting models derived from this
+data are examined by means of cross-validation. Thus, the learning curve analysis simulates a
+real-world application of the proposed approach where blocks of new data are made available
+over time through PSO iterations and facilitate recalibrating the forecasting model. This com-
+plements the assessment of different candidate models and lays ground for future research to
+develop and assess a hybrid metaheuristic with integrated tuning agent.
+
+The difference of the proposed method with the ones presented in Sections 3.1 and 3.2 is
+that, instead of employing an ofﬂine tuning mechanism, i.e., a mechanism that takes as input
+some characteristics of the instance at hand and provides a “good” set of parameter values be-
+fore the optimization process starts, in this paper we suggest organizing tuning in an online
+
+1 We use the following decoding scheme: A value for each allele is randomly generated in the interval
+[0, 1]. If the value of the ﬁrst allele is between 0 and 0.25, we set φ = 0.0; if it is between 0.26 and 0.5,
+φ = 0.05; if it is between 0.51 and 0.75, φ = 0.1 and if it is between 0.76 and 1, φ = 0.15. The same
+applies to the other alleles of the chromosome.
+
+35
+
+fashion. That is, we would like to learn which parameters work well for a given instance of a
+problem during the optimization phase and exploit this knowledge to increase the metaheuris-
+tics’ efﬁciency. Speciﬁcally, the beneﬁts of a well-designed tuning mechanism concern either the
+computational time, by reducing the total running time, or the solution quality, by increasing the
+ﬁnal solution quality. The conceptual advantage of our approach is that the online tuning proce-
+dure has access to more detailed information, i.e., about the particular problem instance, rather
+than a group of problems (e.g., the group of lot sizing problems). Moreover, many of the pre-
+vious tuning approaches employ techniques from the ﬁeld of parametric statistics. On the one
+hand, these procedures rely upon distributional assumptions that may well be violated in the
+focal application. Another concern relates to the prominent use of linear regression. Since this
+technique is unable to capture complex, nonlinear relationships in data, previous studies may
+have failed to identify the full potential of regression-based parameter tuning. Therefore, in this
+papers we propose to explore the true potential of regression-based tuning. This is achieved by
+(1) employing not only linear but also powerful non-parametric procedures, capable of approx-
+imating any existing relationship in data and (2) by collecting information during the search
+process and exploiting it in an online fashion within a self-adapting mechanism to update pa-
+rameter values.
+
+4 Statistical Analysis of Component-based Algorithms
+
+A critical issue not to be neglected is the evaluation of the performance of a newly proposed
+algorithm. This evaluation can be two-fold: On the one hand, one might want to show that
+the proposed algorithm is signiﬁcantly better, in the statistical sense, than other methods avail-
+able in the literature. On the other hand, and probably more interestingly, it is important to
+establish which components of the proposed algorithm have an impact on the performance of
+the same. As pointed out in Hooker [1995], this latter issue has often been neglected, since the
+modus operandi in the algorithmic research community, which fosters competition, privileges the
+identiﬁcation of the best possible algorithm, without really telling why.
+
+Controlled experiments are at the heart of a proper evaluation of an algorithm. In general,
+ANOVA-type experiments are used to establish (i) whether any signiﬁcant difference among
+competing algorithms exists, and (ii) how these competing algorithms should be ranked. Typi-
+cally, we assume that a pool of benchmark instances, possibly with different structural charac-
+teristics, is available. Thus, whenever possible, such benchmark sets should be used to evaluate
+the proposed algorithm.
+
+Fundamental ideas about how to deal with the design of computational experiments with
+heuristic methods are found in the seminal paper of Barr et al. [1995]. These authors recognize
+the importance of providing enough information to convince the reader of the “goodness” of
+the proposed approach, where “goodness” is measured along a number of different dimensions
+(e.g., accuracy, speed, robustness, or generalization of the approach.) In addition, the authors
+stress the importance of reproducibility of the results and the reliance on the use of standard
+statistical techniques (parametric and/or non-parametric) to compare the proposed approach
+with the best approaches available in the literature.
+
+Beyond the conﬁguration of the machine(s) used to carry out the evaluation, four important
+issues to be considered are: (i) What to measure, (ii) how to report the measure, (iii) how to
+analyze the results, and (iv) how to design the experiment. Let us brieﬂy discuss each of the
+four aforementioned points.
+
+What to measure? A key question concerns the identiﬁcation of the main goal behind the design
+of a new algorithm for a speciﬁc class of problems. An extensive list of potential objectives is
+
+36
+
+provided in Barr et al. [1995]. Often, the purpose is to design an algorithm that produces the best
+possible ﬁtness values, as expressed by a mathematical model used to describe the problem at
+hand. This is typically the case with heuristic algorithms, whose aim is to ﬁnd the best possible
+solution, with no guarantee of optimality. For example, consider the previously discussed set
+covering problem [Caserta, 2007], the reliability problem [Caserta and Uribe, 2009, Caserta and
+Voß, 2016a], or the facility location problem [Caserta and Voß, 2016b], among others. In each
+of these cases, the main goal was to design an algorithm whose performance was better than
+those of competing algorithms from the literature, as expressed by the objective function value
+obtained on a well deﬁned set of benchmark instances.
+
+Alternatively, one might want to design an algorithm with the aim of reaching previously
+known solutions in the minimum amount of computational time. This is often the case when
+an exact method is proposed. In these cases, the proposed algorithm competes with other exact
+methods and, therefore, the quality of the ﬁnal solution cannot be improved. However, one
+might either be interested in proving that the time to solution (or the number of evaluations,
+the asymptotic complexity, etc.) is lower or, alternatively, that the size of the instances that can be
+tackled by the newly proposed algorithm is larger than that of already available exact methods.
+(See, e.g., Caserta et al. [2012], Caserta and Voß [2015a], and Zehendner et al. [2015].)
+
+Finally, other speciﬁc performance indicators might be measured, depending on speciﬁc
+problem classes. Consider, e.g., classiﬁcation algorithms as the ones presented in Caserta and
+Reiners [2016] and Caserta et al. [2010a]. Classiﬁcation algorithms are typically evaluated using
+a confusion matrix, from which an accuracy rate can be derived.
+
+How to report the performance measure? The way in which the performance measures should be
+reported mainly depends on the nature of the algorithm, i.e., deterministic vs. stochastic.
+
+For a deterministic algorithm, with respect to each instance of the benchmark set, the same
+result is consistently obtained. Consequently, reporting the value (ﬁtness, running time, etc.)
+obtained by the algorithm on each instance is common practice. However, even when the main
+goal is to obtain better ﬁtness values, one should also report the running time required to reach
+such a solution.
+
+When the algorithm is stochastic in nature, summary statistics, as opposed to a unique indi-
+cator, should be reported. Typically, the average performance value along with some measure
+of dispersion, such as the standard deviation, are provided for each instance. In addition, the
+sample size used to obtain the reported summary statistics should be provided. Furthermore,
+one might want to report the best and the worst performance obtained by the algorithm, along
+with the number of times each of such performance values was reached.
+
+Both in the case of deterministic and stochastic heuristic algorithms, it is also valuable to
+report some gap measures. Typically, a gap is computed either with respect to the optimal ﬁtness
+value, whenever known, or with respect to a valid bound, e.g., the value of a relaxation, or the
+best value reported in the literature.
+
+Finally, special consideration is required when the problem at hand belongs to the realm
+of forecasting problems, as it is the case with classiﬁcation algorithms. Since the main goal of
+this family of algorithms is to assert the accuracy on unseen data, it is of paramount impor-
+tance that proper training and testing phases are designed, perhaps using well established tech-
+niques as k-fold cross validation, leave-one-out-validation, etc. Typically, the results reported
+are those obtained during the testing phase. (See, e.g., Caserta and Reiners [2016] and Caserta
+et al. [2010a].)
+
+How to analyze the results? Parametric or non-parametric statistical techniques should be used to
+assert the validity of the claims reported in the paper. We direct the interested reader to Demˇsar
+
+37
+
+[2006] and Garcia and Herrera [2008] for a broad overview of statistical methods for multiple
+comparison of algorithms. In addition, an introduction to parametric and non-parametric anal-
+ysis can be found in the appendix of Garc´ıa et al. [2009]. A non-comprehensive list of techniques
+used to validate claims on performance of an algorithm are:
+
+– ANOVA [Fisher, 1959]: If the assumptions of this parametric technique are satisﬁed (nor-
+mal distribution and homoscedasticity for each block of the design), repeated-measures
+ANOVA is used to establish whether signiﬁcant differences among competing algorithms
+are observed. If the ANOVA test leads to the rejection of the null hypothesis, a post-hoc
+analysis is conducted to establish which algorithms are signiﬁcantly different, e.g., Tukey
+post-hoc test [Tukey, 1949], or Dunnett test [Dunnett, 1980], when algorithms are compared
+against a “control group,” i.e., a basic algorithm such as, e.g., a simple local search. Often,
+the ANOVA assumptions are violated by the data and, therefore, one has to rely on a non-
+parametric technique. In addition, ANOVA exposes to the problem of “commensurability:”
+Since the variability among algorithms depends on the average value produced by each
+algorithm on multiple instances, such comparison is meaningful only if values produced
+across instances are somehow commensurable.
+
+– Friedman test [Friedman, 1937, 1940]: This test is the non-parametric equivalent of ANOVA
+and is used to determine whether the observed differences among groups, i.e., algorithms,
+are signiﬁcant. Since the test is based on ranking, the actual distance between any two algo-
+rithms is lost and one is only able to establish whether algorithms are different with respect
+to a performance measure.
+
+– Nemenyi test [Nemenyi, 1963]: A post-hoc test, similar to the Tukey post-hoc test for
+ANOVA, aimed at comparing each algorithm with the others, thus detecting for which algo-
+rithms there exists a statistically signiﬁcant difference in terms of ranking. The performance
+of two algorithms is signiﬁcantly different if the corresponding average ranks differ by at
+least a “critical difference.” (See, e.g., Caserta and Reiners [2016] for an extensive presenta-
+tion of the use of both Friedman test and post-hoc tests for the ranking of algorithms.) Other
+authors, e.g., Garc´ıa et al. [2009], suggest the use of the Bonferroni-Dunn’s procedure [Zar,
+1999], the sequentially rejective Bonferroni Test [Holms, 1979], or Hochberg’s step up pro-
+cedure [Hochberg, 1988]. The goal is to keep the family-wise type I error below a threshold
+value α while increasing the power of the test, i.e., the probability of rejecting a false null
+hypothesis.
+
+– Empirical cumulative distribution function, as suggested in, e.g., Aiex et al. [2002]: This ap-
+proach is used in conjunction with stochastic algorithms. Its purpose is to discriminate be-
+tween different algorithms, or different versions of the same algorithm, based on the proba-
+bility of obtaining a certain performance. As an example, let us consider a situation in which
+the main performance measure is the time to target, i.e., how long it takes for an algorithm
+to reach a pre-speciﬁed target value. Assume one is interested in testing different versions of
+the same algorithm, perhaps designed using different components, or different parameter
+values. One might run the same algorithm multiple times on the same instance, collecting
+the time to solution in each run. Finally, these results can be plotted to obtain the empirical
+cumulative distribution function, placing the performance measure, i.e., time to solution,
+and the cumulative probability of obtaining a given performance value on the x and y axes,
+respectively.
+Figure 7 provides an example of the use of the empirical cumulative distribution function
+aimed at comparing different versions of the same algorithm, in which different compo-
+nents are activated/deactivated. The performance of each algorithm is measured using an
+optimality gap, i.e., the distance between the best solution obtained by the proposed ver-
+
+38
+
+sion of the algorithm and the optimal solution for that speciﬁc instance. Obviously, one can
+obtain one distribution function for each instance of the benchmark set.
+
+Fig. 7. An example of the use of the empirical cumulative distribution function to discriminate between
+different versions of the same algorithm. Each line in the chart represents the cumulative distribution ob-
+tained using a speciﬁc version of the algorithm. The performance measured on the x axis is the optimality
+gap, while the y axis reports the cumulative probability of obtaining a given gap value. Source: Caserta
+and Reiners [2016].
+
+How to design the experiment? Well designed statistical experiments allow to make inference with
+respect to (i) which components of the algorithm should be included, or activated, in the ﬁnal
+version, and (ii) whether there is enough evidence to claim that statistically signiﬁcant differ-
+ences in performance are observed when comparing multiple algorithms (or multiple versions
+of the same algorithm.) Let us consider two different designs:
+
+– Nested algorithms: Assume one wants to determine the effect of different components of the
+algorithm on the performance measure. Let us indicate with A1 ⊂ A2 ··· ⊂ Ai ⊂ Ai+1 . . . ⊂
+Ak multiple versions of the same algorithm obtained with the following design strategy:
+Ai+1 includes all the components of Ai with the addition of a single component not in-
+cluded in Ai. We can thus say that Ai is nested within Ai+1. This type of experiment design
+allows to infer whether the component added at stage i + 1 makes algorithm Ai+1 signif-
+icantly better than algorithm Ai. ANOVA-type techniques for nested models, or empirical
+cumulative distribution functions, can then be used to analyze the results produced by each
+version of the algorithm. This controlled design of experiment is thus used to assess the
+impact of each speciﬁc component of the algorithm. Of course, an important limitation of
+the approach lies in the order in which the nested algorithms are created. However, it is
+often possible to establish a “natural” order, dictated by, e.g., the growing complexity of
+
+39
+
+a
+
+of
+
+we
+
+the different components. A good example of this approach is found in Caserta and Voß
+[2016a].
+
+pool
+
+have
+
+Assume
+
+algorithms:
+
+– Non-nested
+
+algorithms
+A1, A2, . . . , Ai, . . . , Aj, . . . , Ak. However, the nested property is not enforced now,
+in
+the sense that two algorithms Ai and Aj might, or might not, have some components in
+common, but there exists at least one component in Ai that is not in Aj, and vice versa. With
+this type of design, no conclusions can be drawn with respect to the impact of each speciﬁc
+algorithmic component. Nevertheless, we can still make inference with respect to the
+effectiveness of each of the algorithms in the pool using, e.g., ANOVA-type techniques or
+the empirical cumulative distribution function. (See, e.g., Caserta and Voß [2009c], Caserta
+and Voß [2009b], and Caserta et al. [2010a].)
+Let us ﬁnally summarize the most important ﬁndings presented in this section. We have
+identiﬁed four fundamental dimensions concerning the statistical analysis of algorithms,
+namely (i) what to measure, (ii) how to measure it, (iii) how to analyze the results, and (iv) how
+to design a proper experiment. With respect to the statistical analysis of results, we have hereby
+provided a brief summary of some of the most important parametric and non-parametric sta-
+tistical techniques, which could be employed to assess the performance of an algorithm, both
+with respect to different versions of the same algorithm as well as in comparison with compet-
+ing algorithms designed for the same class of problems.
+
+Table 5 provides a list of parametric and non-parametric techniques for multiple compar-
+isons. Finally, a word of caution on the use of statistical analysis and hypothesis testing to eval-
+uate algorithmic performance is provided in Cohen [1994]. This author argues that statistical
+tests are often misused, either due to misinterpretation or because too much emphasis is placed
+on the results. In this regard, an interesting debate concerning the appropriateness of the use of
+null hypothesis signiﬁcance testing in general is still ongoing within the statistics community.
+(See also Nickerson [2000].) Along the same line, Demˇsar [2006], while advocating the use of
+statistical tests to measure performance, states that these tests, or the obtained results, should
+not be the deciding factor for or against publishing the work, since the proposed algorithm
+might have other merits that cannot be grasped and quantiﬁed via statistical tests.
+
+Technique
+ANOVA
+
+Friedman
+
+Nemenyi
+
+Advantages/Drawbacks
+Comparison of multiple algorithms. Being a parametric technique,
+normality and homoscedasticity assumptions need to be satisﬁed.
+Issue of commensurability.
+Signed rank test for multiple comparisons of algorithms. Less powerful
+than ANOVA, but no assumptions are required.
+
+Tukey, Bonferroni Post-hoc multiple t-tests with correction factor to ensure a family-wise
+
+type I error below α. T-tests assumptions must be veriﬁed.
+Post-hoc tests based on the computation of a critical distance: Two
+algorithms are different if the average ranking difference exceeds
+the critical distance. Used when all algorithms are compared against each other.
+
+Bonferroni-Dunn Based on computation of a critical distance. More powerful than
+
+Holms, Hochberg Sequential procedures for multiple tests, based on the comparison of
+
+Nemenyi when each algorithm is compared against a control algorithm.
+
+ordered statistics with corresponding critical values. More powerful than
+Bonferroni-Dunn. Used to compare each algorithm against the control.
+
+Table 5. A summary of statistical techniques for the evaluation of multiple algorithms.
+
+40
+
+5 Conclusions
+
+In this paper, we have presented an overview of the author’s experimentation with the design of
+metaheuristics in general, and matheuristics in particular, over the last decade. The presentation
+is far from being comprehensive and is limited to the type of problems and applications the
+author has been exposed to. Therefore, this document only provides a glimpse through the
+complex topic of effective design of matheuristics. However, some useful insight along a few
+dimensions that are of paramount importance has been provided in this manuscript.
+
+The approach undertaken in this paper is component oriented. While it must be reckoned
+that providing a clear set of rules for metaheuristic design for any given class of problems seems
+at this stage impossible, it is also worth pointing out that, from an analysis of the literature,
+clear patterns in the direction of component selection for speciﬁc tasks seem to emerge. More
+speciﬁcally, in this paper we considered the use of memory, the design of population-based
+approaches, the exploitation of constraint-based approaches for matheuristics, and, ﬁnally, the
+critical issue of calibration and ﬁne tuning of algorithmic parameters. Each of these dimen-
+sions can be effectively implemented via the use of one or more of the components presented in
+Tables 1–3. In turn, multiple techniques are available for each component, depending on some
+problem-speciﬁc characteristics, as well as the properties the designer aspire to achieve with the
+proposed algorithm. While the components list provided in this paper is far from being compre-
+hensive, one might envision the creation of a library, or catalog, of metaheuristic components
+from which a designer could select the most appropriate ones, to assemble a metaheuristic for
+the problem at hand.
+
+Bibliography
+
+B. Adenso-Diaz and M. Laguna. Fine-tuning of algorithms using fractional experimental de-
+
+signs and local search. Operations Research, 54(1):99–114, 2006.
+
+R.M. Aiex, M.G. Resende, and C.C. Ribeiro. Probability distribution of solution time in grasp:
+
+An experimental investigation. Journal of Heuristics, 8(3):343–373, 2002.
+
+E. Angelelli, R. Mansini, and M.G. Speranza. Kernel search: A general heuristic for the multi-
+
+dimensional knapsack problem. Computers & Operations Research, 37(11):2017–2026, 2010.
+
+E. Balas and E. Zemel. An algorithm for large zero-one knapsack problems. Operations Research,
+
+28(5):1130–1154, 1980.
+
+O. Baron, J. Milner, and H. Naseraldin. Facility location: A robust optimization approach. Pro-
+
+duction and Operations Management, 20(5):772–785, 2010.
+
+R.S. Barr, B.L. Golden, J.P. Kelly, M.G. Resende, and W.R. Stewart. Designing and reporting on
+
+computational experiments with heuristic methods. Journal of Heuristics, 1(1):9–32, 1995.
+
+A. Ben-Tal, B. Golany, A. Nemirovsky, and J.-P. Vial. Retailer-supplier ﬂexible commitments
+contracts: A robust optimization approach. Manufacturing & Service Operations Management,
+7(3):248–271, 2005.
+
+A. Ben-Tal, L. El-Ghaoui, and A. Nemirovsky. Robust Optimization. Princeton University Press,
+
+2009.
+
+C. Blum, J. Puchinger, G. R. Raidl, and A. Roli. Hybrid metaheuristics in combinatorial opti-
+
+mization: A survey. Applied Soft Computing, 11(6):4135 – 4151, 2011.
+
+T. O. Bonates, P. L. Hammer, and A. Kogan. Maximum patterns in datasets. Discrete Applied
+
+Mathematics, 156(6):846–861, 2008.
+
+J. Borneman, M. Chrobak, G. Della Vedova, A. Figueroa, and T. Jiang. Probe selection algorithms
+with applications in the analysis of microbial community. Bioinformatics - Discovery Notes, 1
+(1):1–9, 2001.
+
+E. Boros, P.L. Hammer, T. Ibaraki, and A. Kogan. Logical analysis of numerical data. Mathemat-
+
+ical Programming, 79(1-3):163–190, 1997.
+
+E. Boros, P. L. Hammer, T. Ibaraki, A. Kogan, E. Mayoraz, and I. Muchnik. An implementation
+of logical analysis of data. IEEE Transaction on Knowledge and Data Engineering, 12(2):292–306,
+2000.
+
+G.E.P. Box and K.B. Wilson. On the experimental attainment of optimum conditions. Journal of
+
+the Royal Statistical Society, Series B - 13:1–45, 1951.
+
+M. Caserta. Tabu search-based metaheuristic algorithm for large-scale set covering problems.
+In K.F. Doerner, M. Gendreau, P. Greistorfer, W. Gutjahr, R.F. Hartl, and M. Reimann, editors,
+Metaheuristics: Progress in Complex Systems Optimization, pages 43–63. Springer, US, 2007.
+
+M. Caserta and M. Cabo Nodar. A cross entropy based algorithm for reliability problems. Jour-
+
+nal of Heuristics, 15(5):479–501, 2008.
+
+M. Caserta and T. Reiners. A pool-based pattern generation algorithm for logical analysis of
+data with automatic ﬁne-tuning. European Journal of Operational Research, 248(2):593–606, 2016.
+M. Caserta and E. Qui ˜nonez Rico. A cross entropy-based metaheuristic algorithm for large-
+scale capacitated facility location problems. Journal of the Operational Research Society, 60(10):
+1439–1448, 2009a.
+
+M. Caserta and E. Qui ˜nonez Rico. A cross entropy-lagrangean hybrid algorithm for the multi-
+item capacitated lot-sizing problem with setup times. Computers & Operations Research, 36(2):
+530–548, 2009b.
+
+M. Caserta and A. M´arquez Uribe. Tabu search-based metaheuristic algorithm for software
+
+system reliability problems. Computers & Operations Research, 36(3):811–822, 2009.
+
+42
+
+M. Caserta and S. Voß. A corridor method-based algorithm for the pre-marshalling problem.
+In M. Giacobini, A. Brabazon, S. Cagnoni, G. Di Caro, A. Ek´art, A.I. Esparcia-Alc´azar, M. Fa-
+rooq, A. Fink, and P. Machado, editors, Lecture Notes in Computer Science, 5484, pages 788–797.
+Springer, Berlin Heidelberg, 2009a.
+
+M. Caserta and S. Voß. Corridor selection and ﬁne tuning for the corridor method. In T. St ¨utzle,
+editor, Lecture Notes in Computer Science, 5851, pages 163–175. Springer, Berlin Heidelberg,
+2009b.
+
+M. Caserta and S. Voß. A cooperative strategy for guiding the corridor method. In N. Krasno-
+gor, B. Meli´an-Batista, J.A. P´erez Moreno, J.M. Moreno-Vega, and D.A. Pelta, editors, Nature
+Inspired Cooperative Strategies for Optimization (NICSO 2008), pages 273–286. Springer, Berlin
+Heidelberg, 2009c.
+
+M. Caserta and S. Voß. Metaheuristics: Intelligent problem solving. In V. Maniezzo, T. St ¨utzle,
+and S. Voß, editors, Matheuristics: Hybridizing Metaheuristics and Mathematical Programming,
+pages 1–38. Springer, US, 2010a.
+
+M. Caserta and S. Voß. A math-heuristic algorithm for the DNA sequencing problem. In C. Blum
+and R. Battiti, editors, Lecture Notes in Computer Science, 6073, pages 25–36. Springer, Berlin
+Heidelberg, 2010b.
+
+M. Caserta and S. Voß. A math-heuristic Dantzig-Wolfe algorithm for capacitated lot sizing.
+
+Annals of Mathematics and Artiﬁcial Intelligence, 69(2):207–224, 2013a.
+
+M. Caserta and S. Voß. A MIP-based framework and its application on a lot sizing problem with
+
+setup carryover. Journal of Heuristics, 19(2):295–316, 2013b.
+
+M .Caserta and S. Voß. Workgroups diversity maximization: A metaheuristic approach. In M.J.
+Blesa, C. Blum, P. Festa, A. Roli, and M. Sampels, editors, Proceedings of HM 2013 - Hybrid
+Metaheuristics: 8th International Workshop, pages 118–129, Ischia, Italy, 2013.
+
+M. Caserta and S. Voß. A hybrid algorithm for the DNA sequencing problem. Discrete Applied
+
+Mathematics, 163(14):87–99, 2014.
+
+M. Caserta and S. Voß. An exact algorithm for the reliability redundancy allocation problem.
+
+European Journal of Operational Research, 244(1):110–116, 2015a.
+
+M. Caserta and S. Voß. A discrete-binary transformation of the reliability redundancy allocation
+
+problem. Mathematical Problems in Engineering, 2015b.
+
+M. Caserta and S. Voß. A corridor method based hybrid algorithm for redundancy allocation.
+
+Journal of Heuristics, 22(4):405–429, 2016a.
+
+M. Caserta and S. Voß. A general corridor method-based approach for capacitated facility loca-
+
+tion. Technical report, IE University, 2016b.
+
+M. Caserta, E. Qui ˜nonez Rico, and A. M´arquez Uribe. A cross entropy algorithm for the knap-
+
+sack problem with setups. Computers & Operations Research, 35(1):241–252, 2008.
+
+M. Caserta, S. Lessmann, and S. Voß. A novel approach to construct discrete support vector
+machine classiﬁers. In A. Fink, B. Lausen, W. Seidel, and A. Ultsch, editors, Advances in Data
+Analysis, Data Handling and Business Intelligence, pages 115–125. Springer, Berlin Heidelberg,
+2010a.
+
+M. Caserta, A. Ramirez, and S. Voß. A math-heuristic for the multi-level capacitated lot sizing
+problem with carryover. In C. Di Chio, A. Brabazon G. Di Caro, M. Ebner M. Farooq, A. Fink,
+J. Grahl, G. Greenﬁeld, P. Machado, M. O’Neill, E. Tarantino, and N. Urquhart, editors, Lecture
+Notes in Computer Science, 6025, pages 462–471. Springer, Berlin Heidelberg, 2010b.
+
+M. Caserta, S. Schwarze, and S. Voß. Container rehandling at maritime container terminals.
+In W. J ¨urgen B¨ose, editor, Handbook of Terminal Planning, pages 247–269. Springer, New York,
+2011a.
+
+M. Caserta, S. Voß, and M. Sniedovich. Applying the corridor method to a blocks relocation
+
+problem. OR Spectrum, 33(4):915–929, 2011b.
+
+43
+
+M. Caserta, S. Schwarze, and S. Voß. A mathematical formulation and complexity considera-
+tions for the blocks relocation problem. European Journal of Operational Research, 219(1):96–104,
+2012.
+
+J. Cohen. The earth is round (p < 0.05). American Psycologist, 49(12):997–1003, 1994.
+F. Dammeyer, P. Forst, and S. Voss. Technical note – On the cancellation sequence method of
+
+tabu search. ORSA Journal on Computing, 3(3):262–265, 1991.
+
+E. Danna, E. Rothberg, and C. Pape. Exploring relaxation induced neighborhoods to improve
+
+mip solutions. Mathematical Programming, 102(1):71–90, 2005.
+
+P. De Boer, D. P. Kroese, S. Mannor, and R. Y. Rubinstein. A tutorial on the cross-entropy method.
+
+Annals of Operations Research, 134(1):19–67, 2005.
+
+J. Demˇsar. Statistical comparisons of classiﬁers over multiple data sets. Journal of Machine Learn-
+
+ing Research, 7(Jan):1–30, 2006.
+
+27(3):326–327, 1995.
+
+T. Dietterich. Overﬁtting and undercomputing in machine learning. ACM Computing Surveys,
+
+M. Dorigo and T. St ¨utzle. Ant Colony Optimization. MIT Press, Cambridge, 2004.
+M. Dorigo, V. Maniezzo, and A. Colorni. Ant systems: Optimization by a colony of cooperating
+agents. IEEE Transactions on Systems, Man, and Cybernetics – Part B: Cybernetics, 26:29–41, 1996.
+C.W. Dunnett. A multiple comparison procedure for comparing several treatments with a con-
+
+trol. Journal of American Statistical Association, 50:1096–1121, 1980.
+
+D. Feillet, P. Dejax, and M. Gendreau. Traveling salesman problems with proﬁts. Transportation
+
+Science, 39(2):188–205, 2005.
+
+M. Fischetti and A. Lodi. Local branching. Mathematical Programming, 98(1):23–47, 2003.
+M. Fischetti, J. J. Salazar Gonz´alez, and P. Toth. Solving the orienteering problem through
+
+branch-and-cut. INFORMS Journal on Computing, 10(2):133–148, 1998.
+
+M. Fischetti, C. Polo, and M. Scantamburlo. A local branching heuristic for mixed-integer pro-
+grams with 2-level variables, with an application to a telecommunication network design
+problem. Networks, 44(2):61–72, 2004.
+
+R.A. Fisher. Statistical Methods and Scientiﬁc Inference. Hafner Publishing Co., New York, 1959.
+M. Friedman. The use of ranks to avoid the assumption of normality implicit in the analysis of
+
+variance. Journal of the American Statistical Association, 32:675–701, 1937.
+
+M. Friedman. A comparison of alternative tests of signiﬁcance for the problem of m ranking.
+
+Annals of Mathematical Statistics, 11:86–92, 1940.
+
+S. Garcia and F. Herrera. An extension on “statistical comparisons of classiﬁers over multiple
+Journal of Machine Learning Research, 9(Dec):2677–
+
+data sets” for all pairwise comparisons.
+2694, 2008.
+
+S. Garc´ıa, D. Molina, M. Lozano, and F. Herrera. A study on the use of non-parametric tests
+for analyzing the evolutionary algorithms’ behaviour: A case study on the cec’2005 special
+session on real parameter optimization. Journal of Heuristics, 15(6):617–644, 2009.
+
+I. Ghamlouche, T. G. Crainic, and M. Gendreau. Path relinking, cycle-based neighbourhoods
+and capacitated multicommodity network design. Annals of Operations Research, 131(1):109–
+133, 1-4 2004.
+
+F. Glover. Tabu search – Part I. ORSA Journal on Computing, 1(3):190–206, 1989.
+F. Glover. Tabu search – Part II. ORSA Journal on Computing, 2(1):4–32, 1990.
+F. Glover. Scatter search and path relinking. In D. Corne, M. Dorigo, and F. Glover, editors, New
+
+Methods in Optimization, pages 297–316. McGraw Hill, 1999.
+
+F. Glover and M. Laguna. Tabu Search. Springer, US, 1997.
+F. Glover, M. Laguna, and R.Marti. Fundamentals of scatter search and path relinking. Control
+
+and Cybernetics, 39(3):653–684, 2000.
+
+D.E. Goldberg. Genetic Algorithms in Search, Optimization, and Machine Learning. Addison-Wesley,
+
+Reading, 1989.
+
+44
+
+(4):800–803, 1988.
+
+Arbor, 1975.
+
+tics, 6(2):65–70, 1979.
+
+J. F. Gonc¸alves and M.G.C. Resende. Biased random-key genetic algorithms for combinatorial
+
+optimization. Journal of Heuristics, 17(5):487–525, 2011.
+
+P. Hansen, N. Mladenovi´c, and D. Perez-Britos. Variable neighborhood decomposition search.
+
+Journal of Heuristics, 7(4):335–350, 2001.
+
+P. Hansen, N. Mladenovi´c, and D. Urosevi´c. Variable neighborhood search and local branching.
+
+Computers & Operations Research, 33(10):3034–3045, 2006.
+
+Y. Hochberg. A sharper bonferroni procedure for multiple tests of signiﬁcance. Biometrika, 75
+
+J.H. Holland. Adaptation in Natural and Artiﬁcial Systems. University of Michigan Press, Ann
+
+S. Holms. A simple sequentially rejective multiple test procedure. Scandinavian Journal of Statis-
+
+J.N. Hooker. Testing heuristics: We have it all wrong. Journal of heuristics, 1(1):33–42, 1995.
+D. Johnson, C. Aragon, L.A. McGeoch, and C. Schevon. Optimization by simulated annealing:
+An experimental evaluation. part i, graph partitioning. Operations Research, 37(6):865–892,
+1989.
+
+J. Kennedy and R.C. Eberhart. Particle swarm optimization. In Proceedings of the IEEE interna-
+
+tional conference on neural networks, volume IV, pages 1942–1948, 1995.
+
+K. H. Kim and G. P. Hong. A heuristic rule for relocating blocks. Computers & Operations
+
+W. Kuo, V. R. Prasad, F. A. Tillman, and C. Hwang. Optimal Reliability Design. Cambridge
+
+Research, 33(4):940–954, 2006.
+
+University Press, 2001.
+
+S. Lessmann, M. Caserta, and I. Montalvo Arango. Tuning metaheuristics: A data mining based
+approach for particle swarm optimization. Expert Systems with Applications, 38(10):12826–
+12838, 2011.
+
+V. Maniezzo, T. St ¨utzle, and S. Voß, editors. Matheuristics: Hybridizing Metaheuristics and Mathe-
+
+matical Programming. Springer, 2010.
+
+L. F. Mor´an-Mirabal, J. L. Gonz´alez-Velarde, and M.G.C. Resende. Automatic tuning of grasp
+with evolutionary path-relinking. In M. J. Blesa, C. Blum, P. Festa, A. Roli, and M. Sampels,
+editors, Hybrid Metaheuristics, volume 7919 of Lecture Notes in Computer Science, pages 62–77.
+Springer, 2013.
+
+P.B. Nemenyi. Distribution-free multiple comparisons. PhD thesis, Princeton University, 1963.
+R.S. Nickerson. Null hypothesis signiﬁcance testing: A review of an old continuing controversy.
+
+Psychological Methods, 5(2):241–301, 2000.
+
+C. Perlich, F. Provost, and J.S. Simonoff. Tree induction vs. logistic regression: A learning-curve
+
+analysis. Journal of Machine Learning Research, 4(2):211–255, 2003.
+
+G. R. Raidl and J. Puchinger. Combining (integer) linear programming techniques and meta-
+heuristics for combinatorial optimization.
+In C. Blum, M.J. Blesa Aguilera, A. Roli, and
+M. Sampels, editors, Hybrid Metaheuristics: An Emerging Approach to Optimization, pages 31–62.
+Springer, Berlin Heidelberg, 2008.
+
+M. Sniedovich and S. Voß. The corridor method: A dynamic programming inspired metaheuris-
+
+tic. Control and Cybernetics, 35(3):551–578, 2006.
+
+E. Taillard and S. Voß. POPMUSIC partial optimization metaheuristic under special intensiﬁca-
+tion conditions. In C.C. Ribeiro and P. Hansen, editors, Essays and Surveys in Metaheuristics,
+pages 613–629. Kluwer, 2002.
+
+R. F. Toso and M.G.C. Resende. A C++ application programming interface for biased random-
+
+key genetic algorithms. Technical report, AT& Labs Research, Florham Park, NJ, 2012.
+
+T. Tsiligirides. Heuristic methods applied to orienteering.
+
+Society, 35(9):797–809, 1984. ISSN 01605682.
+
+Journal of the Operational Research
+
+J.W. Tukey. Comparing individual means in the analysis of variance. Biometrics, 5:99–114, 1949.
+J. H. Yang and K. H. Kim. A grouped storage method for minimizing relocations in block
+
+stacking systems. Journal of Intelligent Manufacturing, 17(4):453–463, 2006.
+
+J.H. Zar. Biostatistical Analysis. Prentice Hall, Englewood Cliffs, 1999.
+E. Zehendner, M. Caserta, D. Feillet, S. Schwarze, and S. Voß. An improved mathematical for-
+mulation for the blocks relocation problem. European Journal of Operational Research, 245(2):
+415–422, 2015.
+
+45
+
+
