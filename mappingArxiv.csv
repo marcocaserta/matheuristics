@@ -1,443 +1,1116 @@
 ,id,year,name,nrWords,title,author
-1000,1000,2010,1004.4170v1,1473,A New Metaheuristic Bat-Inspired Algorithm,Xin-She Yang
-1001,1001,2018,1804.09813v2,3957,"HG-means: A scalable hybrid genetic algorithm for minimum sum-of-squares
-  clustering",Thibaut Vidal
-1002,1002,2012,1207.1794v1,18000,"Design, Evaluation and Analysis of Combinatorial Optimization Heuristic
-  Algorithms",Daniel Karapetyan
-1003,1003,2011,1106.2686v1,1941,"Automated Software Testing Using Metahurestic Technique Based on An Ant
-  Colony Optimization",Km Baby
-1004,1004,2014,1407.4364v1,1711,"One-Step or Two-Step Optimization and the Overfitting Phenomenon: A Case
-  Study on Time Series Classification",Muhammad Marwan Muhammad Fuad
-1005,1005,2017,1711.09369v1,362,"Obtaining the coefficients of a Vector Autoregression Model through
-  minimization of parameter criteria",Alberto Pérez-Bernabeu
-1006,1006,2013,1303.2215v1,2728,Expensive Optimisation: A Metaheuristics Perspective,Maumita Bhattacharya
-1007,1007,2018,1807.06731v1,5237,"The MOEADr Package - A Component-Based Framework for Multiobjective
-  Evolutionary Algorithms Based on Decomposition",Claus Aranha
-1008,1008,2012,1206.1579v2,1988,"An Efficient Hybrid Ant Colony System for the Generalized Traveling
-  Salesman Problem",Daniel Karapetyan
-1009,1009,2018,1802.06318v1,4602,"Large Neighborhood-Based Metaheuristic and Branch-and-Price for the
-  Pickup and Delivery Problem with Split Loads",Richard Hartl
-1010,1010,2015,1504.02590v1,958,"Study of Some Recent Crossovers Effects on Speed and Accuracy of Genetic
-  Algorithm, Using Symmetric Travelling Salesman Problem",Kamran Zamanifar
-1011,1011,2017,1701.08709v2,2819,Diversification Methods for Zero-One Optimization,Fred Glover
-1012,1012,2012,1211.6409v1,1539,"Obesity Heuristic, New Way On Artificial Immune Systems",Magdy Rashad
-1013,1013,2019,1903.02079v1,1381,Optimizing Software Effort Estimation Models Using Firefly Algorithm,Rizik M. H. Al-Sayyed
-1014,1014,2018,1806.01681v1,2604,"Multi-Cohort Intelligence Algorithm: An Intra- and Inter-group Learning
-  Behavior based Socio-inspired Optimization Methodology",Anand J Kulkarni
-1015,1015,2015,1511.00195v1,2488,Optimized Mission Planning for Planetary Exploration Rovers,Alexander Lavin
-1016,1016,2018,1810.04348v2,5561,"Robust optimization of a broad class of heterogeneous vehicle routing
-  problems under demand uncertainty",Chrysanthos E. Gounaris
-1017,1017,2014,1404.6696v1,2679,Hybrid Metaheuristics for the Clustered Vehicle Routing Problem,Güneş Erdoǧan
-1018,1018,2012,1207.4631v1,2416,"Analyzing the Effect of Objective Correlation on the Efficient Set of
-  MNK-Landscapes",Clarisse Dhaenens
-1019,1019,2015,1506.00211v1,2667,"A Matheuristic for the Electric Vehicle Routing Problem with Time
-  Windows",Stefano Suraci
-1020,1020,2014,1401.3794v2,3715,"Large neighborhoods with implicit customer selection for vehicle routing
-  problems with profits",Luis Satoru Ochi
-1021,1021,2018,1804.02851v2,4689,"Whale swarm algorithm with the mechanism of identifying and escaping
-  from extreme point for multimodal function optimization",Haozhen Dong
-1022,1022,2018,1802.08729v1,2841,Review: Metaheuristic Search-Based Fuzzy Clustering Algorithms,Ayat Alrosan
-1023,1023,2017,1701.09046v1,1996,"An Extremal Optimization approach to parallel resonance constrained
-  capacitor placement problem",Fernando J. Von Zuben
-1024,1024,2016,1605.05097v1,2174,A tabu search method for the optimisation of fluid power circuits,Derek G. Tilley
-1025,1025,2017,1705.09545v1,4372,"Logical and Inequality Implications for Reducing the Size and Complexity
-  of Quadratic Unconstrained Binary Optimization Problems",Gary Kochenberger
-1026,1026,2018,1903.01885v1,4150,"Evolutionary framework for two-stage stochastic resource allocation
-  problems",Fábio L. Usberti
-1027,1027,2017,1702.05577v1,1865,"A Statistical Comparison of Objective Functions for the Vehicle Routing
-  Problem with Route Balancing",Philippe Lacomme
-1028,1028,2013,1305.3794v2,1334,"Evolution of Covariance Functions for Gaussian Process Regression using
-  Genetic Programming",Michael Kommenda
-1029,1029,2019,1903.01236v1,3156,"A hybrid Benders decomposition and bees algorithm matheuristic approach
-  to transmission expansion planning considering energy storage",Andreas T. Ernst
-1030,1030,2008,0809.0961v1,669,MOOPPS: An Optimization System for Multi Objective Scheduling,Martin Josef Geiger
-1031,1031,2017,1710.09300v1,2010,"Feature learning in feature-sample networks using multi-objective
-  optimization",Liang Zhao
-1032,1032,2018,1804.05429v1,3304,"Gnowee: A Hybrid Metaheuristic Optimization Algorithm for Constrained,
-  Black Box, Combinatorial Mixed-Integer Design",Rachel Slaybaugh
-1033,1033,2010,1003.1594v1,1302,Cuckoo Search via Levy Flights,Suash Deb
-1034,1034,2017,1709.08902v3,3308,A New Cooperative Framework for Parallel Trajectory-Based Metaheuristics,Qingfu Zhang
-1035,1035,2019,1901.05680v1,1866,"Szenario-Optimierung für die Absicherung von automatisierten und
-  autonomen Fahrsystemen",Bernd Holzmüller
-1036,1036,2008,0809.0406v1,1624,Foundations of the Pareto Iterated Local Search Metaheuristic,Martin Josef Geiger
-1037,1037,2016,1602.07884v1,1565,"Firefly Algorithm for optimization problems with non-continuous
-  variables: A Review and Analysis",Jean Medard T Ngnotchouye
-1038,1038,2018,1808.02185v1,3262,Round-Table Group Optimization for Sequencing Problems,Xiao-Feng Xie
-1039,1039,2012,1204.4051v1,394,"Solution Representations and Local Search for the bi-objective Inventory
-  Routing Problem",Marc Sevaux
-1040,1040,2013,1306.6375v1,1523,Metaheuristics in Flood Disaster Management and Risk Assessment,Charlymagne R. Aquino
-1041,1041,2019,1902.00107v1,4302,Parallel Black-Box Complexity with Tail Bounds,Dirk Sudholt
-1042,1042,2017,1703.07929v1,1918,Diversification-Based Learning in Computing and Optimization,Jin-Kao Hao
-1043,1043,2014,1401.3464v1,217,"Learning Bayesian Network Equivalence Classes with Ant Colony
-  Optimization",Qiang Shen
-1044,1044,2013,1303.6336v1,1885,Multiobjective Firefly Algorithm for Continuous Optimization,Xin-She Yang
-1045,1045,2015,1511.06248v1,1895,Critical Parameters in Particle Swarm Optimisation,Thomas Joyce
-1046,1046,2018,1805.11259v2,4769,"Statistical mechanical analysis of sparse linear regression as a
-  variable selection problem",Yoshiyuki Kabashima
-1047,1047,2018,1808.08429v1,1105,Driven tabu search: a quantum inherent optimisation,Marcus S. Dahlem
-1048,1048,2010,1003.1599v2,3031,Harmony Search as a Metaheuristic Algorithm,Xin-She Yang
-1049,1049,2016,1606.02710v1,2596,A Modified Vortex Search Algorithm for Numerical Function Optimization,Berat Doğan
-1050,1050,2010,1009.0425v1,3764,"Optimization Framework and Graph-Based Approach for Relay-Assisted
-  Bidirectional OFDMA Cellular Networks",Hui Shen
-1051,1051,2015,1502.00195v1,2428,"Sensor Deployment for Air Pollution Monitoring Using Public
-  Transportation System",Albert Y. S. Lam
-1052,1052,2011,1105.3668v1,2599,Review of Metaheuristics and Generalized Evolutionary Walk Algorithm,Xin-She Yang
-1053,1053,2008,0804.3965v2,5658,"Metaheuristics and Their Hybridization to Solve the Bi-objective Ring
-  Star Problem: a Comparative Study",El-Ghazali Talbi
-1054,1054,2018,1809.09895v2,1981,"PeSOA: Penguins Search Optimisation Algorithm for Global Optimisation
-  Problems",Smaine Maazouzi
-1055,1055,2016,1605.02669v2,5293,The GPU-based Parallel Ant Colony System,Rafał Skinderowicz
-1056,1056,2014,1401.0858v1,2331,Multimodal Optimization by Sparkling Squid Populations,Videh Seksaria
-1057,1057,2013,1304.4051v1,2558,Coordinating metaheuristic agents with swarm intelligence,Mehmet Emin Aydin
-1058,1058,2018,1809.02437v1,4335,"A Largest Empty Hypersphere Metaheuristic for Robust Optimisation with
-  Implementation Uncertainty",Michael Wright
-1059,1059,2013,1312.4078v1,1593,"A natural-inspired optimization machine based on the annual migration of
-  salmons in nature",Alireza Fathi
-1060,1060,2010,1007.4063v1,3679,"The multiobjective multidimensional knapsack problem: a survey and a new
-  approach",Jacques Teghem
-1061,1061,2013,1308.2920v1,1045,As-puma ; anycast semantics in parking using metaheuristic approach,Rahul Johari
-1062,1062,2013,1308.2307v1,1700,"Finite Element Model Updating Using Fish School Search Optimization
-  Method",F. De Lima Neto
-1063,1063,2013,1306.0090v1,1732,Harmony search algorithm for the container storage problem,Lacs Ecole Nationale des Ingenieurs de Tunis
-1064,1064,2014,1403.2541v1,3868,"Turing: Then, Now and Still Key",Kieran Greer
-1065,1065,2019,1903.02915v1,3464,"jMetalPy: a Python Framework for Multi-Objective Optimization with
-  Metaheuristics",Javier Del Ser
-1066,1066,2015,1502.00194v1,1957,"Real-Coded Chemical Reaction Optimization with Different Perturbation
-  Functions",Victor O. K. Li
-1067,1067,2018,1807.00566v1,912,On the minimum quartet tree cost problem,Steffen Pauws
-1068,1068,2017,1702.05710v1,809,"Polynomial Time Efficient Construction Heuristics for Vertex Separation
-  Minimization Problem",Kamal Srivastava
-1069,1069,2011,1105.2894v2,2185,Ant Colony Optimization and Hypergraph Covering Problems,Ashish Ranjan Hota
-1070,1070,2018,1901.00408v1,2213,"Improvement of Identification Procedure Using Hybrid Cuckoo Search
-  Algorithm for TurbineGovernor and Excitation System",G. B. Gharehpetian
-1071,1071,2019,1902.08001v1,3222,"Mitigating Metaphors: A Comprehensible Guide to Recent Nature-Inspired
-  Algorithms",Michael Adam Lones
-1072,1072,2009,0909.3384v1,3197,"Comparing Single and Multiobjective Evolutionary Approaches to the
-  Inventory and Transportation Problem",Ken Sharman
-1073,1073,2017,1706.06646v1,10447,"Multi-objective, Decentralized Dynamic Virtual Machine Consolidation
-  using ACO Metaheuristic in Computing Clouds",Rajkumar Buyya
-1074,1074,2013,1311.4987v1,3219,Analyzing Evolutionary Optimization in Noisy Environments,Zhi-Hua Zhou
-1075,1075,2012,1212.5095v1,987,"Modelling of Optimal Design of Manufacturing Cell Layout Considering
-  Material Flow and Closeness Rating Factors",P. K. Dan
-1076,1076,2009,0907.2993v1,1578,"Improvements for multi-objective flow shop scheduling by Pareto Iterated
-  Local Search",Martin Josef Geiger
-1077,1077,2008,0809.0757v1,1923,"An application of the Threshold Accepting metaheuristic for curriculum
-  based course timetabling",Martin Josef Geiger
-1078,1078,2016,1602.05028v2,2833,Symmetry Breaking Predicates for SAT-based DFA Identification,Anatoly Shalyto
-1079,1079,2014,1408.5348v1,1572,Bat Algorithm is Better Than Intermittent Search Strategy,Simon Fong
-1080,1080,2008,0812.4170v1,4533,Finding Still Lifes with Memetic/Exact Hybrid Algorithms,Antonio J. Fernandez
-1081,1081,2017,1703.04561v1,3183,"Drone Squadron Optimization: a Self-adaptive Algorithm for Global
-  Numerical Optimization",Wolfgang Banzhaf
-1082,1082,2008,0809.0610v1,925,"A framework for the interactive resolution of multi-objective vehicle
-  routing problems",Wolf Wenger
-1083,1083,2017,1711.04642v1,1836,Cryptanalysis of Merkle-Hellman cipher using parallel genetic algorithm,Sadek Bouroubi
-1084,1084,2017,1705.03175v1,1342,"Emotional Metaheuristics For in-situ Foraging Using Sensor Constrained
-  Robot Swarms",Debasish Ghose
-1085,1085,2007,0709.4011v1,663,Measuring the Evolvability Landscape to study Neutrality,Manuel Clergue
-1086,1086,2018,1807.05096v1,2331,Global optimization test problems based on random field composition,Marco Pierini
-1087,1087,2017,1705.05584v1,7312,"Metaheuristic Design of Feedforward Neural Networks: A Review of Two
-  Decades of Research",Václav Snášel
-1088,1088,2013,1304.3612v1,1545,A Novel Metaheuristics To Solve Mixed Shop Scheduling Problems,V. Ravibabu
-1089,1089,2015,1503.01376v1,1689,BVNS para el problema del bosque generador k-etiquetado,Josè A. Moreno-Pèrez
-1090,1090,2018,1812.00664v1,5754,"Stochastic project management: Multiple projects with multi-skilled
-  human resources",Karl Doerner
-1091,1091,2013,1301.6972v1,4017,"Using evolutionary computation to create vectorial Boolean functions
-  with low differential uniformity and high nonlinearity",John A. Clark
-1092,1092,2011,1104.0775v2,2536,Evolving Pacing Strategies for Team Pursuit Track Cycling,Frank Neumann
-1093,1093,2017,1802.02006v1,1120,An Adaptive Genetic Algorithm for Solving N-Queens Problem,Sayan Nag
-1094,1094,2018,1809.09284v1,3472,Tree-Based Optimization: A Meta-Algorithm for Metaheuristic Optimization,Hoda Mohammadzade
-1095,1095,2018,1804.05319v2,6920,"Particle Swarm Optimization: A survey of historical and recent
-  developments with hybridization perspectives",Richard Alan Peters II
-1096,1096,2017,1709.09785v4,3058,PPLS/D: Parallel Pareto Local Search based on Decomposition,Jianyong Sun
-1097,1097,2009,0902.0782v2,2134,"A Multiobjective Optimization Framework for Routing in Wireless Ad Hoc
-  Networks",Jean-Marie Gorce
-1098,1098,2001,0102188v1,6624,Iterated Local Search,T. Stutzle
-1099,1099,2018,1807.03030v2,3127,Topological Prismatoids and Small Non-Hirsch Spheres,Francisco Santos
-1100,1100,2018,1802.06478v2,2284,"An Efficient Local Search for the Minimum Independent Dominating Set
-  Problem",Kazuya Haraguchi
-1101,1101,2010,1012.5815v2,0,"SAPFOCS: a metaheuristic based approach to part family formation
-  problems in group technology",Pranab K Dan
-1102,1102,2018,1812.07812v1,2555,"A Statistical Study on Parameter Selection of Operators in Continuous
-  State Transition Algorithm",Xiaojun Zhou
-1103,1103,2013,1305.1880v1,1421,A Heuristic for Magic and Antimagic Graph Labellings,Elaheh Vaezpour
-1104,1104,2018,1812.08598v1,4782,"Matheuristics to optimize maintenance scheduling and refueling of
-  nuclear power plants",El-Ghazali Talbi
-1105,1105,2017,1712.03223v1,1958,"S-Shaped vs. V-Shaped Transfer Functions for Antlion Optimization
-  Algorithm in Feature Selection Problems",Seyedali Mirjalili
-1106,1106,2017,1705.10174v1,4428,"Heuristic Rectangle Splitting: Leveraging Single-Objective Heuristics to
-  Efficiently Solve Multi-Objective Problems",Thibaut Vidal
-1107,1107,2012,1204.0479v1,2832,"A collaborative ant colony metaheuristic for distributed multi-level
+1000,1000,2013,1305.0780v1,2737,Contingency-Risk Informed Power System Design,Ali Pinar
+1001,1001,2009,0907.1298v2,1983,"A parametric integer programming algorithm for bilevel mixed integer
+  programs",Christopher Thomas Ryan
+1002,1002,2018,1807.10470v1,971,BSAS: Beetle Swarm Antennae Search Algorithm for Optimization Problems,Huanxin Chen
+1003,1003,2013,1303.6342v1,2623,Efficiency Analysis of Swarm Intelligence and Randomization Techniques,Xin-She Yang
+1004,1004,2018,1802.07342v1,4838,"A joint decomposition method for global optimization of multiscenario
+  nonconvex mixed-integer nonlinear programs",Xiang Li
+1005,1005,2018,1807.01844v1,3732,"Pontogammarus Maeoticus Swarm Optimization: A Metaheuristic Optimization
+  Algorithm",Saeed Sharifian
+1006,1006,2017,1703.05206v2,4080,"A Modified Benders Decomposition for Chance-Constrained Unit Commitment
+  with N-1 Security and Wind Uncertainty",Daniel Bienstock
+1007,1007,2012,1204.0479v1,2832,"A collaborative ant colony metaheuristic for distributed multi-level
   lot-sizing",Hermann Gehring
-1108,1108,2007,0708.0505v1,2541,"A preliminary analysis on metaheuristics methods applied to the
-  Haplotype Inference Problem",Andrea Roli
-1109,1109,2018,1805.11014v1,3351,Evolutionary Algorithms,Michael A. Lones
-1110,1110,2018,1803.01930v1,4560,"A Hybrid Heuristic for a Broad Class of Vehicle Routing Problems with
-  Heterogeneous Fleet",Christian Prins
-1111,1111,2015,1502.00193v1,2570,"Evolutionary Artificial Neural Network Based on Chemical Reaction
-  Optimization",Victor O. K. Li
-1112,1112,2016,1604.04138v1,3800,"An Improved Discrete Bat Algorithm for Symmetric and Asymmetric
-  Traveling Salesman Problems",Roberto Carballedo
-1113,1113,2016,1605.01855v1,2571,Resource allocation using metaheuristic search,Amit Shah
-1114,1114,2010,1003.1464v1,1152,"Firefly Algorithm, Levy Flights and Global Optimization",Xin-She Yang
-1115,1115,2015,1502.00197v1,2409,"An Inter-molecular Adaptive Collision Scheme for Chemical Reaction
-  Optimization",Albert Y. S. Lam
-1116,1116,2011,1105.5540v1,2535,"Finite First Hitting Time versus Stochastic Convergence in Particle
-  Swarm Optimisation",Carsten Witt
-1117,1117,2014,1406.7723v1,1010,"Active extension portfolio optimization with non-convex risk measures
-  using metaheuristics",Christoph Waldhauser
-1118,1118,2010,1003.1466v1,1466,Firefly Algorithms for Multimodal Optimization,Xin-She Yang
-1119,1119,2019,1901.05988v1,3659,Optimizing Deep Neural Networks with Multiple Search Neuroevolution,Claire Delaunay
-1120,1120,2017,1707.05457v1,1986,Convergecast with Unbounded Number of Channels,Vyacheslav Zalyubovskiy
-1121,1121,2012,1212.4614v1,1408,q-Analogs of Packing Designs,Jan Reichelt
-1122,1122,2016,1612.03402v4,1884,Improved Quick Hypervolume Algorithm,Andrzej Jaszkiewicz
-1123,1123,2017,1710.00864v1,1538,"A Novel Mataheuristic based Interference Alignment for K-User
-  Interference Channel : A Comparative Study",Daniel Massicotte
-1124,1124,2007,0711.2949v2,1254,"Stochastic convergence of random search to fixed size Pareto set
-  approximations",Marco Laumanns
-1125,1125,2016,1606.04055v1,2403,"Bacteria Foraging Algorithm with Genetic Operators for the Solution of
-  QAP and mQAP",Parya Soltani
-1126,1126,2018,1808.10264v1,2526,"Empirical analysis of metaheuristic search techniques for the
-  parameterized dynamic slope scaling procedure",Charles D. Nicholson
-1127,1127,2014,1404.4895v1,3116,A matheuristic approach for the Pollution-Routing Problem,Lucídio dos Anjos Formiga Cabral
-1128,1128,2017,1705.00318v2,4139,"An Order-based Algorithm for Minimum Dominating Set with Application in
-  Graph Mining",David Chalupa
-1129,1129,2017,1704.00853v1,4263,A History of Metaheuristics,Fred Glover
-1130,1130,2018,1812.11610v1,3492,"State-of-the-Art Economic Load Dispatch of Power Systems Using Particle
-  Swarm Optimization",Mahamad Nabab Alam
-1131,1131,2013,1307.4186v1,2676,A Brief Review of Nature-Inspired Algorithms for Optimization,Dušan Fister
-1132,1132,2013,1312.4044v1,970,"CACO : Competitive Ant Colony Optimization, A Nature-Inspired
-  Metaheuristic For Large-Scale Global Optimization",M. A. El-Dosuky
-1133,1133,2018,1808.10139v3,4239,"An integrated rolling horizon approach to increase operating theatre
+1008,1008,2012,1204.4051v1,394,"Solution Representations and Local Search for the bi-objective Inventory
+  Routing Problem",Marc Sevaux
+1009,1009,2016,1604.06901v1,3416,Algebraic semantics for hybrid logics,Claudette Robinson
+1010,1010,2018,1808.10139v3,4239,"An integrated rolling horizon approach to increase operating theatre
   efficiency",Erhan Kozan
-1134,1134,2015,1503.07845v1,1751,"Averaged Hausdorff Approximations of Pareto Fronts based on
-  Multiobjective Estimation of Distribution Algorithms",Günter Rudolph
-1135,1135,2017,1704.08919v1,4749,"Pulse shape optimization for electron-positron production in rotating
-  fields",Steve MacLean
-1136,1136,2015,1502.00199v1,2508,Chemical Reaction Optimization for the Set Covering Problem,Victor O. K. Li
-1137,1137,2017,1711.07821v1,1809,"Evaluation of bioinspired algorithms for the solution of the job
-  scheduling problem",Dario Delgado
-1138,1138,2012,1207.4448v1,3600,DAMS: Distributed Adaptive Metaheuristic Selection,Sébastien Verel
-1139,1139,2017,1706.00037v1,1095,"A Diversified Multi-Start Algorithm for Unconstrained Binary Quadratic
-  Problems Leveraging the Graphics Processor Unit",Mark W. Lewis
-1140,1140,2011,1108.0099v3,1898,"A Stable and Robust Calibration Scheme of the Log-Periodic Power Law
-  Model",Didier Sornette
-1141,1141,2018,1808.00068v1,3187,"A Fuzzy-Rough based Binary Shuffled Frog Leaping Algorithm for Feature
-  Selection",Chang Wook Ahn
-1142,1142,2008,0803.1728v1,1932,Investigating a Hybrid Metaheuristic For Job Shop Rescheduling,Rong Qu
-1143,1143,2012,1203.6577v1,1762,"Accelerated Particle Swarm Optimization and Support Vector Machine for
-  Business Optimization and Applications",Simon Fong
-1144,1144,2013,1311.6041v3,1884,"No Free Lunch Theorem and Bayesian probability theory: two sides of the
-  same coin. Some implications for black-box optimization and metaheuristics",Loris Serafino
-1145,1145,2013,1312.5045v1,2731,Comparative analysis of evolutionary algorithms for image enhancement,Akash Tayal
-1146,1146,2018,1811.04458v1,4272,"Time-interval balancing in multi-processor scheduling of composite
-  modular jobs (preliminary description)",Mark Sh. Levin
-1147,1147,2016,1610.02306v1,1321,"Optimization of Convolutional Neural Network using Microcanonical
-  Annealing Algorithm",Aniati Murni Arymurthy
-1148,1148,2017,1704.05132v1,768,"A hybrid CPU-GPU parallelization scheme of variable neighborhood search
-  for inventory optimization problems",Angelo Sifaleras
-1149,1149,2012,1208.0527v1,1727,Free Lunch or No Free Lunch: That is not Just a Question?,Xin-She Yang
-1150,1150,2016,1603.04798v2,4796,"ND-Tree-based update: a Fast Algorithm for the Dynamic Non-Dominance
-  Problem",Thibaut Lust
-1151,1151,2013,1308.3898v1,2023,Firefly Algorithm: Recent Advances and Applications,Xingshi He
-1152,1152,2017,1702.03389v2,2900,Whale swarm algorithm for function optimization,Xinyu Li
-1153,1153,2019,1902.00397v2,7666,Practical Model-driven Data Generation for System Testing,Lionel C. Briand
-1154,1154,2009,0907.2990v1,1647,"The Single Machine Total Weighted Tardiness Problem - Is it (for
-  Metaheuristics) a Solved Problem ?",Martin Josef Geiger
-1155,1155,2014,1405.1818v1,2095,"Energy Efficient Clustering using Jumper Firefly Algorithm in Wireless
-  Sensor Networks",Mahesh Gopi
-1156,1156,2013,1312.0086v2,3232,A Framework for Genetic Algorithms Based on Hadoop,Federica Sarro
-1157,1157,2015,1509.05010v1,3063,"Deterministic approaches for solving practical black-box global
-  optimization problems",Yaroslav D. Sergeyev
-1158,1158,2016,1605.03667v1,1547,"A comparison of two methods applied to the optimisation of fluid power
+1011,1011,2015,1512.02369v1,3108,"A Feasible Active Set Method with Reoptimization for Convex Quadratic
+  Mixed-Integer Programming",Long Trieu
+1012,1012,2018,1803.09254v3,1510,"A theory of the phenomenology of multipopulation genetic algorithm with
+  an application to the Ising model",Bruno W. D. Morais
+1013,1013,2013,1303.3154v3,2405,Mixed Strategy May Outperform Pure Strategy: An Initial Study,Feidun He
+1014,1014,2017,1707.05457v1,1986,Convergecast with Unbounded Number of Channels,Vyacheslav Zalyubovskiy
+1015,1015,2013,1304.4861v1,2673,"Guaranteed epsilon-optimal treatment plans with minimum number of beams
+  for stereotactic body radiation therapy",David Craft
+1016,1016,2015,1511.06248v1,1895,Critical Parameters in Particle Swarm Optimisation,Thomas Joyce
+1017,1017,2013,1304.4051v1,2556,Coordinating metaheuristic agents with swarm intelligence,Mehmet Emin Aydin
+1018,1018,2012,1211.0906v2,9941,Algorithm Runtime Prediction: Methods & Evaluation,Kevin Leyton-Brown
+1019,1019,2012,1211.3371v1,4333,A Comparison of Meta-heuristic Search for Interactive Software Design,J. E. Smith
+1020,1020,2010,1003.2889v1,2217,Mixed integer predictive control and shortest path reformulation,Dario Bauso
+1021,1021,2015,1501.07814v1,3538,Valued Workflow Satisfiability Problem,Daniel Karapetyan
+1022,1022,2017,1707.06185v1,2449,"Simultaneously Solving Mixed Model Assembly Line Balancing and
+  Sequencing problems with FSS Algorithm",Fernando Buarque de Lima Neto
+1023,1023,2016,1607.01104v2,3982,"A study of the Bienstock-Zuckerberg algorithm, Applications in Mining
+  and Resource Constrained Project Scheduling",Orlando Rivera
+1024,1024,2011,1107.3606v3,5612,Optimizing Index Deployment Order for Evolving OLAP (Extended Version),Stanley B. Zdonik
+1025,1025,2018,1804.07995v1,1873,"Global Convergence Analysis of the Flower Pollination Algorithm: A
+  Discrete-Time Markov Chain Approach",Yuxin Zhao
+1026,1026,2017,1709.10132v2,3200,"A mixed-integer branching approach for very small formulations of
+  disjunctive constraints",Juan Pablo Vielma
+1027,1027,2017,1703.03038v1,2177,"Parallel Implementation of Efficient Search Schemes for the Inference of
+  Cancer Progression Models",Marco Antoniotti
+1028,1028,2018,1810.05212v1,3211,"Distributionally Robust Transmission Expansion Planning: a Multi-scale
+  Uncertainty Approach",Alexandre Street
+1029,1029,2016,1605.03667v1,1547,"A comparison of two methods applied to the optimisation of fluid power
   circuits",Derek G. Tilley
-1159,1159,2017,1705.10351v3,4042,Local Search Methods for Fast Near Neighbor Search,Mario Graff
-1160,1160,2017,1701.08517v1,1479,"The Intermittent Traveling Salesman Problem with Different Temperature
-  Profiles: Greedy or not?",Patrick De Causmaecker
-1161,1161,2016,1610.06009v1,2512,"Constrained Cohort Intelligence using Static and Dynamic Penalty
-  Function Approach for Mechanical Components Design",Ganesh Kakandikar
-1162,1162,2017,1707.04016v1,3356,Dependency Injection for Programming by Optimization,Jerry Swan
-1163,1163,2018,1808.09809v1,2617,An Efficient Matheuristic for the Minimum-Weight Dominating Set Problem,Thibaut Vidal
-1164,1164,2015,1501.05882v3,4223,"Efficient local search limitation strategy for single machine total
-  weighted tardiness scheduling with sequence-dependent setup times",Katyanne Farias
-1165,1165,2017,1708.01368v1,738,"A novel metaheuristic method for solving constrained engineering
-  optimization problems: Drone Squadron Optimization",Vinícius Veloso de Melo
-1166,1166,2018,1807.00570v1,950,Minimum Labelling bi-Connectivity,Sergio Consoli
-1167,1167,2018,1803.03681v1,5091,"Geometric and LP-based heuristics for the quadratic travelling salesman
-  problem",Ulrich Pferschy
-1168,1168,2012,1205.0567v1,3518,"Supply Chain Network Design Heuristics for Capacitated Facilities under
-  Risk of Supply Disruptions",Kevin M. Taaffe
-1169,1169,2015,1505.01742v1,868,On the Minimum Labelling Spanning bi-Connected Subgraph problem,S. Consoli
-1170,1170,2012,1212.0220v1,1924,Metaheuristic Optimization: Algorithm Analysis and Open Problems,Xin-She Yang
-1171,1171,2015,1503.02009v1,425,"Towards an intelligent VNS heuristic for the k-labelled spanning forest
-  problem",Nenad Mladenovic
-1172,1172,2018,1809.10584v1,4712,"Industrial and Tramp Ship Routing Problems: Closing the Gap for
-  Real-Scale Instances",Kjetil Fagerholt
-1173,1173,2018,1809.04942v1,2343,Fixed set search applied to the traveling salesman problem,Stefan Voss
-1174,1174,2017,1708.07786v1,2445,"Efficient Adaptive Implementation of the Serial Schedule Generation
-  Scheme using Preprocessing and Bloom Filters",Alexei Vernitski
-1175,1175,2018,1803.02886v1,1527,Quantum-assisted cluster analysis,Christian Seidel
-1176,1176,2013,1309.5110v1,2130,An ant colony optimization algorithm for job shop scheduling problem,Lola Bautista
-1177,1177,2012,1201.4342v2,4225,"A Pareto-metaheuristic for a bi-objective winner determination problem
-  in a combinatorial reverse auction",Herbert Kopfer
-1178,1178,2012,1209.2717v1,1546,Comparison Study for Clonal Selection Algorithm and Genetic Algorithm,Sadik Ulker
-1179,1179,2010,1005.2908v3,1639,Engineering Optimisation by Cuckoo Search,Suash Deb
-1180,1180,2017,1711.06347v1,3050,"Conditional Markov Chain Search for the Simple Plant Location Problem
-  improves upper bounds on twelve Körkel-Ghosh instances",Boris Goldengorin
-1181,1181,2012,1207.4452v1,1934,"Pareto Local Optima of Multiobjective NK-Landscapes with Correlated
-  Objectives",Clarisse Dhaenens
-1182,1182,2012,1211.6663v1,2220,Bat Algorithm: A Novel Approach for Global Engineering Optimization,Amir H. Gandomi
-1183,1183,2018,1801.03419v1,2826,"Instance Scale, Numerical Properties and Design of Metaheuristics: A
-  Study for the Facility Location Problem",Peter Nielsen
-1184,1184,2014,1404.2465v1,2755,Quantum annealing,Alfonso de la Fuente Ruiz
-1185,1185,2017,1703.08440v1,2365,K-Means Clustering using Tabu Search with Quantized Means,Andrew Hunt
-1186,1186,2012,1210.7422v1,1647,"Sensor networks security based on sensitive robots agents. A conceptual
-  model",Petrica C. Pop
-1187,1187,2010,1006.2806v1,1502,A Metaheuristic Approach for IT Projects Portfolio Optimization,Akhileshwar Mishra
-1188,1188,2011,1111.0907v2,3675,"Towards Analyzing Crossover Operators in Evolutionary Search via General
+1030,1030,2010,1007.4063v1,3680,"The multiobjective multidimensional knapsack problem: a survey and a new
+  approach",Jacques Teghem
+1031,1031,2013,1303.2215v1,2221,Expensive Optimisation: A Metaheuristics Perspective,Maumita Bhattacharya
+1032,1032,2014,1404.1193v1,3914,"Cost minimization for fading channels with energy harvesting and
+  conventional energy",Sumei Sun
+1033,1033,2015,1506.01417v3,3018,Embedding Formulations and Complexity for Unions of Polyhedra,Juan Pablo Vielma
+1034,1034,2012,1206.5503v3,3306,Satellite downlink scheduling problem: A case study,Abraham P. Punnen
+1035,1035,2017,1704.00853v1,3838,A History of Metaheuristics,Fred Glover
+1036,1036,2016,1602.01764v3,4540,"A double oracle approach for minmax regret optimization problems with
+  interval data",Olivier Spanjaard
+1037,1037,2015,1507.07994v1,4601,"Cost Minimization of Charging Stations with Photovoltaics: An Approach
+  with EV Classification",H. Vincent Poor
+1038,1038,2014,1401.5857v1,14360,COLIN: Planning with Continuous Linear Numeric Change,Derek Long
+1039,1039,2011,1111.0907v2,3675,"Towards Analyzing Crossover Operators in Evolutionary Search via General
   Markov Chain Switching Theorem",Zhi-Hua Zhou
-1189,1189,2010,1006.4949v1,4989,Artificial Immune Systems (2010),Uwe Aickelin
-1190,1190,2014,1410.7851v1,1620,Efficient optimisation of structures using tabu search,P. John Clarkson
-1191,1191,2017,1707.01810v1,1958,"Simultaneous Optimization of Neural Network Weights and Active Nodes
-  using Metaheuristics",Vaclav Snasel
-1192,1192,2014,1401.4648v1,2902,Visual Tracking using Particle Swarm Optimization,Siamak Khatibi
-1193,1193,2013,1311.5735v1,1579,"MEIGO: an open-source software suite based on metaheuristics for global
-  optimization in systems biology and bioinformatics",Julio Saez-Rodriguez
-1194,1194,2017,1708.09354v3,0,"Quantum-enhanced reinforcement learning for finite-episode games with
-  discrete state spaces",Gabriele Compostella
-1195,1195,2018,1809.03646v2,3440,Tuning metaheuristics by sequential optimization of regression models,Felipe Campelo
-1196,1196,2011,1109.3313v1,655,Neigborhood Selection in Variable Neighborhood Search,Stefan Voss
-1197,1197,2012,1210.2421v1,1112,"Simulated Tom Thumb, the Rule Of Thumb for Autonomous Robots",A. H. EL-Bassiouny
-1198,1198,2016,1609.05662v1,1913,A GRASP approach for solving the 2-connected m-dominating set problem,Stefan Voss
-1199,1199,2014,1410.4665v1,3372,"Applications of different metaheuristic techniques for finding optimal
+1040,1040,2017,1705.05584v1,7312,"Metaheuristic Design of Feedforward Neural Networks: A Review of Two
+  Decades of Research",Václav Snášel
+1041,1041,2016,1607.00765v1,3568,"Multi-Objective Design of State Feedback Controllers Using Reinforced
+  Quantum-Behaved Particle Swarm Optimization",Won-Sook Lee
+1042,1042,2017,1708.02444v5,4230,"Scheduling and Power Control for V2V Broadcast Communications with
+  Co-Channel and Adjacent Channel Interference",Li Yan
+1043,1043,2013,1308.5807v1,1512,"Multi-Objective Particle Swarm Optimization for Facility Location
+  Problem in Wireless Mesh Networks",Samir Bennani
+1044,1044,2018,1801.08751v1,1041,Distances of optimal solutions of mixed-integer programs,Stefan Weltge
+1045,1045,2010,1006.2806v1,1218,A Metaheuristic Approach for IT Projects Portfolio Optimization,Akhileshwar Mishra
+1046,1046,2018,1803.05860v2,3134,"Power Grid Decomposition Based on Vertex Cut Sets and Its Applications
+  to Topology Control and Power Trading",John Baillieul
+1047,1047,2017,1703.08440v1,2121,K-Means Clustering using Tabu Search with Quantized Means,Andrew Hunt
+1048,1048,2018,1803.10150v2,9246,Learning to Branch,Ellen Vitercik
+1049,1049,2012,1203.4177v2,5300,"Strict linear prices in non-convex European day-ahead electricity
+  markets",Sebastian Pokutta
+1050,1050,2012,1209.2717v1,1204,Comparison Study for Clonal Selection Algorithm and Genetic Algorithm,Sadik Ulker
+1051,1051,2018,1802.07144v1,2728,ILP-based Local Search for Graph Partitioning,Christian Schulz
+1052,1052,2009,0903.2528v1,1319,Airport Gate Assignment A Hybrid Model and Implementation,Chendong Li
+1053,1053,2017,1705.10174v1,4429,"Heuristic Rectangle Splitting: Leveraging Single-Objective Heuristics to
+  Efficiently Solve Multi-Objective Problems",Thibaut Vidal
+1054,1054,2017,1711.08080v1,2592,"Robust Stackelberg Equilibria in Extensive-Form Games and Extension to
+  Limited Lookahead",Tuomas Sandholm
+1055,1055,2017,1703.02221v2,5215,Partial hyperplane activation for generalized intersection cuts,François Margot
+1056,1056,2017,1709.08902v3,3308,A New Cooperative Framework for Parallel Trajectory-Based Metaheuristics,Qingfu Zhang
+1057,1057,2014,1412.6961v2,1465,Transmission Expansion Planning Considering Energy Storage,Andreas T. Ernst
+1058,1058,2017,1701.08709v2,2819,Diversification Methods for Zero-One Optimization,Fred Glover
+1059,1059,2018,1804.00609v1,1740,Adaptive Algorithm for Sparse Signal Recovery,Jun Yu
+1060,1060,2015,1503.07845v1,1751,"Averaged Hausdorff Approximations of Pareto Fronts based on
+  Multiobjective Estimation of Distribution Algorithms",Günter Rudolph
+1061,1061,2019,1901.07070v1,2504,"Analyzing Branch-and-Bound Algorithms for the Multiprocessor Scheduling
+  Problem",Artidoro Pagnoni
+1062,1062,2012,1210.2421v1,1112,"Simulated Tom Thumb, the Rule Of Thumb for Autonomous Robots",A. H. EL-Bassiouny
+1063,1063,2016,1612.01950v1,1683,A category of hybrid systems,Eugene Lerman
+1064,1064,2018,1806.02098v3,1872,"Clustering in a 2d Pareto Front: p-median and p-center are solvable in
+  polynomial time",Frank Nielsen
+1065,1065,2017,1705.00318v2,4138,"An Order-based Algorithm for Minimum Dominating Set with Application in
+  Graph Mining",David Chalupa
+1066,1066,2019,1901.01215v1,5253,"On the Implementation and Assessment of several Divide & Conquer
+  Matheuristic Strategies for the solution of the Knapsack Problem",Jairo A Martínez
+1067,1067,2010,1004.4170v1,1473,A New Metaheuristic Bat-Inspired Algorithm,Xin-She Yang
+1068,1068,2010,1008.0549v1,397,Test Problems in Optimization,Xin-She Yang
+1069,1069,2016,1601.01074v2,1852,"Sparse approximation problem: how rapid simulated annealing succeeds and
+  fails",Yoshiyuki Kabashima
+1070,1070,2017,1701.08517v1,1478,"The Intermittent Traveling Salesman Problem with Different Temperature
+  Profiles: Greedy or not?",Patrick De Causmaecker
+1071,1071,2005,0501057v1,6803,Metaheuristic Approaches to Realistic Portfolio Optimization,Franco Busetti
+1072,1072,2001,0101197v2,1333,Asymptotic Size Ramsey Results for Bipartite Graphs,Oleg Pikhurko
+1073,1073,2019,1901.05988v1,3441,Optimizing Deep Neural Networks with Multiple Search Neuroevolution,Claire Delaunay
+1074,1074,2014,1410.4665v1,3371,"Applications of different metaheuristic techniques for finding optimal
   tst order during integration testing of object oriented systems and their
   comparative study",Ritu Sibal
-1200,1200,2013,1312.2366v1,5226,"A preliminary survey on optimized multiobjective metaheuristic methods
-  for data clustering using evolutionary approaches",Dr. AV Dattareya Rao
-1201,1201,2010,1003.1409v1,1175,"Firefly Algorithm, Stochastic Test Functions and Design Optimisation",Xin-She Yang
-1202,1202,2018,1808.06846v1,2496,"Search for Common Minima in Joint Optimization of Multiple Cost
-  Functions",Shinji Tsuneyuki
-1203,1203,2010,1007.4221v2,1726,Building Blocks Propagation in Quantum-Inspired Genetic Algorithm,Jacek Kucharski
-1204,1204,2016,1606.09279v5,3946,"The matching relaxation for a class of generalized set partitioning
-  problems",Johan Oppen
-1205,1205,2017,1705.08691v1,1139,General Algorithmic Search,José M. Amigó
-1206,1206,2018,1812.08277v1,3995,2D-Phase Unwrapping via Balanced Spanning Forests,Thibaut Vidal
-1207,1207,2018,1805.11820v1,2163,Generic CP-Supported CMSA for Binary Integer Linear Programs,Haroldo Gambini Santos
-1208,1208,2017,1705.01076v1,5363,An improved Ant Colony System for the Sequential Ordering Problem,Rafał Skinderowicz
-1209,1209,2015,1505.08003v2,4785,A large neighbourhood based heuristic for two-echelon routing problems,Thibaut Vidal
-1210,1210,2005,0501057v1,6804,Metaheuristic Approaches to Realistic Portfolio Optimization,Franco Busetti
-1211,1211,2012,1207.0743v1,1585,"Optimisation of energy and exergy of two-spool turbofan engines using
-  genetic algorithms",Kjetil Uhlen
-1212,1212,2009,0901.3769v1,2078,Deceptiveness and Neutrality - the ND family of fitness landscapes,Cathy Escazut
-1213,1213,2019,1901.01215v1,5198,"On the Implementation and Assessment of several Divide & Conquer
-  Matheuristic Strategies for the solution of the Knapsack Problem",Jairo A Martínez
-1214,1214,2018,1812.07734v1,2778,Optimality Clue for Graph Coloring Problem,Laurent Moalic
-1215,1215,2016,1601.01074v2,1852,"Sparse approximation problem: how rapid simulated annealing succeeds and
-  fails",Yoshiyuki Kabashima
-1216,1216,2016,1605.02038v2,4185,"Markov Chain methods for the bipartite Boolean quadratic programming
-  problem",Andrew J. Parkes
-1217,1217,2016,1606.02035v1,2698,"Optimal targeting of nonlinear chaotic systems using a novel
-  evolutionary computing strategy",Bo Liu
-1218,1218,2008,0811.0080v1,1097,"A Deterministic Model for Analyzing the Dynamics of Ant System Algorithm
-  and Performance Amelioration through a New Pheromone Deposition Approach",Ramadoss Janarthanan
-1219,1219,2012,1211.2787v1,5369,Bio-Inspired Political Systems. Opening a Field,Nathalie Mezza-Garcia
-1220,1220,2017,1710.00865v1,1143,"PSO and CPSO Based Interference Alignment for K-User MIMO Interference
-  Channel",Fatiha Merazka
-1221,1221,2016,1607.01417v2,4729,Algorithms for Generalized Cluster-wise Linear Regression,Loren Williams
-1222,1222,2015,1511.08678v1,2626,"Bandwidth and Wavefront Reduction for Static Variable Ordering in
-  Symbolic Model Checking",Jaco van de Pol
-1223,1223,2010,1003.0221v1,7593,"Central Force Optimization Applied to the PBM Suite of Antenna
-  Benchmarks",Richard A. Formato
-1224,1224,2016,1609.08082v2,4613,An Ontology of Preference-Based Multiobjective Metaheuristics,Michael Emmerich
-1225,1225,2016,1610.01925v1,2081,Metaheuristic Algorithms for Convolution Neural Network,Aniati Murni Arymurthy
-1226,1226,2015,1507.02491v1,1876,Parameter Sensitivity Analysis of Social Spider Algorithm,Victor O. K. Li
-1227,1227,2017,1702.05603v3,3924,"A hybrid Lagrangean metaheuristic for the two-machine cross-docking flow
-  shop scheduling problem",Martin G. Ravetti
-1228,1228,2016,1603.01399v2,1650,"Sampling approach to sparse approximation problem: determining degrees
-  of freedom by simulated annealing",Yoshiyuki Kabashima
-1229,1229,2011,1103.0125v1,2056,"Search-based software test data generation using evolutionary
-  computation",P. Maragathavalli
-1230,1230,2012,1211.6658v1,1163,Nature-Inspired Mateheuristic Algorithms: Success and New Challenges,Xin-She Yang
-1231,1231,2007,0712.0451v1,2173,"A Reactive Tabu Search Algorithm for Stimuli Generation in
-  Psycholinguistics",Alejandro Chinea Manrique De Lara
-1232,1232,2017,1708.07040v1,2261,"Adaptive Plant Propagation Algorithm for Solving Economic Load Dispatch
-  Problem",Sayan Nag
-1233,1233,2015,1502.02407v1,4339,A Social Spider Algorithm for Global Optimization,Victor O. K. Li
-1234,1234,2008,0809.0416v1,322,Genetic Algorithms for multiple objective vehicle routing,Martin Josef Geiger
-1235,1235,2018,1812.04832v1,0,"MorpheuS: generating structured music with constrained patterns and
-  tension",Elaine Chew
-1236,1236,2018,1803.09254v3,1510,"A theory of the phenomenology of multipopulation genetic algorithm with
-  an application to the Ising model",Bruno W. D. Morais
-1237,1237,2015,1507.00862v1,2363,"Using Monte Carlo method for searching partitionings of hard variants of
-  Boolean satisfiability problem",Oleg Zaikin
-1238,1238,2012,1207.4629v1,2244,On the Neutrality of Flowshop Scheduling Fitness Landscapes,Sébastien Verel
-1239,1239,2012,1202.3887v1,2464,"Extended Mixture of MLP Experts by Hybrid of Conjugate Gradient Method
-  and Modified Cuckoo Search",Javad Hatami
-1240,1240,2010,1001.0317v2,7397,Pseudorandomness in Central Force Optimization,Richard A. Formato
-1241,1241,2017,1701.00833v1,2293,"Fuzzy finite element model updating using metaheuristic optimization
+1075,1075,2010,1003.1599v2,3031,Harmony Search as a Metaheuristic Algorithm,Xin-She Yang
+1076,1076,2009,0907.0332v3,4229,"Survival of the flexible: explaining the recent dominance of
+  nature-inspired optimization within a rapidly evolving world",James M Whitacre
+1077,1077,2017,1707.06169v1,1835,Fish School Search Algorithm for Constrained Optimization,Fernando Buarque de Lima Neto
+1078,1078,2009,0907.0597v1,2061,"Network Topology and Time Criticality Effects in the Modularised Fleet
+  Mix Problem",Hussein Abbass
+1079,1079,2013,1303.1271v5,4992,Convex and Scalable Weakly Labeled SVMs,Zhi-Hua Zhou
+1080,1080,2018,1812.07734v1,2778,Optimality Clue for Graph Coloring Problem,Laurent Moalic
+1081,1081,2001,0102188v1,6624,Iterated Local Search,T. Stutzle
+1082,1082,2016,1602.07884v1,1564,"Firefly Algorithm for optimization problems with non-continuous
+  variables: A Review and Analysis",Jean Medard T Ngnotchouye
+1083,1083,2018,1812.08598v1,4827,"Matheuristics to optimize maintenance scheduling and refueling of
+  nuclear power plants",El-Ghazali Talbi
+1084,1084,2018,1810.01585v1,3266,"A Dynamical Systems Approach to Modeling and Analysis of Transactive
+  Energy Coordination",Ian A. Hiskens
+1085,1085,2013,1306.1557v1,1720,"Extending Universal Intelligence Models with Formal Notion of
+  Representation",Sergey Rodionov
+1086,1086,2018,1812.00664v1,5799,"Stochastic project management: Multiple projects with multi-skilled
+  human resources",Karl Doerner
+1087,1087,2013,1302.4735v1,2344,"Realignment in the NHL, MLB, the NFL, and the NBA",William Pulleyblank
+1088,1088,2014,1405.1818v1,1884,"Energy Efficient Clustering using Jumper Firefly Algorithm in Wireless
+  Sensor Networks",Mahesh Gopi
+1089,1089,2017,1701.00833v1,1885,"Fuzzy finite element model updating using metaheuristic optimization
   algorithms",S. Adhikari
-1242,1242,2012,1211.6410v1,1249,New Hoopoe Heuristic Optimization,Magdy Rashad
-1243,1243,2018,1808.08818v1,8953,A new Taxonomy of Continuous Global Optimization Algorithms,Thomas Bartz-Beielstein
-1244,1244,2013,1303.6342v1,2623,Efficiency Analysis of Swarm Intelligence and Randomization Techniques,Xin-She Yang
-1245,1245,2016,1701.00736v1,1722,Simulated Tornado Optimization,S. Ali Hosseini
-1246,1246,2018,1811.02271v1,3015,"A Parallel MOEA with Criterion-based Selection Applied to the Knapsack
-  Problem",Chaabane Djamel
-1247,1247,2011,1104.2518v1,2946,"Design, Engineering, and Experimental Analysis of a Simulated Annealing
-  Approach to the Post-Enrolment Course Timetabling Problem",Andrea Schaerf
-1248,1248,2015,1509.02384v3,8840,"A unified heuristic and an annotated bibliography for a large class of
-  earliness-tardiness scheduling problems",Anand Subramanian
-1249,1249,2014,1404.4067v1,2920,"An effective AHP-based metaheuristic approach to solve supplier
-  selection problem",Pranab K Dan
-1250,1250,2011,1105.5900v2,2377,"Ethane: A Heterogeneous Parallel Search Algorithm for Heterogeneous
-  Platforms",Enrique Alba
-1251,1251,2012,1210.3946v1,2347,Local optima networks and the performance of iterated local search,Marco Tomassini
-1252,1252,2017,1702.08450v1,2345,"A Knowledge-Based Approach to Word Sense Disambiguation by
-  distributional selection and semantic features",Mokhtar Billami
-1253,1253,2015,1502.02127v2,776,Hyperparameter Search in Machine Learning,Bart De Moor
-1254,1254,2017,1706.08089v1,2899,"Finding optimal finite biological sequences over finite alphabets: the
-  OptiFin toolbox",Stéphane Chrétien
-1255,1255,2019,1902.11160v1,896,"Dynamic Solution Probability Acceptance within the Flower Pollination
+1090,1090,2018,1808.00206v1,2086,Beetle Swarm Optimization Algorithm:Theory and Application,Qiang Liu
+1091,1091,2011,1106.2686v1,1653,"Automated Software Testing Using Metahurestic Technique Based on An Ant
+  Colony Optimization",Km Baby
+1092,1092,2018,1810.08944v1,3709,"MS-BACO: A new Model Selection algorithm using Binary Ant Colony
+  Optimization for neural complexity and error reduction",Shahrokh Asadi
+1093,1093,2015,1502.06733v2,2615,Minimizing Energy Consumption of MPI Programs in Realistic Environment,William Jalby
+1094,1094,2018,1811.07517v1,4071,"Multiuser Computation Offloading and Downloading for Edge Computing with
+  Virtualization",Kaibin Huang
+1095,1095,2012,1207.4448v1,3332,DAMS: Distributed Adaptive Metaheuristic Selection,Sébastien Verel
+1096,1096,2016,1608.01537v4,7467,Distributed Scheduling of Event Analytics across Edge and Cloud,Yogesh Simmhan
+1097,1097,2019,1902.11160v1,896,"Dynamic Solution Probability Acceptance within the Flower Pollination
   Algorithm for t-way Test Suite Generation",Bestoun S. Ahmed
-1256,1256,2018,1809.08321v1,4170,A Step-by-Step Guide to Using BioNetFit,Richard G. Posner
-1257,1257,2017,1708.04745v3,2958,"Weight-based Fish School Search algorithm for Many-Objective
-  Optimization",J. B. Monteiro Filho
-1258,1258,2018,1803.03628v3,4686,The Electric Two-echelon Vehicle Routing Problem,Thibaut Vidal
-1259,1259,2014,1401.4539v2,2399,"Solving the Minimum Common String Partition Problem with the Help of
-  Ants",M. Sohel Rahman
-1260,1260,2012,1207.6514v1,1331,Earthquake Scenario Reduction by Symmetry Reasoning,Steven Prestwich
-1261,1261,2016,1605.07364v1,2164,"Non-Gaussian Random Generators in Bacteria Foraging Algorithm for
-  Multiobjective Optimization",Irraivan Elamvazuthi
-1262,1262,2011,1109.3094v1,1683,"On the use of reference points for the biobjective Inventory Routing
-  Problem",Marc Sevaux
-1263,1263,2018,1811.01945v2,2986,"Chaotic Quantum Double Delta Swarm Algorithm using Chebyshev Maps:
-  Theoretical Foundations, Performance Analyses and Convergence Issues",Richard Alan Peters II
-1264,1264,2018,1804.07995v1,1873,"Global Convergence Analysis of the Flower Pollination Algorithm: A
-  Discrete-Time Markov Chain Approach",Yuxin Zhao
-1265,1265,2016,1607.04324v1,1895,Random-Key Cuckoo Search for the Travelling Salesman Problem,Xin-She Yang
-1266,1266,2013,1305.6187v2,1188,Improved Branch-and-Bound for Low Autocorrelation Binary Sequences,S. D. Prestwich
-1267,1267,2017,1708.05264v1,2308,"Design, Configuration, Implementation, and Performance of a Simple 32
-  Core Raspberry Pi Cluster",Vincent A. Cicirello
-1268,1268,2017,1705.09844v1,3095,"Quadratic Unconstrained Binary Optimization Problem Preprocessing:
-  Theory and Empirical Analysis",Fred Glover
-1269,1269,2010,1002.2798v2,7382,"Comparative Results: Group Search Optimizer and Central Force
-  Optimization",Richard A. Formato
-1270,1270,2015,1509.08792v1,891,"An intelligent extension of Variable Neighbourhood Search for labelling
+1098,1098,2012,1207.1410v1,2388,Description Logics with Fuzzy Concrete Domains,Umberto Straccia
+1099,1099,2016,1603.07531v1,4048,Global solutions to folded concave penalized nonconvex learning,Runze Li
+1100,1100,2018,1807.00570v1,950,Minimum Labelling bi-Connectivity,Sergio Consoli
+1101,1101,2017,1710.09300v1,1580,"Feature learning in feature-sample networks using multi-objective
+  optimization",Liang Zhao
+1102,1102,2012,1211.6663v1,2220,Bat Algorithm: A Novel Approach for Global Engineering Optimization,Amir H. Gandomi
+1103,1103,2012,1203.3341v7,5011,"A Comparison of the Embedding Method to Multi-Parametric Programming,
+  Mixed-Integer Programming, Gradient-Descent, and Hybrid Minimum Principle
+  Based Methods",Raymond A. DeCarlo
+1104,1104,2014,1409.4477v1,2430,Designing Resilient Electrical Distribution Grids,Scott Backhaus
+1105,1105,2018,1806.04419v1,0,"Using Chaos in Grey Wolf Optimizer and Application to Prime
+  Factorization",Dr. Saibal K. Pal
+1106,1106,2014,1403.3378v2,2723,Box Drawings for Learning with Imbalanced Data,Cynthia Rudin
+1107,1107,2017,1705.10351v3,4042,Local Search Methods for Fast Near Neighbor Search,Mario Graff
+1108,1108,2010,1001.0317v2,7397,Pseudorandomness in Central Force Optimization,Richard A. Formato
+1109,1109,2017,1701.03172v1,3339,"Capacity Expansion Planning of Wind Power Generation in A Market
+  Environment with Topology Control",Bo Zeng
+1110,1110,2018,1804.10710v2,1355,"Designing a cost-time-quality-efficient grinding process using MODM
+  methods",Meysam Mahjoob
+1111,1111,2004,0405033v1,1743,"Optimization of Evolutionary Neural Networks Using Hybrid Learning
+  Algorithms",Ajith Abraham
+1112,1112,2018,1806.03455v1,1827,A Preliminary Exploration of Floating Point Grammatical Evolution,Brad Alexander
+1113,1113,2016,1607.04324v1,1895,Random-Key Cuckoo Search for the Travelling Salesman Problem,Xin-She Yang
+1114,1114,2017,1712.01570v1,3977,Robust toll pricing: A novel approach,Fabrice T. Nobibon
+1115,1115,2016,1604.00513v2,2279,Towards an accurate solution of wireless network design problems,Ambros Gleixner
+1116,1116,2016,1604.04138v1,3800,"An Improved Discrete Bat Algorithm for Symmetric and Asymmetric
+  Traveling Salesman Problems",Roberto Carballedo
+1117,1117,2018,1808.10419v1,2332,On Subadditive Duality for Conic Mixed-Integer Programs,Burak Kocuk
+1118,1118,2011,1102.5314v4,4073,"Jointly Optimal Channel and Power Assignment for Dual-Hop Multi-channel
+  Multi-user Relaying",Ben Liang
+1119,1119,2012,1207.3100v2,4068,Set-valued dynamic treatment regimes for competing outcomes,Bradley Ferguson
+1120,1120,2016,1701.00736v1,1478,Simulated Tornado Optimization,S. Ali Hosseini
+1121,1121,2019,1902.08001v1,3222,"Mitigating Metaphors: A Comprehensible Guide to Recent Nature-Inspired
+  Algorithms",Michael Adam Lones
+1122,1122,2017,1704.07037v1,2803,"Energy Efficient User Association and Power Allocation in Millimeter
+  Wave Based Ultra Dense Networks with Energy Harvesting Base Stations",H. Vincent Poor
+1123,1123,2017,1704.08919v1,4377,"Pulse shape optimization for electron-positron production in rotating
+  fields",Steve MacLean
+1124,1124,2013,1311.4987v1,3219,Analyzing Evolutionary Optimization in Noisy Environments,Zhi-Hua Zhou
+1125,1125,2007,0712.0451v1,2065,"A Reactive Tabu Search Algorithm for Stimuli Generation in
+  Psycholinguistics",Alejandro Chinea Manrique De Lara
+1126,1126,2017,1702.03700v1,3684,Assortment Optimization under a Single Transition Model,Zizhuo Wang
+1127,1127,2009,0909.3384v1,3197,"Comparing Single and Multiobjective Evolutionary Approaches to the
+  Inventory and Transportation Problem",Ken Sharman
+1128,1128,2016,1603.05200v2,2184,"Multi-Vehicle Collision Avoidance via Hamilton-Jacobi Reachability and
+  Mixed Integer Programming",Claire J. Tomlin
+1129,1129,2018,1806.10684v1,2600,"Price-Based Market Clearing with V2G Integration Using Generalized
+  Benders Decomposition",Mingguo Hong
+1130,1130,2001,0110165v2,2255,Jamming Model for the Extremal Optimization Heuristic,M. Grigni
+1131,1131,2012,1206.1579v2,1988,"An Efficient Hybrid Ant Colony System for the Generalized Traveling
+  Salesman Problem",Daniel Karapetyan
+1132,1132,2012,1210.0374v1,2374,"Pilot, Rollout and Monte Carlo Tree Search Methods for Job Shop
+  Scheduling",Michèle Sebag
+1133,1133,2019,1902.08699v1,2937,"Two-Stage Dual Dynamic Programming with Application to Nonlinear Hydro
+  Scheduling",John Lygeros
+1134,1134,2012,1205.0567v1,3515,"Supply Chain Network Design Heuristics for Capacitated Facilities under
+  Risk of Supply Disruptions",Kevin M. Taaffe
+1135,1135,2018,1807.02607v1,2221,"Simultaneous optimization of isocenter locations and sector duration in
+  radiosurgery",Mark Ruschin
+1136,1136,2019,1901.00406v1,3909,"Delay and Power Consumption Tradeoff in Cache-enabled Dense Small Cell
+  Networks: A Generalized Benders Decomposition Approach",Hancheng Lu
+1137,1137,2017,1707.08050v3,5042,"Secure Video Streaming in Heterogeneous Small Cell Networks with
+  Untrusted Cache Helpers",Vincent W. S. Wong
+1138,1138,2010,1012.5815v2,0,"SAPFOCS: a metaheuristic based approach to part family formation
+  problems in group technology",Pranab K Dan
+1139,1139,2015,1509.08792v1,891,"An intelligent extension of Variable Neighbourhood Search for labelling
   graph problems",Josè Andrès Moreno Pèrez
-1271,1271,2017,1709.03187v1,2321,Applying ACO To Large Scale TSP Instances,Darren M. Chitty
-1272,1272,2016,1609.04069v1,17210,"A Survey of Multi-Objective Optimization in Wireless Sensor Networks:
-  Metrics, Algorithms and Open Problems",Lajos Hanzo
-1273,1273,2018,1807.01844v1,4008,"Pontogammarus Maeoticus Swarm Optimization: A Metaheuristic Optimization
-  Algorithm",Saeed Sharifian
-1274,1274,2012,1207.5672v1,2201,"Bin Packing/Covering with Delivery: Some variations, theoretical results
+1140,1140,2016,1609.07128v4,3848,"Optimal Placement and Sizing of Distributed Battery Storage in Low
+  Voltage Grids using Receding Horizon Control Strategies",Göran Andersson
+1141,1141,2019,1901.09831v2,3090,Deep learning neural nets for detecting heart activity,Laura Bear
+1142,1142,2018,1808.06846v1,2204,"Search for Common Minima in Joint Optimization of Multiple Cost
+  Functions",Shinji Tsuneyuki
+1143,1143,2018,1811.03767v1,2594,"Energy-Efficient Offloading in Mobile Edge Computing with Edge-Cloud
+  Collaboration",Long Chen
+1144,1144,2013,1309.2693v1,3309,A Conflict-Based Path-Generation Heuristic for Evacuation Planning,Caroline Even
+1145,1145,2017,1709.09785v4,3058,PPLS/D: Parallel Pareto Local Search based on Decomposition,Jianyong Sun
+1146,1146,2018,1801.03520v1,4229,"Communication-Constrained Expansion Planning for Resilient Distribution
+  Systems",Harsha Nagarajan
+1147,1147,2014,1411.1973v1,3612,"A Decomposition Method for Large Scale MILPs, with Performance
+  Guarantees and a Power System Application",Manfred Morari
+1148,1148,2017,1712.05302v1,2581,"Constraint and Mathematical Programming Models for Integrated Port
+  Container Terminal Operations",Pascal Van Hentenryck
+1149,1149,2017,1705.03175v1,1139,"Emotional Metaheuristics For in-situ Foraging Using Sensor Constrained
+  Robot Swarms",Debasish Ghose
+1150,1150,2002,0211185v1,1319,Quantum gates on hybrid qudits,Barry C Sanders
+1151,1151,2012,1207.5672v1,2201,"Bin Packing/Covering with Delivery: Some variations, theoretical results
   and efficient offline algorithms",Zsolt Tuza
-1275,1275,2014,1403.2842v1,891,"Application of Particle Swarm Optimization to Microwave Tapered
-  Microstrip Lines",Sadik Ulker
-1276,1276,2018,1807.02754v1,4025,Model-Free Optimization Using Eagle Perching Optimizer,Yinyan Zhang
-1277,1277,2017,1707.06169v1,1835,Fish School Search Algorithm for Constrained Optimization,Fernando Buarque de Lima Neto
-1278,1278,2010,1008.0549v1,397,Test Problems in Optimization,Xin-She Yang
-1279,1279,2014,1401.3477v1,3510,"Solving Weighted Constraint Satisfaction Problems with Memetic/Exact
-  Hybrid Algorithms",Antonio José Fernández
-1280,1280,2015,1501.05354v2,1560,"A speed and departure time optimization algorithm for the
-  Pollution-Routing Problem",Thibaut Vidal
-1281,1281,2017,1711.08840v1,4799,A general and scalable matheuristic for fleet design,Tommaso Urli
-1282,1282,2014,1405.5643v1,1921,"Interactive Reference Point-Based Guided Local Search for the
+1152,1152,2016,1611.03307v2,773,"Optimization Models for Flexible and Adaptive SDN Network Virtualization
+  Layers",Wolfgang Kellerer
+1153,1153,2018,1810.04394v1,736,"Mixed-Integer Programming Formulation of a Data-Driven Solver in
+  Computational Elasticity",Yoshihiro Kanno
+1154,1154,2013,1301.5954v1,2823,"QoS-Aware Transmission Policies for OFDM Bidirectional
+  Decode-and-Forward Relaying",Meixia Tao
+1155,1155,2018,1811.00824v2,3879,Generating Hard Instances for Robust Combinatorial Optimization,Stephen J. Maher
+1156,1156,2017,1711.04642v1,1836,Cryptanalysis of Merkle-Hellman cipher using parallel genetic algorithm,Sadek Bouroubi
+1157,1157,2014,1411.6538v3,2942,"Efficient storage of Pareto points in biobjective mixed integer
+  programming",Akshay Gupte
+1158,1158,2018,1801.08921v1,2377,"A Redesigned Benders Decomposition Approach for Large-Scale In-Transit
+  Freight Consolidation Operations",Murat Erkoc
+1159,1159,2016,1611.08775v1,3057,"Chance-Constrained Two-Stage Unit Commitment under Uncertain Load and
+  Wind Power Output Using Bilinear Benders Decomposition",Zechun Hu
+1160,1160,2019,1903.02537v1,1389,Channel Decoding with Quantum Approximate Optimization Algorithm,Ye Wang
+1161,1161,2015,1509.02384v3,8840,"A unified heuristic and an annotated bibliography for a large class of
+  earliness-tardiness scheduling problems",Anand Subramanian
+1162,1162,2008,0809.0961v1,669,MOOPPS: An Optimization System for Multi Objective Scheduling,Martin Josef Geiger
+1163,1163,2012,1210.6896v3,3379,"A hybrid generalized extremal optimization algorithm for the quay crane
+  scheduling problem with interference constraints",Yi Wang
+1164,1164,2011,1105.3668v1,2599,Review of Metaheuristics and Generalized Evolutionary Walk Algorithm,Xin-She Yang
+1165,1165,2017,1703.00699v3,3068,Exact algorithms for the order picking problem,Hadrien Cambazard
+1166,1166,2008,0809.0610v1,925,"A framework for the interactive resolution of multi-objective vehicle
+  routing problems",Wolf Wenger
+1167,1167,2014,1411.0309v1,2876,"Scheduling step-deteriorating jobs to minimize the total weighted
+  tardiness on a single machine",Yi Wang
+1168,1168,2017,1704.05132v1,768,"A hybrid CPU-GPU parallelization scheme of variable neighborhood search
+  for inventory optimization problems",Angelo Sifaleras
+1169,1169,2012,1211.4611v3,3815,A variational approach for continuous supply chain networks,Tao Yao
+1170,1170,2017,1706.06646v1,9479,"Multi-objective, Decentralized Dynamic Virtual Machine Consolidation
+  using ACO Metaheuristic in Computing Clouds",Rajkumar Buyya
+1171,1171,2011,1105.5900v2,2248,"Ethane: A Heterogeneous Parallel Search Algorithm for Heterogeneous
+  Platforms",Enrique Alba
+1172,1172,2014,1402.0564v1,12335,"A Hybrid LP-RPG Heuristic for Modelling Numeric Resource Flows in
+  Planning",Derek Long
+1173,1173,2019,1902.04463v1,3382,"A Novel Communication Cost Aware Load Balancing in Content Delivery
+  Networks using Honeybee Algorithm",Saeed Hadadan
+1174,1174,2014,1407.4261v1,1801,"Mixed Integer Programming to Globally Minimize the Economic Load
+  Dispatch Problem With Valve-Point Effect",P. -A. Absil
+1175,1175,2011,1101.2678v1,2584,Parallelization Strategies for Ant Colony Optimisation on GPUs,Martyn Amos
+1176,1176,2017,1704.00185v1,2222,"Stochastic and Chance-Constrained Conic Distribution System Expansion
+  Planning Using Bilinear Benders Decomposition",Bo Zeng
+1177,1177,2008,0809.0271v1,1015,"Randomised Variable Neighbourhood Search for Multi Objective
+  Optimisation",Martin Josef Geiger
+1178,1178,2016,1609.02063v1,2872,"Mixed-Integer Programming for Cycle Detection in Non-reversible Markov
+  Processes",Jakob Witzig
+1179,1179,2018,1811.04924v2,2664,Weak convergence of particle swarm optimization,Sylvain Wlodarczyk
+1180,1180,2014,1404.6696v1,2679,Hybrid Metaheuristics for the Clustered Vehicle Routing Problem,Güneş Erdoǧan
+1181,1181,2019,1902.10994v2,2058,"Approximate Semi-explicit and Explicit Hybrid Model Predictive Control
+  via Simplicial Partitioning",Behcet Acikmese
+1182,1182,2013,1305.4959v1,2051,"Two Effective Heuristics for Beam Angle Optimization in Radiation
+  Therapy",David Craft
+1183,1183,2016,1611.10296v1,2178,"Scheduling of EV Battery Swapping, II: Distributed Solutions",Zaiyue Yang
+1184,1184,2016,1604.02971v1,3083,Achieving Energy Efficiency in Cloud Brokering,Pascal Bouvry
+1185,1185,2018,1812.07635v1,3608,Portfolio Rebalancing under Uncertainty Using Meta-heuristic Algorithm,Seyed Omid Mohaddesi
+1186,1186,2018,1804.05319v2,6920,"Particle Swarm Optimization: A survey of historical and recent
+  developments with hybridization perspectives",Richard Alan Peters II
+1187,1187,2017,1702.00880v1,2570,"Combining Progressive Hedging with a Frank-Wolfe Method to Compute
+  Lagrangian Dual Bounds in Stochastic Mixed-Integer Programming",James Luedtke
+1188,1188,2017,1703.04561v1,1908,"Drone Squadron Optimization: a Self-adaptive Algorithm for Global
+  Numerical Optimization",Wolfgang Banzhaf
+1189,1189,2008,0804.3965v2,5657,"Metaheuristics and Their Hybridization to Solve the Bi-objective Ring
+  Star Problem: a Comparative Study",El-Ghazali Talbi
+1190,1190,2017,1708.01368v1,735,"A novel metaheuristic method for solving constrained engineering
+  optimization problems: Drone Squadron Optimization",Vinícius Veloso de Melo
+1191,1191,2019,1903.02079v1,1381,Optimizing Software Effort Estimation Models Using Firefly Algorithm,Rizik M. H. Al-Sayyed
+1192,1192,2017,1709.03668v1,6204,Branch-and-bound for biobjective mixed integer programming,Akshay Gupte
+1193,1193,2012,1206.1630v1,3449,Intersection cuts from multiple rows: a disjunctive programming approach,Andrea Qualizza
+1194,1194,2008,0812.4170v1,4533,Finding Still Lifes with Memetic/Exact Hybrid Algorithms,Antonio J. Fernandez
+1195,1195,2018,1806.02231v1,862,"Investigation of Generalized Hybrid Fibonacci Numbers and Their
+  Properties",Gamaliel Cerda-Morales
+1196,1196,2016,1608.04321v1,2104,Optimizing the Production Cost of Minting with Mixed Integer Programming,Jorge A. Aguilera
+1197,1197,2019,1903.00947v1,878,Modelling the Incomplete Intermodal Terminal Location Problem,Oudani Mustapha
+1198,1198,2019,1902.05971v2,2052,"Synthesizing Number Generators for Stochastic Computing using Mixed
+  Integer Programming",Luis Ceze
+1199,1199,2014,1404.2964v1,4777,"Contingency-Constrained Unit Commitment with Post-Contingency Corrective
+  Recourse",Jean-Paul Watson
+1200,1200,2012,1210.7422v1,1647,"Sensor networks security based on sensitive robots agents. A conceptual
+  model",Petrica C. Pop
+1201,1201,2019,1902.05659v1,2231,Massively Parallel Benders Decomposition for Correlation Clustering,Julian Yarkony
+1202,1202,2014,1409.8536v3,3644,Optimal Tourist Problem and Anytime Planning of Trip Itineraries,Daniela Rus
+1203,1203,2018,1811.04458v1,4271,"Time-interval balancing in multi-processor scheduling of composite
+  modular jobs (preliminary description)",Mark Sh. Levin
+1204,1204,2015,1507.00862v1,2363,"Using Monte Carlo method for searching partitionings of hard variants of
+  Boolean satisfiability problem",Oleg Zaikin
+1205,1205,2013,1312.2366v1,3884,"A preliminary survey on optimized multiobjective metaheuristic methods
+  for data clustering using evolutionary approaches",Dr. AV Dattareya Rao
+1206,1206,2013,1309.5110v1,1798,An ant colony optimization algorithm for job shop scheduling problem,Lola Bautista
+1207,1207,2018,1810.09829v1,1550,"Capacitated Assortment Optimization with Pricing under the Paired
+  Combinatorial Logit Model",Rui Chen
+1208,1208,2018,1812.08369v1,2061,"Structure Selection of Polynomial NARX Models using Two Dimensional (2D)
+  Particle Swarms",Nitish Patel
+1209,1209,2008,0811.3094v1,2201,Simulating Protein Conformations through Global Optimization,P. M. Pardalos
+1210,1210,2015,1502.00193v1,2137,"Evolutionary Artificial Neural Network Based on Chemical Reaction
+  Optimization",Victor O. K. Li
+1211,1211,2011,1109.1801v1,2521,An Implicit Optimization Approach for Survivable Network Design,Ali Pinar
+1212,1212,2015,1502.00194v1,1779,"Real-Coded Chemical Reaction Optimization with Different Perturbation
+  Functions",Victor O. K. Li
+1213,1213,2018,1802.06478v2,2284,"An Efficient Local Search for the Minimum Independent Dominating Set
+  Problem",Kazuya Haraguchi
+1214,1214,2016,1603.01399v2,1337,"Sampling approach to sparse approximation problem: determining degrees
+  of freedom by simulated annealing",Yoshiyuki Kabashima
+1215,1215,2017,1703.07448v2,3661,Ordered p-median problems with neighborhoods,Víctor Blanco
+1216,1216,2017,1711.06347v1,3050,"Conditional Markov Chain Search for the Simple Plant Location Problem
+  improves upper bounds on twelve Körkel-Ghosh instances",Boris Goldengorin
+1217,1217,2019,1901.09082v1,3356,"A Kalman filtering induced heuristic optimization based partitional data
+  clustering",Bidyut B. Chaudhuri
+1218,1218,2018,1808.09649v1,1568,"Unified Receiver Design in Wireless Relay Networks Using Mixed-Integer
+  Programming Techniques",Kun Wang
+1219,1219,2012,1212.5095v1,987,"Modelling of Optimal Design of Manufacturing Cell Layout Considering
+  Material Flow and Closeness Rating Factors",P. K. Dan
+1220,1220,2019,1901.04909v1,3358,Efficient Search for Diverse Coherent Explanations,Chris Russell
+1221,1221,2012,1211.6410v1,911,New Hoopoe Heuristic Optimization,Magdy Rashad
+1222,1222,2015,1502.02127v2,775,Hyperparameter Search in Machine Learning,Bart De Moor
+1223,1223,2014,1408.5832v1,1220,"Reducing the Number of Changeover Constraints in a MIP Formulation of a
+  Continuous-Time Scheduling Problem",Josef Kallrath
+1224,1224,2011,1106.2312v1,2069,Evolutionary Biclustering of Clickstream Data,J. Bagyamani
+1225,1225,2015,1511.06181v2,2579,"What Players do with the Ball: A Physically Constrained Interaction
+  Modeling",Pascal Fua
+1226,1226,2015,1504.08241v1,8651,"Explanation of Stagnation at Points that are not Local Optima in
+  Particle Swarm Optimization by Potential Analysis",Rolf Wanka
+1227,1227,2017,1712.02552v5,4088,"Optimal Power Management for Failure Mode of MVDC Microgrids in
+  All-Electric Ships",Xinping Guan
+1228,1228,2017,1712.07427v2,1550,"Rich Ground State Chemical Ordering in Nanoparticles: Exact Solution of
+  a Model for Ag-Au Clusters",Jakob Schiøtz
+1229,1229,2017,1703.06581v1,3284,"Disaggregated Benders decomposition and lazy constraints for solving the
+  budget-constrained dynamic uncapacitated facility location and network design
+  problem",Michael Forbes
+1230,1230,2017,1711.09369v1,362,"Obtaining the coefficients of a Vector Autoregression Model through
+  minimization of parameter criteria",Alberto Pérez-Bernabeu
+1231,1231,2016,1601.02323v3,2738,"Optimal Power Flow with Inelastic Demands for Demand Response in Radial
+  Distribution Networks",Khaled Elbassioni
+1232,1232,2018,1812.07812v1,2106,"A Statistical Study on Parameter Selection of Operators in Continuous
+  State Transition Algorithm",Xiaojun Zhou
+1233,1233,2017,1708.01625v2,0,Traffic flow optimization using a quantum annealer,Bob Parney
+1234,1234,2013,1310.8588v1,1614,"A Meta-heuristically Approach of the Spatial Assignment Problem of Human
+  Resources in Multi-sites Enterprise",Rafalia Najat
+1235,1235,2014,1407.4863v1,1320,"A Comparative Study of Meta-heuristic Algorithms for Solving Quadratic
+  Assignment Problem",El-Sayed M. El-Horbaty
+1236,1236,2010,1003.1466v1,1466,Firefly Algorithms for Multimodal Optimization,Xin-She Yang
+1237,1237,2017,1709.09130v1,2174,Output Range Analysis for Deep Neural Networks,Ashish Tiwari
+1238,1238,2015,1502.00195v1,2178,"Sensor Deployment for Air Pollution Monitoring Using Public
+  Transportation System",Albert Y. S. Lam
+1239,1239,2016,1602.06746v1,1121,Convexification of Learning from Constraints,Bjoern Andres
+1240,1240,2017,1703.07929v1,1918,Diversification-Based Learning in Computing and Optimization,Jin-Kao Hao
+1241,1241,2013,1303.6336v1,1885,Multiobjective Firefly Algorithm for Continuous Optimization,Xin-She Yang
+1242,1242,2017,1709.06449v1,1669,"A new restart procedure for combinatorial optimization and its
+  convergence",Giovanni Sebastiani
+1243,1243,2018,1811.01945v2,2986,"Chaotic Quantum Double Delta Swarm Algorithm using Chebyshev Maps:
+  Theoretical Foundations, Performance Analyses and Convergence Issues",Richard Alan Peters II
+1244,1244,2016,1609.00759v1,1641,A MIP Backend for the IDP System,Patrick De Causmaecker
+1245,1245,2015,1506.00211v1,2680,"A Matheuristic for the Electric Vehicle Routing Problem with Time
+  Windows",Stefano Suraci
+1246,1246,2016,1606.05979v1,3230,"Strategic Bidding for Producers in Nodal Electricity Markets: A Convex
+  Relaxation Approach",Hamed Mohsenian-Rad
+1247,1247,2009,0901.0876v1,3634,A Fast Algorithm for Robust Regression with Penalised Trimmed Squares,G. Zioutas
+1248,1248,2017,1705.05251v1,4584,"A pedestrian hopping model and traffic light scheduling for
+  pedestrian-vehicle mixed-flow networks",Yicheng Zhang
+1249,1249,2012,1210.3946v1,2014,Local optima networks and the performance of iterated local search,Marco Tomassini
+1250,1250,2008,0809.0416v1,322,Genetic Algorithms for multiple objective vehicle routing,Martin Josef Geiger
+1251,1251,2012,1207.4452v1,1934,"Pareto Local Optima of Multiobjective NK-Landscapes with Correlated
+  Objectives",Clarisse Dhaenens
+1252,1252,2015,1511.04220v1,1824,"Optimization techniques for multivariate least trimmed absolute
+  deviation estimation",L. Pitsoulis
+1253,1253,2012,1202.1395v1,756,"Modification of the Elite Ant System in Order to Avoid Local Optimum
+  Points in the Traveling Salesman Problem",Farhad Rahmati
+1254,1254,2012,1201.1530v1,1756,N-k-e Survivable Power System Design,Ali Pinar
+1255,1255,2013,1312.5045v1,2731,Comparative analysis of evolutionary algorithms for image enhancement,Akash Tayal
+1256,1256,2012,1205.1552v1,2642,"Optimal Algorithms for Near-Hitless Network Restoration via Diversity
+  Coding",Ender Ayanoglu
+1257,1257,2017,1709.04393v2,3689,An Efficient Evolutionary Based Method For Image Segmentation,Mohammad Rahmati
+1258,1258,2019,1902.02615v1,3925,Conflict-Driven Heuristics for Mixed Integer Programming,Ambros Gleixner
+1259,1259,2017,1711.07821v1,1809,"Evaluation of bioinspired algorithms for the solution of the job
+  scheduling problem",Dario Delgado
+1260,1260,2014,1408.2746v1,2473,"Mixed integer programming improves comprehensibility and plan quality in
+  inverse optimization of prostate HDR-brachytherapy",Aswin L. Hoffmann
+1261,1261,2016,1606.02710v1,2163,A Modified Vortex Search Algorithm for Numerical Function Optimization,Berat Doğan
+1262,1262,2016,1606.04055v1,2403,"Bacteria Foraging Algorithm with Genetic Operators for the Solution of
+  QAP and mQAP",Parya Soltani
+1263,1263,2019,1902.10210v1,1741,"Adaptive Robust Energy Management Strategy for Campus-Based Commercial
+  Buildings Considering Comprehensive Comfort Levels",Wencong Su
+1264,1264,2015,1502.00199v1,2162,Chemical Reaction Optimization for the Set Covering Problem,Victor O. K. Li
+1265,1265,2017,1703.10637v1,2595,"Convergence of a Scholtes-type Regularization Method for
+  Cardinality-Constrained Optimization Problems with an Application in Sparse
+  Robust Portfolio Optimization",Alexandra Schwartz
+1266,1266,2018,1812.08277v1,3994,2D-Phase Unwrapping via Balanced Spanning Forests,Thibaut Vidal
+1267,1267,2018,1805.03631v1,2526,On three soft rectangle packing problems with guillotine constraints,Minh Hoàng Hà
+1268,1268,2009,0907.2990v1,1647,"The Single Machine Total Weighted Tardiness Problem - Is it (for
+  Metaheuristics) a Solved Problem ?",Martin Josef Geiger
+1269,1269,2012,1212.5461v2,4062,"Interactive Ant Colony Optimisation (iACO) for Early Lifecycle Software
+  Design",Paul White
+1270,1270,2019,1902.00482v1,2100,D-optimal Design for Network A/B Testing,D'arcy P. Mays
+1271,1271,2018,1807.00566v1,912,On the minimum quartet tree cost problem,Steffen Pauws
+1272,1272,2016,1612.03402v4,1884,Improved Quick Hypervolume Algorithm,Andrzej Jaszkiewicz
+1273,1273,2018,1811.01631v1,3872,Mobility-aware Caching Scheduling for Fog Computing in mmWave Band,Pan Hui
+1274,1274,2018,1810.04348v2,5550,"Robust optimization of a broad class of heterogeneous vehicle routing
+  problems under demand uncertainty",Chrysanthos E. Gounaris
+1275,1275,2016,1602.05028v2,2833,Symmetry Breaking Predicates for SAT-based DFA Identification,Anatoly Shalyto
+1276,1276,2011,1111.1780v2,5217,The Triangle Closure is a Polyhedron,Matthias Köppe
+1277,1277,2018,1806.00445v1,4264,"Dual heuristics and new dual bounds to schedule the maintenances of
+  nuclear power plants",El-Ghazali Talbi
+1278,1278,2015,1512.08453v1,2518,"An optimisation approach for fuel treatment planning to break the
+  connectivity of high-risk regions",John W. Hearne
+1279,1279,2016,1602.07760v2,3461,Strong mixed-integer formulations for the floor layout problem,Juan Pablo Vielma
+1280,1280,2014,1405.5643v1,1921,"Interactive Reference Point-Based Guided Local Search for the
   Bi-objective Inventory Routing Problem",Marc Sevaux
+1281,1281,2017,1705.05986v1,2946,REMIX: Automated Exploration for Interactive Outlier Detection,Hui Xiong
+1282,1282,2015,1503.03639v1,2632,"QoS Guaranteed Intelligent Routing Using Hybrid PSO-GA in Wireless Mesh
+  Networks",Snehanshu Saha
+1283,1283,2016,1603.06217v1,4390,An Approximation Approach for Solving the Subpath Planning Problem,Aliakbar Safilian
+1284,1284,2018,1812.01745v2,3574,"Resilience of Electricity Distribution Networks - Part II: Leveraging
+  Microgrids",Ian Hiskens
+1285,1285,2018,1804.09040v2,4332,Optimal User Scheduling in Energy Harvesting Wireless Networks,Adrish Banerjee
+1286,1286,2016,1609.04069v1,12165,"A Survey of Multi-Objective Optimization in Wireless Sensor Networks:
+  Metrics, Algorithms and Open Problems",Lajos Hanzo
+1287,1287,2010,1010.4253v1,1953,Large-Scale Clustering Based on Data Compression,Xudong Ma
+1288,1288,2013,1307.4186v1,1277,A Brief Review of Nature-Inspired Algorithms for Optimization,Dušan Fister
+1289,1289,2017,1711.01349v3,2343,Non-Wire Alternatives to Capacity Expansion,Baosen Zhang
+1290,1290,2017,1703.07244v2,4557,"A Hybrid Feasibility Constraints-Guided Search to the Two-Dimensional
+  Bin Packing Problem with Due Dates",R. M'Hallah
+1291,1291,2011,1103.0125v1,1791,"Search-based software test data generation using evolutionary
+  computation",P. Maragathavalli
+1292,1292,2017,1709.10485v1,1470,Designing Real-Time Prices to Reduce Load Variability with HVAC,Anil Aswani
+1293,1293,2017,1711.07794v1,2199,Efficient Multi-Person Pose Estimation with Provable Guarantees,Julian Yarkony
+1294,1294,2012,1208.2318v1,3884,"A Novel Feature-Based Approach to Characterize Algorithm Performance for
+  the Traveling Salesman Problem",Frank Neumann
+1295,1295,2018,1803.01166v2,3937,"AdaM: Adapting Multi-User Interfaces for Collaborative Environments in
+  Real-Time",Otmar Hilliges
+1296,1296,2019,1902.03930v1,6974,"Progressive Focus Search for the Static and Stochastic VRPTW with both
+  Random Customers and Reveal Times",Yves Deville
+1297,1297,2017,1707.01810v1,1692,"Simultaneous Optimization of Neural Network Weights and Active Nodes
+  using Metaheuristics",Vaclav Snasel
+1298,1298,2016,1601.01435v1,2561,"Artificial Noise Aided Secrecy Information and Power Transfer in OFDMA
+  Systems",Rui Zhang
+1299,1299,2010,1003.3676v2,2876,"Simple heuristics for the assembly line worker assignment and balancing
+  problem",Antonio A. Chaves
+1300,1300,2012,1207.1794v1,18000,"Design, Evaluation and Analysis of Combinatorial Optimization Heuristic
+  Algorithms",Daniel Karapetyan
+1301,1301,2011,1109.3094v1,1683,"On the use of reference points for the biobjective Inventory Routing
+  Problem",Marc Sevaux
+1302,1302,2015,1501.05882v3,4223,"Efficient local search limitation strategy for single machine total
+  weighted tardiness scheduling with sequence-dependent setup times",Katyanne Farias
+1303,1303,2013,1310.2089v1,2193,"Double four-bar crank-slider mechanism dynamic balancing by
+  meta-heuristic algorithms",Mohammad-Reza Feizi-Derakhshi
+1304,1304,2017,1702.04937v1,858,"A Mixed Integer Linear Programming Method for Dynamic Economic Dispatch
+  with Valve Point Effect",Linfeng Yang
+1305,1305,2015,1505.08003v2,4783,A large neighbourhood based heuristic for two-echelon routing problems,Thibaut Vidal
+1306,1306,2016,1610.01925v1,2081,Metaheuristic Algorithms for Convolution Neural Network,Aniati Murni Arymurthy
+1307,1307,2015,1503.06609v1,2044,"Web Search Result Clustering based on Cuckoo Search and Consensus
+  Clustering",Kishwar Sadaf
+1308,1308,2010,1007.4221v2,1726,Building Blocks Propagation in Quantum-Inspired Genetic Algorithm,Jacek Kucharski
+1309,1309,2018,1801.08018v1,3466,"Optimal Cache Leasing from a Mobile Network Operator to a Content
+  Provider",Marco Di Renzo
+1310,1310,2018,1808.02185v1,3262,Round-Table Group Optimization for Sequencing Problems,Xiao-Feng Xie
+1311,1311,2018,1807.03030v2,3127,Topological Prismatoids and Small Non-Hirsch Spheres,Francisco Santos
+1312,1312,2019,1901.11120v1,2243,"Which Surrogate Works for Empirical Performance Modelling? A Case Study
+  with Differential Evolution",Kay Chen Tan
+1313,1313,2016,1610.06009v1,2512,"Constrained Cohort Intelligence using Static and Dynamic Penalty
+  Function Approach for Mechanical Components Design",Ganesh Kakandikar
+1314,1314,2018,1801.06558v1,4280,Passive Reaction Analysis for Grasp Stability,Matei Ciocarlie
+1315,1315,2018,1803.06818v3,7622,"Artificial Intelligence Enabled Software Defined Networking: A
+  Comprehensive Overview",Levent Toker
+1316,1316,2012,1202.3887v1,1987,"Extended Mixture of MLP Experts by Hybrid of Conjugate Gradient Method
+  and Modified Cuckoo Search",Javad Hatami
+1317,1317,2017,1709.03187v1,2321,Applying ACO To Large Scale TSP Instances,Darren M. Chitty
+1318,1318,2014,1401.4539v2,2399,"Solving the Minimum Common String Partition Problem with the Help of
+  Ants",M. Sohel Rahman
+1319,1319,2017,1708.07337v1,3439,"A Chance Constrained Information-Gap Decision Model for Multi-Period
+  Microgrid Planning",Bo Zeng
+1320,1320,2015,1507.07605v2,3437,Building an iterative heuristic solver for a quantum annealer,Eldad Haber
+1321,1321,2017,1702.05577v1,1865,"A Statistical Comparison of Objective Functions for the Vehicle Routing
+  Problem with Route Balancing",Philippe Lacomme
+1322,1322,2011,1201.0081v1,1111,"Resource Allocation with Subcarrier Pairing in OFDMA Two-Way Relay
+  Networks",Meixia Tao
+1323,1323,2017,1708.09354v3,0,"Quantum-enhanced reinforcement learning for finite-episode games with
+  discrete state spaces",Gabriele Compostella
+1324,1324,2018,1810.09096v1,2137,"A Variable Reduction Method for Large-Scale Security Constrained Unit
+  Commitment",Xiaohong Guan
+1325,1325,2016,1604.04146v1,3358,"A Discrete Firefly Algorithm to Solve a Rich Vehicle Routing Problem
+  Modelling a Newspaper Distribution System with Recycling Policy",A. Perallos
+1326,1326,2014,1408.5348v1,1572,Bat Algorithm is Better Than Intermittent Search Strategy,Simon Fong
+1327,1327,2017,1711.05614v1,2043,"An Efficient Scenario-Based Stochastic Model for Dynamic Operational
+  Scheduling of Community Microgrids with High Penetration Renewables",Javad Salehi
+1328,1328,2015,1502.02407v1,4339,A Social Spider Algorithm for Global Optimization,Victor O. K. Li
+1329,1329,2017,1702.05603v3,3922,"A hybrid Lagrangean metaheuristic for the two-machine cross-docking flow
+  shop scheduling problem",Martin G. Ravetti
+1330,1330,2015,1511.01818v3,4464,"An Abstract Model for Branching and its Application to Mixed Integer
+  Programming",George L. Nemhauser
+1331,1331,2017,1706.02029v2,1697,Relationship of Two Formulations for Shortest Bibranchings,Kenjiro Takazawa
+1332,1332,2013,1308.2307v1,1427,"Finite Element Model Updating Using Fish School Search Optimization
+  Method",F. De Lima Neto
+1333,1333,2013,1311.5735v1,1579,"MEIGO: an open-source software suite based on metaheuristics for global
+  optimization in systems biology and bioinformatics",Julio Saez-Rodriguez
+1334,1334,2010,1002.2798v2,7382,"Comparative Results: Group Search Optimizer and Central Force
+  Optimization",Richard A. Formato
+1335,1335,2015,1511.00347v1,2470,Robust Temporal Logic Model Predictive Control,Calin Belta
+1336,1336,2012,1210.5225v1,4536,On two relaxations of quadratically-constrained cardinality minimization,Dennis Wei
+1337,1337,2009,0902.0782v2,1888,"A Multiobjective Optimization Framework for Routing in Wireless Ad Hoc
+  Networks",Jean-Marie Gorce
+1338,1338,2013,1310.3805v1,3263,"Green Heron Swarm Optimization Algorithm - State-of-the-Art of a New
+  Nature Inspired Discrete Meta-Heuristics",Anupam Shukla
+1339,1339,2018,1804.05429v1,3301,"Gnowee: A Hybrid Metaheuristic Optimization Algorithm for Constrained,
+  Black Box, Combinatorial Mixed-Integer Design",Rachel Slaybaugh
+1340,1340,2013,1312.4078v1,1282,"A natural-inspired optimization machine based on the annual migration of
+  salmons in nature",Alireza Fathi
+1341,1341,2017,1701.04383v1,1062,"Automatic Knot Adjustment Using Dolphin Echolocation Algorithm for
+  B-Spline Curve Approximation",Barış Koçer
+1342,1342,2012,1210.1753v1,1507,Intelligent Search Heuristics for Cost Based Scheduling,Michelle Cheong
+1343,1343,2015,1502.00197v1,2192,"An Inter-molecular Adaptive Collision Scheme for Chemical Reaction
+  Optimization",Albert Y. S. Lam
+1344,1344,2018,1802.01414v2,2420,"A Learning-based Approach to Joint Content Caching and Recommendation at
+  Base Stations",Chenyang Yang
+1345,1345,2016,1606.09279v5,4014,"The matching relaxation for a class of generalized set partitioning
+  problems",Johan Oppen
+1346,1346,2016,1605.02038v2,4185,"Markov Chain methods for the bipartite Boolean quadratic programming
+  problem",Andrew J. Parkes
+1347,1347,2018,1808.08429v1,1105,Driven tabu search: a quantum inherent optimisation,Marcus S. Dahlem
+1348,1348,2017,1704.06613v3,0,"Composite Quasi-Likelihood Estimation of Dynamic Panels with
+  Group-Specific Heterogeneity and Spatially Dependent Errors",Ba Chu
+1349,1349,2019,1901.01890v1,3927,The homogeneous internal structure of CM-like asteroid (41) Daphne,A. Zurlo
+1350,1350,2014,1407.5574v1,2393,"A Novel Hybrid Crossover based Artificial Bee Colony Algorithm for
+  Optimization Problem",Rajani Kumari
+1351,1351,2013,1310.2350v1,1392,The Generalized Traveling Salesman Problem solved with Ant Algorithms,Camelia Chira
+1352,1352,2018,1808.03865v3,4556,Mixed-integer bilevel representability,Sriram Sankaranarayanan
+1353,1353,2018,1805.11014v1,3351,Evolutionary Algorithms,Michael A. Lones
+1354,1354,2019,1902.05889v1,4425,Fog-Assisted Multi-User SWIPT Networks: Local Computing or Offloading,Khaled Ben Letaief
+1355,1355,2014,1401.0858v1,2331,Multimodal Optimization by Sparkling Squid Populations,Videh Seksaria
+1356,1356,2019,1902.00171v1,2804,"Social Network Based Substance Abuse Prevention via Network Modification
+  (A Preliminary Study)",Robin Baker
+1357,1357,2016,1605.05194v1,3209,Integer Set Reduction for Stochastic Mixed-Integer Programming,Lewis Ntaimo
+1358,1358,2017,1708.07040v1,1781,"Adaptive Plant Propagation Algorithm for Solving Economic Load Dispatch
+  Problem",Sayan Nag
+1359,1359,2007,0706.1716v1,2594,Modeling and analysis using hybrid Petri nets,Hassane Alla
+1360,1360,2017,1711.02395v1,773,"Beetle Antennae Search without Parameter Tuning (BAS-WPT) for
+  Multi-objective Optimization",Shuai Li
+1361,1361,2013,1302.5189v1,15320,Object Detection in Real Images,Dilip K. Prasad
+1362,1362,2013,1302.1663v3,545,"Joint Scalable Coding and Routing for 60 GHz Real-Time Live HD Video
+  Streaming Applications",Andreas F. Molisch
+1363,1363,2018,1809.05802v1,2515,"LVIS: Learning from Value Function Intervals for Contact-Aware Robot
+  Controllers",Russ Tedrake
+1364,1364,2018,1808.00068v1,3187,"A Fuzzy-Rough based Binary Shuffled Frog Leaping Algorithm for Feature
+  Selection",Chang Wook Ahn
+1365,1365,2017,1706.08089v1,2872,"Finding optimal finite biological sequences over finite alphabets: the
+  OptiFin toolbox",Stéphane Chrétien
+1366,1366,2009,0910.4934v1,2260,"On the tradeoff between treatment time and plan quality in rotational
+  arc radiation delivery",Thomas Bortfeld
+1367,1367,2013,1312.0086v2,3106,A Framework for Genetic Algorithms Based on Hadoop,Federica Sarro
+1368,1368,2014,1412.4630v1,3225,"Towards Green Shipping with Integrated Fleet Deployment and Bunker
+  Management",Jianfeng Mao
+1369,1369,2018,1806.11041v1,1415,A Refined Algorithm for Curve Fitting by Segmented Straight Lines,Mattias Fält
+1370,1370,2014,1406.7473v1,1653,"An Efficient Hybrid CS and K-Means Algorithm for the Capacitated PMedian
+  Problem",Erfan Khaji
+1371,1371,2011,1105.5540v1,2535,"Finite First Hitting Time versus Stochastic Convergence in Particle
+  Swarm Optimisation",Carsten Witt
+1372,1372,2018,1812.04832v1,0,"MorpheuS: generating structured music with constrained patterns and
+  tension",Elaine Chew
+1373,1373,2015,1507.02491v1,1635,Parameter Sensitivity Analysis of Social Spider Algorithm,Victor O. K. Li
+1374,1374,2002,0205046v2,3172,"On the Number of Iterations for Dantzig-Wolfe Optimization and
+  Packing-Covering Approximation Algorithms",Neal E. Young
+1375,1375,2016,1610.03645v1,1577,Spoof Plasmon Hybridization,Tie Jun Cui
+1376,1376,2013,1308.3784v1,2001,"Graph Colouring Problem Based on Discrete Imperialist Competitive
+  Algorithm",Shahriar Lotfi
+1377,1377,2012,1201.4342v2,4225,"A Pareto-metaheuristic for a bi-objective winner determination problem
+  in a combinatorial reverse auction",Herbert Kopfer
+1378,1378,2004,0405032v1,1546,"EvoNF: A Framework for Optimization of Fuzzy Inference Systems Using
+  Neural Network Learning and Evolutionary Computation",Ajith Abraham
+1379,1379,2019,1903.02628v1,2734,"Benders' decomposition of the unit commitment problem with semidefinite
+  relaxation of AC power flow constraints",Hongxing Ye
+1380,1380,2018,1811.08754v1,2655,"Network-Constrained Robust Unit Commitment for Hybrid AC/DC Transmission
+  Grids",W. Utschick
+1381,1381,2016,1607.01202v1,3801,"Optimal control for a robotic exploration, pick-up and delivery problem",Jörg Raisch
+1382,1382,2012,1202.3725v1,2214,Generalized Fisher Score for Feature Selection,Jiawei Han
+1383,1383,2018,1810.08648v1,1067,"Towards automated neural design: An open source, distributed neural
+  architecture research framework",Konstantinos Margaritis
+1384,1384,2012,1207.0743v1,1585,"Optimisation of energy and exergy of two-spool turbofan engines using
+  genetic algorithms",Kjetil Uhlen
+1385,1385,2018,1809.02437v1,4335,"A Largest Empty Hypersphere Metaheuristic for Robust Optimisation with
+  Implementation Uncertainty",Michael Wright
+1386,1386,2012,1211.4865v3,6207,"A robust optimization approach for dynamic traffic signal control with
+  emission considerations",Tao Yao
+1387,1387,2018,1802.03928v1,3773,"Algorithms for robust production scheduling with energy consumption
+  limits",Zdeněk Hanzálek
+1388,1388,2014,1401.3464v1,217,"Learning Bayesian Network Equivalence Classes with Ant Colony
+  Optimization",Qiang Shen
+1389,1389,2015,1601.00367v1,3235,"Benders Decomposition for the Design of a Hub and Shuttle Public Transit
+  System",Pascal Van Hentenryck
+1390,1390,2014,1401.3794v2,3715,"Large neighborhoods with implicit customer selection for vehicle routing
+  problems with profits",Luis Satoru Ochi
+1391,1391,2018,1808.08806v1,1575,"Compact Linearization for Binary Quadratic Problems Comprising Linear
+  Constraints",Sven Mallach
+1392,1392,2018,1811.10010v1,935,Complexity of computing an arbitrary lifted cover inequality,Yu-Hong Dai
+1393,1393,2012,1207.6514v1,1330,Earthquake Scenario Reduction by Symmetry Reasoning,Steven Prestwich
+1394,1394,2008,0809.0406v1,1624,Foundations of the Pareto Iterated Local Search Metaheuristic,Martin Josef Geiger
+1395,1395,2016,1605.02669v2,5293,The GPU-based Parallel Ant Colony System,Rafał Skinderowicz
+1396,1396,2018,1802.07029v1,1797,On a fully fuzzy framework for minimax mixed integer linear programming,Víctor Blanco
+1397,1397,2016,1603.04798v2,4326,"ND-Tree-based update: a Fast Algorithm for the Dynamic Non-Dominance
+  Problem",Thibaut Lust
+1398,1398,2007,0711.2949v2,1254,"Stochastic convergence of random search to fixed size Pareto set
+  approximations",Marco Laumanns
+1399,1399,2018,1810.12086v1,2358,A study on load-balanced variants of the bin packing problem,Eric Gourdin
+1400,1400,2011,1104.2518v1,2418,"Design, Engineering, and Experimental Analysis of a Simulated Annealing
+  Approach to the Post-Enrolment Course Timetabling Problem",Andrea Schaerf
+1401,1401,2013,1306.0090v1,1591,Harmony search algorithm for the container storage problem,Lacs Ecole Nationale des Ingenieurs de Tunis
+1402,1402,2010,1002.0745v1,792,Using CODEQ to Train Feed-forward Neural Networks,Faisal al-Adwani
+1403,1403,2016,1609.03993v1,2023,"A Generic Bet-and-run Strategy for Speeding Up Traveling Salesperson and
+  Minimum Vertex Cover",Markus Wagner
+1404,1404,2019,1902.00107v1,4302,Parallel Black-Box Complexity with Tail Bounds,Dirk Sudholt
+1405,1405,2015,1509.05010v1,3063,"Deterministic approaches for solving practical black-box global
+  optimization problems",Yaroslav D. Sergeyev
+1406,1406,2018,1809.04942v1,2343,Fixed set search applied to the traveling salesman problem,Stefan Voss
+1407,1407,2010,1009.0425v1,3268,"Optimization Framework and Graph-Based Approach for Relay-Assisted
+  Bidirectional OFDMA Cellular Networks",Hui Shen
+1408,1408,2018,1801.09444v3,8323,"Using Meta-heuristics and Machine Learning for Software Optimization of
+  Parallel Computing Systems: A Systematic Literature Review",Ivona Brandic
+1409,1409,2017,1706.04721v2,0,"Target Curricula via Selection of Minimum Feature Sets: a Case Study in
+  Boolean Networks",Pablo Moscato
+1410,1410,2016,1611.07887v1,2932,Experiments with Conflict Analysis in Mixed Integer Programming,Stefan Heinz
+1411,1411,2018,1807.07902v1,1965,"Battery Swapping Station as an Energy Storage for Capturing
+  Distribution-Integrated Solar Variability",Amin Khodaei
+1412,1412,2019,1902.04375v1,2220,"Benders Decomposition for a Class of Mathematical Programs with
+  Constraints on Dual Variables",Pascal Van Hentenryck
+1413,1413,2018,1804.02419v1,8449,"Image Segmentation Using Subspace Representation and Sparse
+  Decomposition",Shervin Minaee
+1414,1414,2018,1809.07610v2,3567,Throughput-Improving Control of Highways Facing Stochastic Perturbations,Saurabh Amin
+1415,1415,2018,1804.02580v1,3105,"Comprehensive Modeling of Electric Vehicles in California Demand
+  Response Markets",Doug Black
+1416,1416,2018,1804.09813v2,3956,"HG-means: A scalable hybrid genetic algorithm for minimum sum-of-squares
+  clustering",Thibaut Vidal
+1417,1417,2017,1707.01812v1,2109,ACO for Continuous Function Optimization: A Performance Analysis,Vaclav Snasel
+1418,1418,2018,1807.06731v1,5237,"The MOEADr Package - A Component-Based Framework for Multiobjective
+  Evolutionary Algorithms Based on Decomposition",Claus Aranha
+1419,1419,2019,1902.00397v2,5951,Practical Model-driven Data Generation for System Testing,Lionel C. Briand
+1420,1420,2016,1603.02378v2,3294,"Disaggregated Benders Decomposition for solving a Network Maintenance
+  Scheduling Problem",Michael Forbes
+1421,1421,2017,1802.02006v1,1120,An Adaptive Genetic Algorithm for Solving N-Queens Problem,Sayan Nag
+1422,1422,2010,1005.2908v3,1639,Engineering Optimisation by Cuckoo Search,Suash Deb
+1423,1423,2017,1709.02194v1,1681,Approximating meta-heuristics with homotopic recurrent neural networks,Biswa Sengupta
+1424,1424,2017,1711.07356v3,4574,Evaluating Robustness of Neural Networks with Mixed Integer Programming,Russ Tedrake
+1425,1425,2016,1612.03225v2,4339,Optimal Generalized Decision Trees via Integer Programming,Katya Scheinberg
+1426,1426,2016,1612.01691v1,2814,Fleet Size and Mix Split-Delivery Vehicle Routing,Philip Kilby
+1427,1427,2017,1709.04411v1,1595,"Exploiting skeletal structure in computer vision annotation with Benders
+  decomposition",Julian Yarkony
+1428,1428,2017,1710.00864v1,1538,"A Novel Mataheuristic based Interference Alignment for K-User
+  Interference Channel : A Comparative Study",Daniel Massicotte
+1429,1429,2018,1803.03628v3,4686,The Electric Two-echelon Vehicle Routing Problem,Thibaut Vidal
+1430,1430,2007,0709.4011v1,602,Measuring the Evolvability Landscape to study Neutrality,Manuel Clergue
+1431,1431,2017,1709.03793v1,0,"Opportunistic Self Organizing Migrating Algorithm for Real-Time Dynamic
+  Traveling Salesman Problem",Rohit Sharma
+1432,1432,2014,1401.7074v1,1238,Phase Precoded Compute-and-Forward with Partial Feedback,Yi Hong
+1433,1433,2016,1609.03545v1,2152,Dilemma First Search for Effortless Optimization of NP-Hard Problems,Luc Van Gool
+1434,1434,2010,1003.1409v1,1175,"Firefly Algorithm, Stochastic Test Functions and Design Optimisation",Xin-She Yang
+1435,1435,2017,1708.08127v2,2325,RIOT: a Stochastic-based Method for Workflow Scheduling in the Cloud,Tim Menzies
+1436,1436,2019,1901.11000v1,3531,"Determining r- and (r,s)-Robustness of Digraphs Using Mixed Integer
+  Linear Programming",Dimitra Panagou
+1437,1437,2014,1406.0930v1,2455,ACO Implementation for Sequence Alignment with Genetic Algorithms,Livia King
+1438,1438,2018,1809.10584v1,4711,"Industrial and Tramp Ship Routing Problems: Closing the Gap for
+  Real-Scale Instances",Kjetil Fagerholt
+1439,1439,2013,1309.1453v1,3621,"Parallel machine scheduling with step deteriorating jobs and setup times
+  by a hybrid discrete cuckoo search algorithm",Yi Wang
+1440,1440,2014,1410.2570v2,6227,Optimal Monitoring and Mitigation of Systemic Risk in Financial Networks,Ilya Pollak
+1441,1441,2015,1501.05354v2,1560,"A speed and departure time optimization algorithm for the
+  Pollution-Routing Problem",Thibaut Vidal
+1442,1442,2018,1802.08729v1,2841,Review: Metaheuristic Search-Based Fuzzy Clustering Algorithms,Ayat Alrosan
+1443,1443,2013,1307.4359v3,4534,"Access to Data and Number of Iterations: Dual Primal Algorithms for
+  Maximum Matching under Resource Constraints",Sudipto Guha
+1444,1444,2018,1802.05113v1,6801,"Multi-Criteria Virtual Machine Placement in Cloud Computing
+  Environments: A literature Review",Essaid Sabir
+1445,1445,2015,1503.05637v1,3273,"Compute-Compress-and-Forward: Exploiting Asymmetry of Wireless Relay
+  Networks",Xiaojun Yuan
+1446,1446,2018,1802.09600v1,3136,Optimal Control of Autonomous Vehicles Approaching A Traffic Light,Christos G. Cassandras
+1447,1447,2018,1807.10562v1,13567,"Contributions to the development of the CRO-SL algorithm: Engineering
+  applications problems",Carlos Camacho-Gómez
+1448,1448,2013,1312.4044v1,970,"CACO : Competitive Ant Colony Optimization, A Nature-Inspired
+  Metaheuristic For Large-Scale Global Optimization",M. A. El-Dosuky
+1449,1449,2007,0707.3945v1,69,"k-Disjunctive cuts and a finite cutting plane algorithm for general
+  mixed integer linear programs",Markus Jörg
+1450,1450,2013,1311.1338v1,1490,Significance Relations for the Benchmarking of Meta-Heuristic Algorithms,Kei Ohnishi
+1451,1451,2016,1605.01855v1,2304,Resource allocation using metaheuristic search,Amit Shah
+1452,1452,2016,1602.03203v1,1779,Time Resource Networks,Brian Williams
+1453,1453,2014,1410.7851v1,1527,Efficient optimisation of structures using tabu search,P. John Clarkson
+1454,1454,2017,1706.05135v1,4712,Regularity in mixed-integer convex representability,Juan Pablo Vielma
+1455,1455,2009,0906.5212v1,4104,"An analysis of mixed integer linear sets based on lattice point free
+  convex sets",Robert Weismantel
+1456,1456,2012,1202.3767v1,2558,Distributed Anytime MAP Inference,Fabio Ramos
+1457,1457,2012,1210.0307v1,2854,"Order selection in nonlinear time series models with application to the
+  study of cell memory",Ying Hung
+1458,1458,2019,1902.09149v1,2176,"Real-Time Quad-Rotor Path Planning Using Convex Optimization and
+  Compound State-Triggered Constraints",Behcet Acikmese
+1459,1459,2009,0907.2993v1,1578,"Improvements for multi-objective flow shop scheduling by Pareto Iterated
+  Local Search",Martin Josef Geiger
+1460,1460,2019,1903.01236v2,3843,"A hybrid Benders decomposition and bees algorithm matheuristic approach
+  to transmission expansion planning considering energy storage",Andreas T. Ernst
+1461,1461,2017,1708.07786v1,2445,"Efficient Adaptive Implementation of the Serial Schedule Generation
+  Scheme using Preprocessing and Bloom Filters",Alexei Vernitski
+1462,1462,2017,1712.00030v2,3906,"Resource Sharing of a Computing Access Point for Multi-user Mobile Cloud
+  Offloading with Delay Constraints",Ben Liang
+1463,1463,2014,1407.1993v1,1496,"A Critical Reassessment of Evolutionary Algorithms on the cryptanalysis
+  of the simplified data encryption standard algorithm",Cyril Fonlupt
+1464,1464,2019,1902.03078v1,2866,"Joint Base Station Activation and Coordinated Downlink Beamforming for
+  HetNets: Efficient Optimal and Suboptimal Algorithms",Xin Wang
+1465,1465,2018,1812.06329v1,5163,"Layer Based Partition for Matrix Multiplication on Heterogeneous
+  Processor Platforms",Thomas G. Robertazzi
+1466,1466,2014,1411.5768v2,2199,"Packing While Traveling: Mixed Integer Programming for a Class of
+  Nonlinear Knapsack Problems",Frank Neumann
+1467,1467,2012,1212.5777v1,1183,Collaborating Robotics Using Nature-Inspired Meta-Heuristics,A. H. EL-Bassiouny
+1468,1468,2016,1606.08401v2,4279,User Assignment in C-RAN Systems: Algorithms and Bounds,Christer Qvarfordt
+1469,1469,2015,1505.07857v2,3608,Extended Formulations in Mixed Integer Conic Quadratic Programming,Miles Lubin
+1470,1470,2018,1812.02618v1,1539,Automatic hyperparameter selection in Autodock,Edward Keedwell
+1471,1471,2016,1610.02306v1,1321,"Optimization of Convolutional Neural Network using Microcanonical
+  Annealing Algorithm",Aniati Murni Arymurthy
+1472,1472,2015,1503.08946v2,5683,"Workload-Driven Vertical Partitioning for Effective Query Processing
+  over Raw Data",Florin Rusu
+1473,1473,2014,1403.2842v1,644,"Application of Particle Swarm Optimization to Microwave Tapered
+  Microstrip Lines",Sadik Ulker
+1474,1474,2012,1212.4614v1,1408,q-Analogs of Packing Designs,Jan Reichelt
+1475,1475,2014,1401.3477v1,3510,"Solving Weighted Constraint Satisfaction Problems with Memetic/Exact
+  Hybrid Algorithms",Antonio José Fernández
+1476,1476,2017,1705.10384v3,3563,Unified Offloading Decision Making and Resource Allocation in ME-RAN,Jiangzhou Wang
+1477,1477,2018,1810.04778v2,7884,Offline Multi-Action Policy Learning: Generalization and Optimization,Stefan Wager
+1478,1478,2014,1406.1691v1,2068,"Towards a Better Understanding of the Local Attractor in Particle Swarm
+  Optimization: Speed and Solution Quality",Rolf Wanka
+1479,1479,2017,1707.04016v1,3356,Dependency Injection for Programming by Optimization,Jerry Swan
+1480,1480,2011,1101.4445v1,1915,Spectrum Management for Cognitive Radio based on Genetics Algorithm,Dr. Krishna Chandra Roy
+1481,1481,2015,1507.08648v1,6566,Models for managing the impact of an epidemic,A. Cecilia Zenteno
+1482,1482,2010,1004.0574v1,1501,"A Comparison between Memetic algorithm and Genetic algorithm for the
+  cryptanalysis of Simplified Data Encryption Standard algorithm",Poonam Garg
+1483,1483,2016,1605.05522v1,2215,"Beamwidth Optimization in Millimeter Wave Small Cell Networks with Relay
+  Nodes: A Swarm Intelligence Approach",Mehdi Bennis
+1484,1484,2016,1602.04933v1,1685,"Greedy Ants Colony Optimization Strategy for Solving the Curriculum
+  Based University Course Timetabling Problem",Godswill Zipamone
+1485,1485,2014,1405.7242v1,2919,Circle detection by Harmony Search Optimization,Marco Perez
+1486,1486,2018,1807.05096v1,2331,Global optimization test problems based on random field composition,Marco Pierini
+1487,1487,2014,1407.4364v1,1507,"One-Step or Two-Step Optimization and the Overfitting Phenomenon: A Case
+  Study on Time Series Classification",Muhammad Marwan Muhammad Fuad
+1488,1488,2012,1203.3514v1,3081,Maximizing the Spread of Cascades Using Network Design,William Vaughan
+1489,1489,2011,1105.2894v2,2038,Ant Colony Optimization and Hypergraph Covering Problems,Ashish Ranjan Hota
+1490,1490,2012,1209.2548v1,2260,"Training a Feed-forward Neural Network with Artificial Bee Colony Based
+  Backpropagation Method",Achintya Das
+1491,1491,2014,1411.2897v1,892,"Accelerating the ANT Colony Optimization By Smart ANTs, Using Genetic
+  Operator",Hassan Ismkhan
+1492,1492,2017,1708.00050v2,3547,"Nonconvex piecewise linear functions: Advanced formulations and simple
+  modeling tools",Juan Pablo Vielma
+1493,1493,2018,1807.02754v1,3170,Model-Free Optimization Using Eagle Perching Optimizer,Yinyan Zhang
+1494,1494,2014,1411.0217v1,3085,"Cuckoo Search Inspired Hybridization of the Nelder-Mead Simplex
+  Algorithm Applied to Optimization of Photovoltaic Cells",Fahhad H. Alharbi
+1495,1495,2018,1903.01885v1,4148,"Evolutionary framework for two-stage stochastic resource allocation
+  problems",Fábio L. Usberti
+1496,1496,2017,1702.08450v1,2345,"A Knowledge-Based Approach to Word Sense Disambiguation by
+  distributional selection and semantic features",Mokhtar Billami
+1497,1497,2018,1809.09895v2,1981,"PeSOA: Penguins Search Optimisation Algorithm for Global Optimisation
+  Problems",Smaine Maazouzi
+1498,1498,2010,1003.1464v1,1152,"Firefly Algorithm, Levy Flights and Global Optimization",Xin-She Yang
+1499,1499,2013,1312.3158v1,7450,"Benders, Nested Benders and Stochastic Programming: An Intuitive
+  Introduction",James Murphy
+1500,1500,2010,1005.2913v1,2187,"Maximal and minimal realizations of reaction kinetic systems:
+  computation and properties",Tamas Peni
+1501,1501,2013,1305.6187v2,1188,Improved Branch-and-Bound for Low Autocorrelation Binary Sequences,S. D. Prestwich
+1502,1502,2013,1308.2920v1,870,As-puma ; anycast semantics in parking using metaheuristic approach,Rahul Johari
+1503,1503,2006,0611051v1,2760,"Numerical Simulation guided Lazy Abstraction Refinement for Nonlinear
+  Hybrid Automata",Sumit Kumar Jha
+1504,1504,2014,1406.2777v1,1124,"Out Performance Of Cuckoo Search Algorithm Among Nature Inspired
+  Algorithms in Planar Antenna Arrays",Prof. N. V. S. N. Sarma
+1505,1505,2013,1305.3794v2,1334,"Evolution of Covariance Functions for Gaussian Process Regression using
+  Genetic Programming",Michael Kommenda
+1506,1506,2016,1604.08618v2,2205,"Stringer: Balancing Latency and Resource Usage in Service Function Chain
+  Provisioning",Bernardo A. Huberman
+1507,1507,2017,1709.02850v2,4698,"Mixed Integer Programming with Convex/Concave Constraints:
+  Fixed-Parameter Tractability and Applications to Multicovering and Voting",Nimrod Talmon
+1508,1508,2017,1708.04745v3,2958,"Weight-based Fish School Search algorithm for Many-Objective
+  Optimization",J. B. Monteiro Filho
+1509,1509,2017,1712.03223v1,1564,"S-Shaped vs. V-Shaped Transfer Functions for Antlion Optimization
+  Algorithm in Feature Selection Problems",Seyedali Mirjalili
+1510,1510,2017,1705.03713v1,3230,Modelling and Traffic Signal Control of Heterogeneous Traffic Systems,Chunyang Sun
+1511,1511,2019,1902.02726v1,2530,"Lossless Convexification for Optimal Control Problems with Multiple
+  Inputs and a Control Exclusivity Constraint",Behcet Acikmese
+1512,1512,2015,1504.04589v1,4164,"A Two-Level Approach to Large Mixed-Integer Programs with Application to
+  Cogeneration in Energy-Efficient Buildings",Todd Munson
+1513,1513,2009,0910.5744v1,3777,"Exact algorithms for OWA-optimization in multiobjective spanning tree
+  problems",Olivier Spanjaard
+1514,1514,2012,1203.6577v1,1762,"Accelerated Particle Swarm Optimization and Support Vector Machine for
+  Business Optimization and Applications",Simon Fong
+1515,1515,2018,1805.11259v2,4769,"Statistical mechanical analysis of sparse linear regression as a
+  variable selection problem",Yoshiyuki Kabashima
+1516,1516,2010,1003.1594v1,1301,Cuckoo Search via Levy Flights,Suash Deb
+1517,1517,2018,1801.03419v1,2826,"Instance Scale, Numerical Properties and Design of Metaheuristics: A
+  Study for the Facility Location Problem",Peter Nielsen
+1518,1518,2018,1812.11610v1,3492,"State-of-the-Art Economic Load Dispatch of Power Systems Using Particle
+  Swarm Optimization",Mahamad Nabab Alam
+1519,1519,2017,1706.00037v1,1095,"A Diversified Multi-Start Algorithm for Unconstrained Binary Quadratic
+  Problems Leveraging the Graphics Processor Unit",Mark W. Lewis
+1520,1520,2018,1811.05963v1,0,"Tower Cranes and Supply Points Locating Problem Using CBO, ECBO, and VPS",Y. Vazirinia
+1521,1521,2016,1608.04452v1,1868,"Leveraging Microgrids for Capturing Uncertain Distribution Network Net
+  Load Ramping",Amin Khodaei
+1522,1522,2017,1710.07147v1,4311,"A Two-Phase Safe Vehicle Routing and Scheduling Problem: Formulations
+  and Solution Algorithms",R. Tavakkoli-Moghaddam
+1523,1523,2018,1804.00406v1,1216,"A mixed integer programming approach to the tensor complementarity
+  problem",Liping Zhang
+1524,1524,2016,1605.05097v1,2009,A tabu search method for the optimisation of fluid power circuits,Derek G. Tilley
+1525,1525,2017,1709.02405v1,4286,Projection-Based Iterative Mode Scheduling for Switched Systems,Todd Murphey
+1526,1526,2016,1604.00527v1,3356,A Decomposition Approach to Solve The Quay Crane Scheduling Problem,Johan Oppen
+1527,1527,2015,1511.00021v2,5584,"Narrow Gauge and Analytical Branching Strategies for Mixed Integer
+  Programming",Oleg Shylo
+1528,1528,2008,0811.0080v1,922,"A Deterministic Model for Analyzing the Dynamics of Ant System Algorithm
+  and Performance Amelioration through a New Pheromone Deposition Approach",Ramadoss Janarthanan
+1529,1529,2007,0708.0505v1,2541,"A preliminary analysis on metaheuristics methods applied to the
+  Haplotype Inference Problem",Andrea Roli
+1530,1530,2018,1808.10264v1,2526,"Empirical analysis of metaheuristic search techniques for the
+  parameterized dynamic slope scaling procedure",Charles D. Nicholson
+1531,1531,2017,1705.09844v1,2655,"Quadratic Unconstrained Binary Optimization Problem Preprocessing:
+  Theory and Empirical Analysis",Fred Glover
+1532,1532,2018,1809.03646v2,3440,Tuning metaheuristics by sequential optimization of regression models,Felipe Campelo
+1533,1533,2017,1712.02176v1,5437,Lifting Linear Extension Complexity Bounds to the Mixed-Integer Setting,Rico Zenklusen
+1534,1534,2014,1403.2541v1,3868,"Turing: Then, Now and Still Key",Kieran Greer
+1535,1535,2011,1107.5068v1,3969,"Algorithmic and Complexity Results for Cutting Planes Derived from
+  Maximal Lattice-Free Convex Sets",Matthias Köppe
+1536,1536,2018,1804.05002v1,4554,Roster Evaluation Based on Classifiers for the Nurse Rostering Problem,Zdeněk Hanzálek
+1537,1537,2013,1303.6145v2,2115,"Particles Prefer Walking Along the Axes: Experimental Insights into the
+  Behavior of a Particle Swarm",Rolf Wanka
+1538,1538,2015,1509.00558v1,1844,Backhaul-Aware Caching Placement for Wireless Networks,Khaled B. Letaief
+1539,1539,2018,1810.06707v1,3609,"Building Representative Matched Samples with Multi-valued Treatments in
+  Large Observational Studies: Analysis of the Impact of an Earthquake on
+  Educational Attainment",Jose R. Zubizarreta
+1540,1540,2016,1610.00976v1,2771,"A Constraint-Handling Technique for Genetic Algorithms using a Violation
+  Factor",Adrian Ilinca
+1541,1541,2018,1808.08818v1,8953,A new Taxonomy of Continuous Global Optimization Algorithms,Thomas Bartz-Beielstein
+1542,1542,2018,1805.00164v1,2736,"Affine Multiplexing Networks: System Analysis, Learning, and Computation",Niklas Lauffer
+1543,1543,2018,1810.08359v1,3812,"Malicious Web Domain Identification using Online Credibility and
+  Performance Data by Considering the Class Imbalance Issue",Yuqing Lin
+1544,1544,2008,0803.1728v1,1932,Investigating a Hybrid Metaheuristic For Job Shop Rescheduling,Rong Qu
+1545,1545,2016,1611.07608v1,1263,"A Framework for Collision-Tolerant Optimal Trajectory Planning of
+  Autonomous Vehicles",Eric Feron
+1546,1546,2019,1903.02915v1,3464,"jMetalPy: a Python Framework for Multi-Objective Optimization with
+  Metaheuristics",Javier Del Ser
+1547,1547,2016,1611.07943v1,2804,"Scheduling of EV Battery Swapping, I: Centralized Solution",Youxian Sun
+1548,1548,2018,1806.01681v1,2604,"Multi-Cohort Intelligence Algorithm: An Intra- and Inter-group Learning
+  Behavior based Socio-inspired Optimization Methodology",Anand J Kulkarni
+1549,1549,2018,1812.07608v1,1209,"Differential Evolution with Nearest & Better Option for Function
+  Optimization",Bing Zeng
+1550,1550,2015,1512.08831v2,5367,The Packing While Traveling Problem,Frank Neumann
+1551,1551,2016,1606.02035v1,2698,"Optimal targeting of nonlinear chaotic systems using a novel
+  evolutionary computing strategy",Bo Liu
+1552,1552,2018,1811.00989v1,4812,"CMI: An Online Multi-objective Genetic Autoscaler for Scientific and
+  Engineering Workflows in Cloud Infrastructures with Unreliable Virtual
+  Machines",Carlos García Garino
+1553,1553,2003,0310415v1,3991,"Sensitivity, Specificity and the Hybridization Isotherms of DNA Chips",E. B. Zhulina
+1554,1554,2016,1605.01521v1,4260,"SDDP vs. ADP: The Effect of Dimensionality in Multistage Stochastic
+  Optimization for Grid Level Energy Storage",Warren B. Powell
+1555,1555,2009,0910.1923v1,2617,A Branch and Cut Algorithm for the Halfspace Depth Problem,Dan Chen
+1556,1556,2015,1512.06036v2,0,"Robust Integration of High-level Dispatchable Renewables in Power System
+  Operation",Zuyi Li
+1557,1557,2012,1211.6658v1,1163,Nature-Inspired Mateheuristic Algorithms: Success and New Challenges,Xin-She Yang
+1558,1558,2012,1207.4631v1,2416,"Analyzing the Effect of Objective Correlation on the Efficient Set of
+  MNK-Landscapes",Clarisse Dhaenens
+1559,1559,2010,1010.1052v1,1613,"Mixed integer programming for the resolution of GPS carrier phase
+  ambiguities",Gerard Lachapelle
+1560,1560,2014,1404.4895v1,3147,A matheuristic approach for the Pollution-Routing Problem,Lucídio dos Anjos Formiga Cabral
+1561,1561,2015,1507.02912v2,604,First-order integer programming for MAP problems,James Cussens
+1562,1562,2014,1412.4980v1,3012,Virtual Machine Migration Planning in Software-Defined Networks,Depeng Jin
+1563,1563,2013,1308.3898v1,2023,Firefly Algorithm: Recent Advances and Applications,Xingshi He
+1564,1564,2015,1511.08678v1,2626,"Bandwidth and Wavefront Reduction for Static Variable Ordering in
+  Symbolic Model Checking",Jaco van de Pol
+1565,1565,2014,1412.3765v1,1223,Some lower bounds on sparse outer approximations of polytopes,Marco Molinaro
+1566,1566,2014,1405.1789v1,2174,How Good Are Sparse Cutting-Planes?,Qianyi Wang
+1567,1567,2016,1602.07802v2,2245,"Beating the SDP bound for the floor layout problem: A simple
+  combinatorial idea",Juan Pablo Vielma
+1568,1568,2014,1404.4067v1,2920,"An effective AHP-based metaheuristic approach to solve supplier
+  selection problem",Pranab K Dan
+1569,1569,2010,1006.4949v1,4989,Artificial Immune Systems (2010),Uwe Aickelin
+1570,1570,2017,1711.02274v2,1799,"A Water Mass Method and Its Application to Integrated Heat and
+  Electricity Dispatch Considering Thermal Dynamics",Wenchuan Wu
+1571,1571,2018,1811.01988v1,4063,"Strong convex relaxations and mixed-integer programming formulations for
+  trained neural networks",Juan Pablo Vielma
+1572,1572,2013,1304.3612v1,1323,A Novel Metaheuristics To Solve Mixed Shop Scheduling Problems,V. Ravibabu
+1573,1573,2017,1701.05654v2,4181,Bayesian Network Learning via Topological Order,Diego Klabjan
+1574,1574,2018,1805.04958v1,1984,Accelerating Message Passing for MAP with Benders Decomposition,Shaofei Wang
+1575,1575,2006,0603311v1,2534,"Intermediate integer programming representations using value
+  disjunctions",Robert Weismantel
+1576,1576,2014,1401.3492v1,8587,ParamILS: An Automatic Algorithm Configuration Framework,Holger H. Hoos
+1577,1577,2017,1712.04982v2,3191,Interpreted Formalisms for Configurations,Baishakhi Ray
+1578,1578,2013,1311.6041v3,1702,"No Free Lunch Theorem and Bayesian probability theory: two sides of the
+  same coin. Some implications for black-box optimization and metaheuristics",Loris Serafino
+1579,1579,2011,1109.3313v1,655,Neigborhood Selection in Variable Neighborhood Search,Stefan Voss
+1580,1580,2017,1702.05710v1,809,"Polynomial Time Efficient Construction Heuristics for Vertex Separation
+  Minimization Problem",Kamal Srivastava
+1581,1581,2018,1810.08036v1,1143,"{É}tude pour l'analyse et l'optimisation du transport des personnes en
+  situation de handicap",Samuel Vercraene
+1582,1582,2015,1503.04375v2,603,Optimization of Switch Keyboards,Gregory Francis
+1583,1583,2013,1301.6972v1,4016,"Using evolutionary computation to create vectorial Boolean functions
+  with low differential uniformity and high nonlinearity",John A. Clark
+1584,1584,2015,1506.03352v2,1256,"Linear Transceiver Optimization in Multicell MIMO Based on the
+  Generalized Benders Decomposition",Mats Bengtsson
+1585,1585,2018,1807.02406v1,1578,Multi-atomic Annealing Heuristic for Static Dial-a-ride Problem,Justin Dauwels
+1586,1586,2011,1108.0099v3,1898,"A Stable and Robust Calibration Scheme of the Log-Periodic Power Law
+  Model",Didier Sornette
+1587,1587,2019,1901.06880v1,5336,"Mixed integer formulations using natural variables for single machine
+  scheduling around a common due date",Safia Kedad-Sidhoum
+1588,1588,2018,1811.08359v2,1664,"Strong mixed-integer programming formulations for trained neural
+  networks",Juan Pablo Vielma
+1589,1589,2011,1104.0775v2,2536,Evolving Pacing Strategies for Team Pursuit Track Cycling,Frank Neumann
+1590,1590,2014,1404.2465v1,2053,Quantum annealing,Alfonso de la Fuente Ruiz
+1591,1591,2018,1802.06318v1,4601,"Large Neighborhood-Based Metaheuristic and Branch-and-Price for the
+  Pickup and Delivery Problem with Split Loads",Richard Hartl
+1592,1592,2018,1809.09284v1,2930,Tree-Based Optimization: A Meta-Algorithm for Metaheuristic Optimization,Hoda Mohammadzade
+1593,1593,2018,1812.09746v1,3401,"A Multi-Objective Anytime Rule Mining System to Ease Iterative Feedback
+  from Domain Experts",Kurt Schneider
+1594,1594,2017,1704.03954v2,3320,"Small and Strong Formulations for Unions of Convex Sets from the Cayley
+  Embedding",Juan Pablo Vielma
+1595,1595,2018,1805.02022v1,1352,"Optimal Harvest-or-Transmit Strategy for Energy Harvesting Underlay
+  Cognitive Radio Network",Adrish Banerjee
+1596,1596,2009,0901.3769v1,1726,Deceptiveness and Neutrality - the ND family of fitness landscapes,Cathy Escazut
+1597,1597,2017,1711.08840v1,4815,A general and scalable matheuristic for fleet design,Tommaso Urli
+1598,1598,2018,1809.02780v1,1517,Improving Wireless Physical Layer Security via D2D Communication,Wei Heng
+1599,1599,2018,1809.08321v1,4170,A Step-by-Step Guide to Using BioNetFit,Richard G. Posner
+1600,1600,2018,1803.01930v1,4579,"A Hybrid Heuristic for a Broad Class of Vehicle Routing Problems with
+  Heterogeneous Fleet",Christian Prins
+1601,1601,2012,1205.6179v1,1548,"A Mixed Integer Programming Model Formulation for Solving the Lot-Sizing
+  Problem",Masine Md. Tap
+1602,1602,2012,1208.0527v1,1727,Free Lunch or No Free Lunch: That is not Just a Question?,Xin-She Yang
+1603,1603,2018,1812.01746v2,3189,"Resilience of Electricity Distribution Networks - Part I: Cyber-physical
+  Disruption Models",Ian Hiskens
+1604,1604,2013,1301.7134v2,3161,"A general variable neighborhood search for single-machine total
+  tardiness scheduling problem with step-deteriorating jobs",Yi Wang
+1605,1605,2011,1103.1286v2,718,"A note on Tempelmeier's β-service measure under non-stationary
+  stochastic demand",Onur A. Kilic
+1606,1606,2018,1803.03681v1,5167,"Geometric and LP-based heuristics for the quadratic travelling salesman
+  problem",Ulrich Pferschy
+1607,1607,2013,1312.6447v2,2665,Incremental Network Design with Maximum Flows,Martin W. P. Savelsbergh
+1608,1608,2018,1803.02886v1,1525,Quantum-assisted cluster analysis,Christian Seidel
+1609,1609,2018,1808.09809v1,2638,An Efficient Matheuristic for the Minimum-Weight Dominating Set Problem,Thibaut Vidal
+1610,1610,2009,0909.2720v1,1038,Generalized fractional hybrid Hamilton Pontryagin equations,Opris Dumitru
+1611,1611,2019,1901.05680v1,1866,"Szenario-Optimierung für die Absicherung von automatisierten und
+  autonomen Fahrsystemen",Bernd Holzmüller
+1612,1612,2015,1509.01596v1,3138,"Inter-Layer Per-Mobile Optimization of Cloud Mobile Computing: A
+  Message-Passing Approach",Osvaldo Simeone
+1613,1613,2015,1503.03576v1,2917,"Optimal Resource Allocation in Multicast Device-to-Device Communications
+  Underlaying LTE Networks",Rong Zheng
+1614,1614,2016,1601.00751v1,3139,Service Function Chaining Simplified,Raouf Boutaba
+1615,1615,2017,1710.04211v2,1171,StackSeq2Seq: Dual Encoder Seq2Seq Recurrent Networks,Biswa Sengupta
+1616,1616,2017,1702.03389v2,2512,Whale swarm algorithm for function optimization,Xinyu Li
+1617,1617,2012,1210.3652v1,1691,A Flexible Mixed Integer Programming framework for Nurse Scheduling,Michelle Cheong
+1618,1618,2018,1805.00873v1,4648,"A Hybrid Q-Learning Sine-Cosine-based Strategy for Addressing the
+  Combinatorial Test Suite Minimization Problem",Miroslav Bures
+1619,1619,2018,1804.00035v4,4689,"Convex Relaxations of Probabilistic AC Optimal Power Flow for
+  Interconnected AC and HVDC Grids",Spyros Chatzivasileiadis
+1620,1620,2013,1306.6375v1,1406,Metaheuristics in Flood Disaster Management and Risk Assessment,Charlymagne R. Aquino
+1621,1621,2019,1903.02139v1,3735,"Exploring Mixed Integer Programming Reformulations for Virtual Machine
+  Placement with Disk Anti-Colocation Constraints",Ye Xia
+1622,1622,2017,1705.10883v1,7367,Optimization of Tree Ensembles,Velibor V. Mišić
+1623,1623,2016,1606.03332v1,2688,"Networked Traffic State Estimation Involving Mixed Fixed-mobile Sensor
+  Data Using Hamilton-Jacobi equations",Christian G. Claudel
+1624,1624,2006,0609098v1,3002,Reducing the Makespan in Hierarchical Reliable Multicast Tree,Chuck Yoo
+1625,1625,2018,1801.10241v2,4597,Data-Driven Search-based Software Engineering,Zhe Yu
+1626,1626,2016,1605.05448v1,8176,The Bees Algorithm for the Vehicle Routing Problem,Aish Fenton
+1627,1627,2018,1810.03981v1,1891,"Solving the clustered traveling salesman problem with d-relaxed priority
+  rule",Martin Trépanier
+1628,1628,2015,1503.01376v1,1689,BVNS para el problema del bosque generador k-etiquetado,Josè A. Moreno-Pèrez
+1629,1629,2012,1211.2787v1,5369,Bio-Inspired Political Systems. Opening a Field,Nathalie Mezza-Garcia
+1630,1630,2017,1701.09046v1,1996,"An Extremal Optimization approach to parallel resonance constrained
+  capacitor placement problem",Fernando J. Von Zuben
+1631,1631,2015,1511.00195v1,2263,Optimized Mission Planning for Planetary Exploration Rovers,Alexander Lavin
+1632,1632,2017,1708.02505v2,6078,"Chance-Constrained Combinatorial Optimization with a Probability Oracle
+  and Its Application to Probabilistic Partial Set Covering",Simge Kucukyavuz
+1633,1633,2015,1502.02134v1,4196,"Power Efficient Resource Allocation for Full-Duplex Radio Distributed
+  Antenna Networks",Robert Schober
+1634,1634,2017,1702.07120v2,3056,"Joint Planning of PEV Fast-Charging Network and Distributed PV
+  Generation Using the Accelerated Generalized Benders Decomposition",Yonghua Song
+1635,1635,2017,1705.01076v1,5363,An improved Ant Colony System for the Sequential Ordering Problem,Rafał Skinderowicz
+1636,1636,2015,1506.08091v1,2314,"Generalized Benders Decomposition for one Class of MINLPs with Vector
+  Conic Constraint",M. Montaz Ali
+1637,1637,2016,1605.07364v1,2164,"Non-Gaussian Random Generators in Bacteria Foraging Algorithm for
+  Multiobjective Optimization",Irraivan Elamvazuthi
+1638,1638,2012,1209.3105v1,2807,"Spectrum Leasing and Cooperative Resource Allocation in Cognitive OFDMA
+  Networks",Yuan Liu
+1639,1639,2007,0705.1956v1,6001,A Branch and Cut Algorithm for the Halfspace Depth Problem,Dan Chen
+1640,1640,2019,1902.02591v1,1492,"A Status Report on Conflict Analysis in Mixed Integer Nonlinear
+  Programming",Stefan Heinz
+1641,1641,2018,1803.00457v1,2925,Optimization of Topography-based Flood Mitigation Strategies,Pascal Van Hentenryck
+1642,1642,2017,1702.07799v2,5278,Exact Methods for Recursive Circle Packing,João Pedro Pedroso
+1643,1643,2017,1707.06350v1,3288,"On Optimal Power Allocation for Downlink Non-Orthogonal Multiple Access
+  Systems",Luxi Yang
+1644,1644,2008,0809.0757v1,1923,"An application of the Threshold Accepting metaheuristic for curriculum
+  based course timetabling",Martin Josef Geiger
+1645,1645,2016,1609.08082v2,3582,An Ontology of Preference-Based Multiobjective Metaheuristics,Michael Emmerich
+1646,1646,2013,1310.7961v1,1688,"Evaluation the efficiency of artificial bee colony and the firefly
+  algorithm in solving the continuous optimization problem",Ali Bagherinia
+1647,1647,2016,1609.05662v1,1913,A GRASP approach for solving the 2-connected m-dominating set problem,Stefan Voss
+1648,1648,2014,1401.4648v1,2525,Visual Tracking using Particle Swarm Optimization,Siamak Khatibi
+1649,1649,2017,1705.08691v1,1139,General Algorithmic Search,José M. Amigó
+1650,1650,2017,1705.07410v1,3365,"Finding $K$ Contingency List in Power Networks using a New Model of
+  Dependency",Arunabha Sen
+1651,1651,2015,1503.02009v1,425,"Towards an intelligent VNS heuristic for the k-labelled spanning forest
+  problem",Nenad Mladenovic
+1652,1652,2014,1406.7723v1,1007,"Active extension portfolio optimization with non-convex risk measures
+  using metaheuristics",Christoph Waldhauser
+1653,1653,2017,1705.08277v1,1276,Optimization in large graphs: Toward a better future?,Patrick De Causmaecker
+1654,1654,2017,1705.09545v1,3446,"Logical and Inequality Implications for Reducing the Size and Complexity
+  of Quadratic Unconstrained Binary Optimization Problems",Gary Kochenberger
+1655,1655,2017,1711.02035v2,3369,"Optimum Search Schemes for Approximate String Matching Using
+  Bidirectional FM-Index",Knut Reinert
+1656,1656,2016,1607.01417v2,4724,Algorithms for Generalized Cluster-wise Linear Regression,Loren Williams
+1657,1657,2018,1901.00408v1,1882,"Improvement of Identification Procedure Using Hybrid Cuckoo Search
+  Algorithm for TurbineGovernor and Excitation System",G. B. Gharehpetian
+1658,1658,2016,1602.00348v3,2481,"Fuel treatment planning: fragmenting high fuel load areas while
+  maintaining availability and connectivity of faunal habitat",Karin J. Reinke
+1659,1659,2017,1702.00553v1,2026,"A new approach for solving mixed integer DC programs using a continuous
+  relaxation with no integrality gap and smoothing techniques",Yoshiko T. Ikebe
+1660,1660,2016,1606.00203v3,2899,"A multi-objective synthesis methodology for majority/minority logic
+  networks",Monireh Houshmand
+1661,1661,2010,1003.0093v2,4335,"Joint Subcarrier Pairing and Power Allocation for OFDM Transmission with
+  Decode-and-Forward Relaying",Pin-Hsun Lin
+1662,1662,2018,1805.11820v1,2163,Generic CP-Supported CMSA for Binary Integer Linear Programs,Haroldo Gambini Santos
+1663,1663,2017,1710.10724v1,709,BAS: Beetle Antennae Search Algorithm for Optimization Problems,Shuai Li
+1664,1664,2010,1003.0221v1,7592,"Central Force Optimization Applied to the PBM Suite of Antenna
+  Benchmarks",Richard A. Formato
+1665,1665,2016,1611.10017v1,2372,Fast Supervised Discrete Hashing and its Analysis,Mitsuru Ambai
+1666,1666,2018,1808.02526v2,5297,Efficient and Effective $L_0$ Feature Selection,Giovanni Felici
+1667,1667,2016,1606.06797v1,584,"Étude de Problèmes d'Optimisation Combinatoire à Multiples
+  Composantes Interdépendantes",Belaïd Ahiod
+1668,1668,2017,1711.10788v1,1034,$L_2$-Box Optimization for Green Cloud-RAN via Network Adaptation,Yuanming Shi
+1669,1669,2018,1804.02851v2,4689,"Whale swarm algorithm with the mechanism of identifying and escaping
+  from extreme point for multimodal function optimization",Haozhen Dong
+1670,1670,2017,1710.00865v1,1143,"PSO and CPSO Based Interference Alignment for K-User MIMO Interference
+  Channel",Fatiha Merazka
+1671,1671,2019,1902.08660v1,2649,"A Computational Comparison of Optimization Methods for the Golomb Ruler
+  Problem",Willem-Jan van Hoeve
+1672,1672,2018,1803.09621v2,3016,"Learning the Multiple Traveling Salesmen Problem with Permutation
+  Invariant Pooling Networks",Lior Wolf
+1673,1673,2018,1808.05640v1,9364,"A Socio-inspired CALM Approach to Channel Assignment Performance
+  Prediction and WMN Capacity Estimation",Bheemarjuna Reddy Tamma
+1674,1674,2015,1506.02585v1,1063,Optimal Sparse Kernel Learning for Hyperspectral Anomaly Detection,Wotao Yin
+1675,1675,2017,1708.05264v1,2308,"Design, Configuration, Implementation, and Performance of a Simple 32
+  Core Raspberry Pi Cluster",Vincent A. Cicirello
+1676,1676,2018,1810.02315v1,3028,"DER Allocation and Line Repair Scheduling for Storm-induced Failures in
+  Distribution Networks",Saurabh Amin
+1677,1677,2012,1211.6409v1,926,"Obesity Heuristic, New Way On Artificial Immune Systems",Magdy Rashad
+1678,1678,2015,1504.07846v2,1856,Incorporating Road Networks into Territory Design,Andreas Wagner
+1679,1679,2017,1708.04261v2,2951,"New solution approaches for the maximum-reliability stochastic network
+  interdiction problem",James Luedtke
+1680,1680,2017,1704.05885v1,4430,"Integrating optimization with thermodynamics and plant physiology for
+  crop ideotype design",Daniel Attinger
+1681,1681,2015,1505.01742v1,868,On the Minimum Labelling Spanning bi-Connected Subgraph problem,S. Consoli
+1682,1682,2018,1803.03780v1,3557,"Energy and Delay Optimization for Cache-Enabled Dense Small Cell
+  Networks",Hancheng Lu
+1683,1683,2018,1811.10738v1,4278,"Eco-friendly Power Cost Minimization for Geo-distributed Data Centers
+  Considering Workload Scheduling",Michele Zorzi
+1684,1684,2012,1212.0220v1,1924,Metaheuristic Optimization: Algorithm Analysis and Open Problems,Xin-She Yang
+1685,1685,2016,1607.04803v4,4850,"A combinatorial approach for small and strong formulations of
+  disjunctive constraints",Juan Pablo Vielma
+1686,1686,2018,1802.01492v1,3203,"Analysing the Degree of Meshing in Medium Voltage Target Grids - An
+  Automated Technical and Economical Impact Assessment",Martin Braun
+1687,1687,2017,1706.04762v1,4469,Optimal Orchestration of Virtual Network Functions,Stefano Secci
+1688,1688,2017,1706.07151v3,6211,Multiplicative Pacing Equilibria in Auction Markets,Nicolas E. Stier-Moses
+1689,1689,2012,1207.4629v1,2244,On the Neutrality of Flowshop Scheduling Fitness Landscapes,Sébastien Verel
+1690,1690,2016,1607.08644v1,2633,A Convex Model of Momentum Dynamics for Multi-Contact Motion Generation,Ludovic Righetti
+1691,1691,2018,1811.02271v1,3015,"A Parallel MOEA with Criterion-based Selection Applied to the Knapsack
+  Problem",Chaabane Djamel
+1692,1692,2018,1812.06585v1,3851,"Online Decisioning Meta-Heuristic Framework for Large Scale Black-Box
+  Optimization",C. L. Philip Chen
+1693,1693,2018,1811.10409v3,1329,A geometric way to build strong mixed-integer programming formulations,Juan Pablo Vielma
+1694,1694,2017,1708.09338v3,2781,"Balanced scheduling of school bus trips using a perfect matching
+  heuristic",Ali Haghani
+1695,1695,2017,1711.08615v1,2677,Controlling Elections through Social Influence,Yevgeniy Vorobeychik
+1696,1696,2018,1801.08485v1,998,"Sine Cosine Crow Search Algorithm: A powerful hybrid meta heuristic for
+  global optimization",Soheyl Khalilpourazari
+1697,1697,2013,1305.1880v1,1421,A Heuristic for Magic and Antimagic Graph Labellings,Elaheh Vaezpour
+1698,1698,2016,1601.07483v3,3353,Learning and Tuning Meta-heuristics in Plan Space Planning,Deepak Khemani
+1699,1699,2015,1504.02590v1,784,"Study of Some Recent Crossovers Effects on Speed and Accuracy of Genetic
+  Algorithm, Using Symmetric Travelling Salesman Problem",Kamran Zamanifar
+1700,1700,2015,1512.07019v3,5694,The Bi-Objective Workflow Satisfiability Problem and Workflow Resiliency,Rémi Watrigant
+1701,1701,2015,1508.04250v2,2264,Mechanism Design via Dantzig-Wolfe Decomposition,Salman Fadaei
+1702,1702,2014,1402.0582v1,6902,Scheduling a Dynamic Aircraft Repair Shop with Limited Repair Resources,J. Christopher Beck
+1703,1703,2019,1902.03236v1,2892,Unit Commitment With Gas Network Awareness,Pascal Van Hentenryck
+1704,1704,2012,1206.5360v1,1,"Analysis of a Nature Inspired Firefly Algorithm based Back-propagation
+  Neural Network Training",Achintya Das
+1705,1705,2012,1204.5165v2,1874,Memetic firefly algorithm for combinatorial optimization,Janez Brest
+1706,1706,2012,1207.1077v1,1350,On the mixing set with a knapsack constraint,Ricardo Fukasawa
+1707,1707,2016,1610.08495v1,1143,Adaptive matching pursuit for sparse signal recovery,Vishal Monga
+1708,1708,2018,1803.05852v2,2032,Paradigm and Paradox in Topology Control of Power Grids,John Baillieul
